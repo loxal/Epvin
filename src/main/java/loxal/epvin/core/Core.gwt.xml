@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  -->
+
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.4/distro-source/core/src/gwt-module.dtd">
+
+<module>
+    <inherits name="loxal.epvin.core.Screen"/>
+    <inherits name="loxal.epvin.generated.CompileTimeProperties"/>
+
+    <source path="client"/>
+    <source path="event"/>
+    <source path="shared"/>
+    <stylesheet src="icon/css/font-awesome.css"/>
+
+    <inherits name="com.google.gwt.user.User"/>
+    <inherits name="com.google.gwt.uibinder.UiBinder"/>
+    <inherits name="com.google.gwt.user.theme.clean.Clean"/>
+    <inherits name="com.google.gwt.inject.Inject"/>
+    <inherits name="com.google.gwt.editor.Editor"/>
+
+    <inherits name="com.google.gwt.activity.Activity"/>
+    <inherits name="com.google.gwt.place.Place"/>
+    <inherits name="com.google.web.bindery.requestfactory.RequestFactory"/>
+
+    <inherits name="com.google.gwt.logging.Logging"/>
+    <set-property name="gwt.logging.logLevel" value="CONFIG"/>
+    <set-property name="gwt.logging.popupHandler" value="DISABLED"/>
+    <set-property name="gwt.logging.consoleHandler" value="ENABLED"/>
+
+    <!--default ClientFactoryImpl-->
+    <replace-with class="loxal.epvin.core.client.ClientFactoryImpl">
+        <when-type-is class="loxal.epvin.core.client.ClientFactory"/>
+    </replace-with>
+
+    <replace-with class="loxal.epvin.core.client.ClientFactoryPhoneImpl">
+        <when-type-is class="loxal.epvin.core.client.ClientFactory"/>
+        <when-property-is name="screen" value="phone"/>
+    </replace-with>
+
+    <set-property name="compiler.stackMode" value="native"/>
+
+    <set-configuration-property name="UiBinder.useSafeHtmlTemplates" value="true"/>
+    <servlet path="/gwtRequest" class="com.google.web.bindery.requestfactory.server.RequestFactoryServlet"/>
+</module>

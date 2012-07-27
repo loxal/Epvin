@@ -1,0 +1,14 @@
+\.DS_Store
+/\.idea/workspace.xml
+
+*.bin
+*.class
+*.jar
+/\.requestfactory-apt_generated
+
+/target
+/lib
+
+/src/main/gwt-unitCache
+/src/main/webapp/WEB-INF/deploy
+/src/main/webapp/loxal.epvin.*

@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Epvin:war exploded">
+    <output-path>$PROJECT_DIR$/target/Epvin</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Epvin/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Epvin" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.0.0.GA" />
+          <element id="library" level="project" name="Maven: org.json:json:20090211" />
+          <element id="library" level="project" name="Maven: com.google.web.bindery:requestfactory-server:2.5.0-rc1" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:4.3.0.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.0.CR2" />
+          <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.7.0" />
+          <element id="library" level="project" name="Maven: com.googlecode.objectify:objectify:4.0a3" />
+        </element>
+      </element>
+      <element id="gwt-compiler-output" facet="Epvin/gwt/GWT" />
+    </root>
+  </artifact>
+</component>

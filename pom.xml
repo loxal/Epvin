@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>loxal</groupId>
+    <artifactId>epvin</artifactId>
+    <version>1.0.0.0-RELEASE</version>
+    <packaging>war</packaging>
+    <name>Epvin</name>
+    <inceptionYear>2012</inceptionYear>
+    <url>http://www.epvin.com</url>
+    <description>Best practices project</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <gae.app.name>epvin-loxal</gae.app.name>
+        <gwt.ver>2.5.0-rc1</gwt.ver>
+        <gae.ver>1.7.0</gae.ver>
+        <gae.home>${user.home}/my/sdk/gae.java</gae.home>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <version>${gwt.ver}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.web.bindery</groupId>
+            <artifactId>requestfactory-apt</artifactId>
+            <version>${gwt.ver}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.web.bindery</groupId>
+            <artifactId>requestfactory-server</artifactId>
+            <version>${gwt.ver}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
+        <!--only necessary to prevent exception:-->
+        <!--javax.validation.ValidationException: Unable to find a default provider-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.3.0.Final</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.gwt.inject</groupId>
+            <artifactId>gin</artifactId>
+            <version>1.5.0</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.gwt</groupId>
+                    <artifactId>gwt-servlet</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>${gae.ver}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-testing</artifactId>
+            <version>${gae.ver}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>${gae.ver}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.objectify</groupId>
+            <artifactId>objectify</artifactId>
+            <version>4.0a3</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.name}</finalName>
+        <!--necessary for gwt-maven-plugin, at least for gwt:run-->
+        <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+        <plugins>
+            <plugin>
+                <groupId>net.kindleit</groupId>
+                <artifactId>maven-gae-plugin</artifactId>
+                <version>0.9.4</version>
+                <configuration>
+                    <emailAccount>${my.gae.deployment.email}</emailAccount>
+                    <passIn>true</passIn>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.kindleit</groupId>
+                        <artifactId>gae-runtime</artifactId>
+                        <version>${gae.ver}</version>
+                        <type>pom</type>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <optimize>${java.optimize}</optimize>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>2.5.0-rc1</version>
+                <configuration>
+                    <modules>
+                        <module>${project.groupId}.${project.artifactId}.manager.Manager</module>
+                    </modules>
+                    <style>OBF</style>
+                    <draftCompile>${gwt.draftCompile}</draftCompile>
+                    <optimizationLevel>${gwt.optimizationLevel}</optimizationLevel>
+                    <extraParam>${gwt.draftCompile}</extraParam>
+                    <logLevel>INFO</logLevel>
+                    <!--must be false otherwise the GWT compilation is placed inside the webapp folder-->
+                    <inplace>false</inplace>
+                    <!--might be necessary for source maps or stack traces and shouldn't be overriden by this value in this case-->
+                    <deploy>${project.build.directory}/deploy</deploy>
+                    <runTarget>/${project.groupId}.${project.artifactId}.manager.Manager</runTarget>
+                </configuration>
+            </plugin>
+        </plugins>
+        <!--necessary for injecting values into CompileTimeProperties.gwt.xml-->
+        <resources>
+            <resource>
+                <directory>src</directory>
+                <includes>
+                    <include>CompileTimeProperties.gwt.xml</include>
+                </includes>
+                <filtering>true</filtering>
+                <targetPath>${project.basedir}/src/main/java/loxal/epvin/generated</targetPath>
+            </resource>
+        </resources>
+    </build>
+
+    <scm>
+        <connection>scm:git:git@bitbucket.org:loxal/epvin.git</connection>
+        <developerConnection>scm:git:git@bitbucket.org:loxal/epvin.git</developerConnection>
+        <url>git@bitbucket.org:loxal/epvin.git</url>
+        <tag>RELEASE</tag>
+    </scm>
+
+    <issueManagement>
+        <system>YouTrack</system>
+        <url>http://loxal.myjetbrains.com/youtrack</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>TeamCity</system>
+        <url>http://localhost:8111</url>
+        <notifiers>
+            <notifier>
+                <type>mail</type>
+                <address>alexander.orlov@loxal.net</address>
+                <sendOnError>true</sendOnError>
+                <sendOnFailure>true</sendOnFailure>
+                <sendOnSuccess>true</sendOnSuccess>
+                <sendOnWarning>true</sendOnWarning>
+            </notifier>
+            <notifier>
+                <type>rss</type>
+                <address>
+                    http://localhost:8111/feed.html?itemsType=builds&amp;buildStatus=successful&amp;buildStatus=failed
+                </address>
+            </notifier>
+        </notifiers>
+    </ciManagement>
+
+    <organization>
+        <name>Loxal</name>
+        <url>http://www.loxal.net</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <url>https://www.epvin.com/LICENSE.txt</url>
+            <name>EULA</name>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>alex</id>
+            <name>Alexander Orlov</name>
+            <email>alexander.orlov@loxal.net</email>
+            <organization>Loxal</organization>
+            <organizationUrl>http://www.loxal.net</organizationUrl>
+            <roles>
+                <role>System Architect</role>
+                <role>Lead</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <site>
+            <id>docs</id>
+            <name>docs</name>
+            <url>file://${user.home}/.m2/site</url>
+        </site>
+        <repository>
+            <id>loxal</id>
+            <name>releases</name>
+            <url>file://${user.home}/.m2/repository</url>
+        </repository>
+        <snapshotRepository>
+            <id>loxal</id>
+            <name>snapshots</name>
+            <url>file://${user.home}/.m2/repository</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>objectify-appengine</id>
+            <url>http://objectify-appengine.googlecode.com/svn/maven</url>
+        </repository>
+    </repositories>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <java.optimize>false</java.optimize>
+
+                <gwt.locales>default</gwt.locales>
+                <gwt.userAgent>safari</gwt.userAgent>
+                <gwt.draftCompile>true</gwt.draftCompile>
+                <gwt.optimizationLevel>0</gwt.optimizationLevel>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <file>
+                    <exists>prod.profile.marker</exists>
+                </file>
+            </activation>
+            <properties>
+                <java.optimize>true</java.optimize>
+
+                <gwt.locales>de,zh,es_ES,fr_FR,pt_BR,ru_RU</gwt.locales>
+                <gwt.userAgent>ie6,ie8,ie9,gecko1_8,safari,opera</gwt.userAgent>
+                <gwt.draftCompile>false</gwt.draftCompile>
+                <gwt.optimizationLevel>9</gwt.optimizationLevel>
+            </properties>
+        </profile>
+    </profiles>
+</project>

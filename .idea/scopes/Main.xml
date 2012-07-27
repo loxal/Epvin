@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Main" pattern="file[Epvin]:*/&amp;&amp;!file:src/main/webapp/main.jsp" />
+</component>

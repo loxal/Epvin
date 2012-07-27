@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  -->
+
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.4/distro-source/core/src/gwt-module.dtd">
+
+<module>
+    <inherits name="loxal.epvin.core.Core"/>
+
+    <!--<source path="client"/>-->
+    <!--<source path="shared"/>-->
+
+    <!--<inherits name="com.google.gwt.activity.Activity"/>-->
+    <!--<inherits name="com.google.gwt.place.Place"/>-->
+
+    <!--<inherits name="com.google.gwt.user.User"/>-->
+    <!--<inherits name="com.google.web.bindery.requestfactory.RequestFactory"/>-->
+    <!--<servlet path="/gwtRequest" class="com.google.web.bindery.requestfactory.server.RequestFactoryServlet"/>-->
+</module>

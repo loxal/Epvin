@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  -->
+
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.4/distro-source/core/src/gwt-module.dtd">
+
+<module>
+    <define-property name="screen" values="default, phone"/>
+
+    <property-provider name="screen">
+        <![CDATA[
+      // Look for the screen as an URL argument.
+      var args = location.search;
+      var start = args.indexOf("screen");
+      if (start >= 0) {
+        var value = args.substring(start);
+        var begin = value.indexOf("=") + 1;
+        var end = value.indexOf("&");
+        if (end == -1) {
+          end = value.length;
+        }
+        return value.substring(begin, end);
+      }
+
+      // Detect screen type from user agent.
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.indexOf("iphone") != -1 || ua.indexOf("ipod") != -1) {
+        // iPhone and iPod.
+        return "phone";
+      } else if (ua.indexOf("ipad") != -1) {
+        // iPad.
+        return "default";
+      } else if (ua.indexOf("android") != -1 || ua.indexOf("mobile") != -1) {
+        /*
+         * Android - determine the screen type of Android devices based on the diagonal screen
+         * size. Anything under six inches is a phone, anything over six inches is a tablet.
+         */
+        var dpi = 160;
+        var width = $wnd.screen.width / dpi;
+        var height = $wnd.screen.height / dpi;
+        var size = Math.sqrt(width*width + height*height);
+        return (size < 6) ? "phone" : "default";
+      }
+
+      return "default";
+                ]]>
+    </property-provider>
+
+</module>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  -->
+
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <application>epvin-loxal</application>
+    <version>b</version>
+    <sessions-enabled>false</sessions-enabled>
+    <precompilation-enabled>true</precompilation-enabled>
+    <ssl-enabled>true</ssl-enabled>
+    <threadsafe>true</threadsafe>
+
+    <admin-console>
+        <page name="App Stats" url="/appstats/stats"/>
+    </admin-console>
+
+    <inbound-services>
+        <service>warmup</service>
+    </inbound-services>
+
+    <static-files>
+        <include path="/**.txt"/>
+        <include path="/**.gif"/>
+        <include path="/**.png"/>
+        <include path="/**.ico"/>
+        <include path="/**.html"/>
+        <include path="/**.xml.gz"/>
+        <include path="/**.css"/>
+        <include path="/**.js"/>
+
+        <include path="/**.eot"/>
+        <include path="/**.svg"/>
+        <include path="/**.svgz"/>
+        <include path="/**.ttf"/>
+        <include path="/**.woff"/>
+
+        <include path="/**.xml"/>
+    </static-files>
+
+    <resource-files>
+        <include path="**/*.gwt.rpc"/>
+        <!--<include path="/**.xml"/>-->
+        <include path="/**.properties"/>
+    </resource-files>
+
+    <system-properties>
+        <property name="admin.name" value="Alexander Orlov"/>
+        <property name="admin.mail" value="alexander.orlov@loxal.net"/>
+        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+    </system-properties>
+
+    <env-variables>
+        <!--<env-var name="DEFAULT_ENCODING" value="UTF-8"/> -->
+    </env-variables>
+
+    <!--	<error-page>-->
+    <!-- not yet implemented in GAE -->
+    <!--		<error-code>500</error-code>-->
+    <!--		<location>/errors/servererror.jsp</location>-->
+    <!--	</error-page>-->
+
+    <!--<security-constraint> -->
+    <!--<web-resource-collection> -->
+    <!--<url-pattern>/profile/*</url-pattern> -->
+    <!--</web-resource-collection> -->
+    <!--<auth-constraint> -->
+    <!--<role-name>*</role-name> -->
+    <!--</auth-constraint> -->
+    <!--</security-constraint> -->
+
+    <!--<security-constraint> -->
+    <!--<web-resource-collection> -->
+    <!--<url-pattern>/admin/*</url-pattern> -->
+    <!--</web-resource-collection> -->
+    <!--<auth-constraint> -->
+    <!--<role-name>admin</role-name> -->
+    <!--</auth-constraint> -->
+    <!--</security-constraint> -->
+
+
+    <!--<security-constraint> -->
+    <!--<web-resource-collection> -->
+    <!--<url-pattern>/profile/*</url-pattern> -->
+    <!--</web-resource-collection> -->
+    <!--<user-data-constraint> -->
+    <!--<transport-guarantee>CONFIDENTIAL</transport-guarantee> -->
+    <!--</user-data-constraint> -->
+    <!--</security-constraint> -->
+
+</appengine-web-app>

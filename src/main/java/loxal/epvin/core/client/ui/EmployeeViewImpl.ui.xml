@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  -->
+
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:gcv="urn:import:com.google.gwt.user.cellview.client"
+             xmlns:epvin="urn:import:loxal.epvin.core.client.ui.editor"
+             ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
+             ui:generateKeys="com.google.gwt.i18n.server.keygen.MD5KeyGenerator"
+             ui:generateLocales="de"
+        >
+
+    <ui:with field="dataProvider" type="com.google.gwt.view.client.ListDataProvider"/>
+    <ui:with field="dataList" type="java.util.List"/>
+
+    <g:ScrollPanel height="100%" width="100%">
+        <g:HorizontalPanel>
+            <g:VerticalPanel>
+                <gcv:CellTable ui:field="employeeTable" pageSize="10" addStyleNames="icon-user"/>
+                <g:HorizontalPanel>
+                    <gcv:SimplePager location="RIGHT" ui:field="pager"/>
+                    <gcv:PageSizePager increment="3" pageSize="5" ui:field="pageSizer"/>
+                </g:HorizontalPanel>
+                <g:HTMLPanel>
+                    <g:Button ui:field="save" visible="false" addStyleNames="icon-check">
+                        <ui:msg key="save" description="button action">Save</ui:msg>
+                    </g:Button>
+                    <g:Button ui:field="create" visible="false" addStyleNames="icon-asterisk">
+                        <ui:msg key="create" description="button action">Create</ui:msg>
+                    </g:Button>
+                    <g:Button ui:field="add" addStyleNames="icon-plus">
+                        <ui:msg key="add" description="button action">Add</ui:msg>
+                    </g:Button>
+                </g:HTMLPanel>
+            </g:VerticalPanel>
+            <epvin:EmployeeEditor ui:field="employeeEditor" visible="false"/>
+        </g:HorizontalPanel>
+    </g:ScrollPanel>
+</ui:UiBinder>

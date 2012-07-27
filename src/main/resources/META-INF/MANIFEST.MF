@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+
+Name: loxal/
+Implementation-Title: Epvin
+Implementation-Version: RELEASE
+Implementation-Vendor: Loxal
+Specification-Version: 1.0
+Implementation-Vendor-Id: Loxal
+Class-Path:
+Specification-Vendor: Loxal
