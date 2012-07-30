@@ -44,7 +44,7 @@ public class ClientFactoryImpl implements ClientFactory {
     }
 
     @Override
-    public ReqFactory getRF() {
+    public ReqFactory getRf() {
         return rf;
     }
 

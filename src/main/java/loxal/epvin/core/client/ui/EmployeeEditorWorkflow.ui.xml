@@ -6,17 +6,33 @@
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
              xmlns:epvin="urn:import:loxal.epvin.core.client.ui.editor"
         >
-    <g:DialogBox ui:field="dialog" modal="true">
-        <g:caption>Editing a person...</g:caption>
+    <ui:style>
+        .button {
+            width: 6em;
+        }
+
+        .right {
+            float: right;
+        }
+    </ui:style>
+    <g:DialogBox ui:field="dialog"
+                 autoHideEnabled="false"
+                 glassEnabled="true"
+                 animationEnabled="true"
+                 modal="true"
+            >
+        <g:caption>
+            <ui:msg key="Employee" description="Employee dialog caption">Employee</ui:msg>
+        </g:caption>
         <g:HTMLPanel ui:field="contents">
             <epvin:EmployeeEditor ui:field="employeeEditor"/>
             <hr/>
-            <g:CheckBox ui:field="favorite">Favorite
-            </g:CheckBox>
-            <div>
-                <g:Button ui:field="cancel">Cancel</g:Button>
-                <g:Button ui:field="save">Save</g:Button>
-            </div>
+            <g:Button ui:field="ok" addStyleNames="icon-ok {style.button}">
+                <ui:msg key="ok" description="Ok button">Ok</ui:msg>
+            </g:Button>
+            <g:Button ui:field="cancel" addStyleNames="icon-remove {style.button} {style.right}">
+                <ui:msg key="cancel" description="Cancel button">Cancel</ui:msg>
+            </g:Button>
         </g:HTMLPanel>
     </g:DialogBox>
 </ui:UiBinder>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  -->
+
+<!--          Google Apps Marketplace Application Manifest file          -->
+<!-- ******************************************************************* -->
+<!--                  DO NOT DELETE THIS FILE MANUALLY                   -->
+<!-- ******************************************************************* -->
+<!-- To delete this file un-check support for Google Apps Marketplace    -->
+<!-- from eclise project properties page.                                -->
+<!-- To create a custom manifest please refer to following link:         -->
+<!-- http://code.google.com/googleapps/marketplace/manifest.html         -->
+<ApplicationManifest xmlns="http://schemas.google.com/ApplicationManifest/2009">
+    <Name>epvin</Name>
+    <Description>Your Application description</Description>
+
+    <!-- Administrators and users will be sent to this URL for application support -->
+    <Support>
+        <Link rel="support" href="http://www.yoursite.com/support"/>
+    </Support>
+
+    <!-- Show this link in Google's universal navigation for all users -->
+    <Extension id="navLink" type="link">
+        <Name>epvin</Name>
+        <!-- Example URL. Replace it with your application url -->
+        <Url>http://epvin-loxal.appspot.com/openid?hd=${DOMAIN_NAME}</Url>
+    </Extension>
+
+    <!-- Declare our OpenID realm so our app is white listed -->
+    <Extension id="realm" type="openIdRealm">
+        <Url>http://epvin-loxal.appspot.com/</Url>
+    </Extension>
+
+    <Edition id="free">
+        <Name>epvin</Name>
+        <Extension ref="navLink"/>
+    </Edition>
+</ApplicationManifest>

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public interface ClientFactory {
     EventBus getEb();
 
-    ReqFactory getRF();
+    ReqFactory getRf();
 
     PlaceController getPlaceController();
 

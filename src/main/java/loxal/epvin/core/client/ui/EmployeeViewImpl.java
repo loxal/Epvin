@@ -47,16 +47,16 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     private static final Driver driver = GWT.create(Driver.class); // TODO move this to *Workflow
 
     private void edit(EmployeeProxy employee) {  // TODO move this to EmployeeActivity and make usage of EmployeeActivities Cf
-        final EmployeeReqCtx reqCtx = cf.getRF().employeeReqCtx();
+        final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
         reqCtx.put(employee); // necessary to persist the entity later
         driver.edit(employee, reqCtx);
     }
 
     private void create() { // TODO move this to EmployeeActivity and make usage of EmployeeActivities Cf
-        final EmployeeReqCtx reqCtx = cf.getRF().employeeReqCtx();
+        final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
         final EmployeeProxy entity = reqCtx.create(EmployeeProxy.class);
         reqCtx.put(entity); // necessary to persist the entity later
-        driver.edit(entity, reqCtx);
+//        driver.edit(entity, reqCtx);
     }
 
     @UiField
@@ -69,8 +69,8 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     SimplePager pager;
     @UiField
     PageSizePager pageSizer;
-    @UiField
-    EmployeeEditor employeeEditor;
+    //    @UiField
+//    EmployeeEditor employeeEditor;
     @UiField
     Button add;
     @UiField
@@ -83,7 +83,7 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     @UiHandler("save")
     void onSave(ClickEvent event) {
         presenter.save();
-        employeeEditor.setVisible(false);
+//        employeeEditor.setVisible(false);
         add.setVisible(true);
         save.setVisible(false);
     }
@@ -91,7 +91,7 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     @UiHandler("create")
     void onCreate(ClickEvent event) {
         presenter.save();
-        employeeEditor.setVisible(false);
+//        employeeEditor.setVisible(false);
         add.setVisible(true);
         create.setVisible(false);
     }
@@ -99,16 +99,15 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     @UiHandler("add")
     void onAdd(ClickEvent event) {
         create();
-        employeeEditor.setVisible(true);
-        add.setVisible(false);
-        create.setVisible(true);
+        new EmployeeEditorWorkflow();
+
     }
 
     private ClientFactory cf;
 
     public EmployeeViewImpl() {
         initWidget(binder.createAndBindUi(this));
-        driver.initialize(employeeEditor);
+//        driver.initialize(employeeEditor);
         init();
     }
 
@@ -206,7 +205,7 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
             @Override
             public void execute(EmployeeProxy object) {
                 edit(object);
-                employeeEditor.setVisible(true);
+//                employeeEditor.setVisible(true);
                 add.setVisible(false);
                 save.setVisible(true);
             }

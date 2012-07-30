@@ -9,7 +9,6 @@ import com.google.gwt.editor.client.Editor;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.DateBox;
@@ -38,8 +37,6 @@ public class EmployeeEditor extends Composite implements Editor<EmployeeProxy> {
     TextBox mail;
     @UiField
     DateBox birth;
-    @UiField
-    DialogBox dialog;
 
     public EmployeeEditor() {
         initWidget(binder.createAndBindUi(this));

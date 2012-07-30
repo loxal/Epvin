@@ -7,7 +7,6 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
              xmlns:gcv="urn:import:com.google.gwt.user.cellview.client"
-             xmlns:epvin="urn:import:loxal.epvin.core.client.ui.editor"
              ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
              ui:generateKeys="com.google.gwt.i18n.server.keygen.MD5KeyGenerator"
              ui:generateLocales="de"
@@ -36,7 +35,7 @@
                     </g:Button>
                 </g:HTMLPanel>
             </g:VerticalPanel>
-            <epvin:EmployeeEditor ui:field="employeeEditor" visible="false"/>
+            <!--<epvin:EmployeeEditor ui:field="employeeEditor" visible="false"/>-->
         </g:HorizontalPanel>
     </g:ScrollPanel>
 </ui:UiBinder>

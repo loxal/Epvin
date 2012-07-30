@@ -149,7 +149,7 @@ public class EmployeeActivity extends AbstractActivity implements EmployeeView.P
                 StatusBar.Kind.INFO
         );
 
-        final EmployeeReqCtx reqCtx = cf.getRF().employeeReqCtx();
+        final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
         reqCtx.delete(id).fire(new Receiver<Void>() {
             @Override
             public void onSuccess(Void response) {
@@ -185,7 +185,7 @@ public class EmployeeActivity extends AbstractActivity implements EmployeeView.P
                 StatusBar.Kind.INFO
         );
 
-        final EmployeeReqCtx reqCtx = cf.getRF().employeeReqCtx();
+        final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
         reqCtx.retrieve().fire(new Receiver<List<EmployeeProxy>>() {
             @Override
             public void onSuccess(List<EmployeeProxy> response) {
