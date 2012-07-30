@@ -85,7 +85,7 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
 
     @UiHandler("add")
     void onAdd(ClickEvent event) {
-        create();
+//        create();
         new EmployeeEditorWorkflow(cf);
     }
 

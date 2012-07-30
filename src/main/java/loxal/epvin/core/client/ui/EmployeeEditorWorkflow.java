@@ -54,16 +54,21 @@ public class EmployeeEditorWorkflow {
 
     @UiHandler("ok")
     public void onOk(ClickEvent event) {
-        driver.initialize(employeeEditor);
-
+        driver.initialize(cf.getRf(), employeeEditor);
         final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
         final EmployeeProxy entity = reqCtx.create(EmployeeProxy.class);
-        entity.setNameFirst("Alex");
-        entity.setNameLast("Orlov");
-//        reqCtx.put(entity); // necessary to persist the entity later
-        driver.edit(entity, reqCtx);
+        final EmployeeProxy entity1 = reqCtx.edit(entity);
+//        entity.setNameFirst("Alex");
+//        entity.setNameLast("Orlov");
+        reqCtx.put(entity1); // necessary to persist the entity later
+        driver.edit(entity1, reqCtx);
 
         final RequestContext reqCtx1 = driver.flush();
+//        final EmployeeProxy entity = reqCtx1.create(EmployeeProxy.class);
+//                entity.setNameFirst("Alex");
+//                entity.setNameLast("Orlov");
+//        reqCtx1.put(entity); // necessary to persist the entity later
+
         if (driver.hasErrors()) {
             new StatusBar(
                     cf,
@@ -146,6 +151,7 @@ public class EmployeeEditorWorkflow {
     EmployeeEditorWorkflow(ClientFactory cf) {
         this.cf = cf;
         Binder.BINDER.createAndBindUi(this);
+        driver.initialize(employeeEditor);
 
         dialog.center();
     }
