@@ -41,15 +41,10 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     interface Binder extends UiBinder<Widget, EmployeeViewImpl> {
     }
 
-    interface Driver extends RequestFactoryEditorDriver<EmployeeProxy, EmployeeEditor> {
-    } // TODO move this to *Workflow
-
-    private static final Driver driver = GWT.create(Driver.class); // TODO move this to *Workflow
-
     private void edit(EmployeeProxy employee) {  // TODO move this to EmployeeActivity and make usage of EmployeeActivities Cf
         final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
         reqCtx.put(employee); // necessary to persist the entity later
-        driver.edit(employee, reqCtx);
+//        driver.edit(employee, reqCtx);
     }
 
     private void create() { // TODO move this to EmployeeActivity and make usage of EmployeeActivities Cf
@@ -69,8 +64,6 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     SimplePager pager;
     @UiField
     PageSizePager pageSizer;
-    //    @UiField
-//    EmployeeEditor employeeEditor;
     @UiField
     Button add;
     @UiField
@@ -83,24 +76,17 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     @UiHandler("save")
     void onSave(ClickEvent event) {
         presenter.save();
-//        employeeEditor.setVisible(false);
-        add.setVisible(true);
-        save.setVisible(false);
     }
 
     @UiHandler("create")
     void onCreate(ClickEvent event) {
         presenter.save();
-//        employeeEditor.setVisible(false);
-        add.setVisible(true);
-        create.setVisible(false);
     }
 
     @UiHandler("add")
     void onAdd(ClickEvent event) {
         create();
-        new EmployeeEditorWorkflow();
-
+        new EmployeeEditorWorkflow(cf);
     }
 
     private ClientFactory cf;
@@ -299,6 +285,7 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
 
     @Override
     public RequestFactoryEditorDriver<EmployeeProxy, EmployeeEditor> getEditorDriver() {
-        return driver;
+//        return driver;
+        return null;
     }
 }

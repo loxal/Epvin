@@ -35,7 +35,6 @@
                     </g:Button>
                 </g:HTMLPanel>
             </g:VerticalPanel>
-            <!--<epvin:EmployeeEditor ui:field="employeeEditor" visible="false"/>-->
         </g:HorizontalPanel>
     </g:ScrollPanel>
 </ui:UiBinder>
