@@ -52,23 +52,26 @@ public class EmployeeEditorWorkflow {
     private EmployeeProxy employee;
 
 
+    // Called by some UI action
+    private void save() {
+        RequestContext edited = driver.flush();
+        if (driver.hasErrors()) {
+            // A sub-editor reported errors
+        }
+    }
+
     @UiHandler("ok")
     public void onOk(ClickEvent event) {
         driver.initialize(cf.getRf(), employeeEditor);
+
         final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
-        final EmployeeProxy entity = reqCtx.create(EmployeeProxy.class);
-        final EmployeeProxy entity1 = reqCtx.edit(entity);
+        final EmployeeProxy entity = reqCtx.edit(reqCtx.create(EmployeeProxy.class));
 //        entity.setNameFirst("Alex");
 //        entity.setNameLast("Orlov");
-        reqCtx.put(entity1); // necessary to persist the entity later
-        driver.edit(entity1, reqCtx);
+        reqCtx.put(entity); // necessary to persist the entity later
+        driver.edit(entity, reqCtx);
 
-        final RequestContext reqCtx1 = driver.flush();
-//        final EmployeeProxy entity = reqCtx1.create(EmployeeProxy.class);
-//                entity.setNameFirst("Alex");
-//                entity.setNameLast("Orlov");
-//        reqCtx1.put(entity); // necessary to persist the entity later
-
+        final RequestContext driverCtx = driver.flush();
         if (driver.hasErrors()) {
             new StatusBar(
                     cf,
@@ -77,7 +80,7 @@ public class EmployeeEditorWorkflow {
             );
         }
 
-        reqCtx1.fire(new Receiver<Void>() {
+        driverCtx.fire(new Receiver<Void>() {
             @Override
             public void onConstraintViolation(Set<ConstraintViolation<?>> violations) {
                 cf.getEb().fireEvent(new DoneEvent());
@@ -151,7 +154,7 @@ public class EmployeeEditorWorkflow {
     EmployeeEditorWorkflow(ClientFactory cf) {
         this.cf = cf;
         Binder.BINDER.createAndBindUi(this);
-        driver.initialize(employeeEditor);
+//        driver.initialize(employeeEditor);
 
         dialog.center();
     }
@@ -180,14 +183,6 @@ public class EmployeeEditorWorkflow {
         driver.edit(employee, requestContext);
 //        employeeEditor.show();
         dialog.center();
-    }
-
-    // Called by some UI action
-    void save() {
-        RequestContext edited = driver.flush();
-        if (driver.hasErrors()) {
-            // A sub-editor reported errors
-        }
     }
 
     //    @Override
