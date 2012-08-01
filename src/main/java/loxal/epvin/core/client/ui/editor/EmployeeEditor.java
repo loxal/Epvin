@@ -7,12 +7,13 @@ package loxal.epvin.core.client.ui.editor;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.datepicker.client.DateBox;
-import loxal.epvin.core.client.ClientResource;
+import loxal.epvin.core.client.ClientFactory;
 import loxal.epvin.core.shared.EmployeeProxy;
 
 import java.util.Date;
@@ -21,13 +22,11 @@ import java.util.Date;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class EmployeeEditor extends Composite implements Editor<EmployeeProxy> {
-    // NTH move ClientResource.INSTANCE.factory().create() to CF
-    private static final DateBox.Format format = new DateBox.DefaultFormat(ClientResource.INSTANCE.factory().create().defaultDateFormat);
+    static DateBox.Format format;
 
-    interface Binder extends UiBinder<Widget, EmployeeEditor> {
+    interface Binder extends UiBinder<VerticalPanel, EmployeeEditor> {
+        static final Binder BINDER = GWT.create(Binder.class);
     }
-
-    private static final Binder binder = GWT.create(Binder.class);
 
     @UiField
     TextBox nameFirst;
@@ -38,8 +37,10 @@ public class EmployeeEditor extends Composite implements Editor<EmployeeProxy> {
     @UiField
     DateBox birth;
 
-    public EmployeeEditor() {
-        initWidget(binder.createAndBindUi(this));
+    @UiConstructor
+    public EmployeeEditor(ClientFactory cf) {
+        initWidget(Binder.BINDER.createAndBindUi(this));
+        format = new DateBox.DefaultFormat(cf.getClientResource().defaultDateFormat);
 
         nameFirst.setAccessKey('1');
         nameLast.setAccessKey('2');

@@ -37,7 +37,8 @@ public class EmployeeEditorWorkflow {
     interface Driver extends RequestFactoryEditorDriver<EmployeeProxy, EmployeeEditor> {
     }
 
-    private static final Driver driver = GWT.create(Driver.class);
+    //    private static final Driver driver = GWT.create(Driver.class);
+    private Driver driver;
 
     @UiField
     EmployeeEditor employeeEditor;
@@ -47,30 +48,19 @@ public class EmployeeEditorWorkflow {
     Button ok;
     @UiField
     Button cancel;
+    @UiField
+    ClientFactory cf;
 
-    private ClientFactory cf;
     private EmployeeProxy employee;
 
-
-    // Called by some UI action
-    private void save() {
-        RequestContext edited = driver.flush();
-        if (driver.hasErrors()) {
-            // A sub-editor reported errors
-        }
+    public void create() {
+        final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
+        employee = reqCtx.edit(reqCtx.create(EmployeeProxy.class));
+        edit(reqCtx);
+        reqCtx.put(employee); // necessary to persist the entity later
     }
 
-    @UiHandler("ok")
-    public void onOk(ClickEvent event) {
-        driver.initialize(cf.getRf(), employeeEditor);
-
-        final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
-        final EmployeeProxy entity = reqCtx.edit(reqCtx.create(EmployeeProxy.class));
-//        entity.setNameFirst("Alex");
-//        entity.setNameLast("Orlov");
-        reqCtx.put(entity); // necessary to persist the entity later
-        driver.edit(entity, reqCtx);
-
+    private void save() {
         final RequestContext driverCtx = driver.flush();
         if (driver.hasErrors()) {
             new StatusBar(
@@ -83,26 +73,29 @@ public class EmployeeEditorWorkflow {
         driverCtx.fire(new Receiver<Void>() {
             @Override
             public void onConstraintViolation(Set<ConstraintViolation<?>> violations) {
-                cf.getEb().fireEvent(new DoneEvent());
+                dialog.setText("Errors detected");
+                driver.setConstraintViolations(violations);
 
-                final StringBuilder sb = new StringBuilder();
-                sb.append("<ol>");
-                for (final ConstraintViolation<?> violation : violations) {
-                    sb.append("<li>").
-                            append(I18nMessages.INSTANCE.constraintViolation(
-                                    violation.getPropertyPath().toString(),
-                                    (String) violation.getInvalidValue(),
-                                    violation.getMessage()
-                            )).
-                            append("</li>");
-                }
-                sb.append("<ol>");
-
-                new StatusBar(
-                        cf,
-                        SafeHtmlUtils.fromSafeConstant(sb.toString()),
-                        StatusBar.Kind.APP_ERROR
-                ).setTitle(I18nConstants.INSTANCE.violations() + ": " + violations.size());
+//                cf.getEb().fireEvent(new DoneEvent());
+//
+//                final StringBuilder sb = new StringBuilder();
+//                sb.append("<ol>");
+//                for (final ConstraintViolation<?> violation : violations) {
+//                    sb.append("<li>").
+//                            append(I18nMessages.INSTANCE.constraintViolation(
+//                                    violation.getPropertyPath().toString(),
+//                                    (String) violation.getInvalidValue(),
+//                                    violation.getMessage()
+//                            )).
+//                            append("</li>");
+//                }
+//                sb.append("<ol>");
+//
+//                new StatusBar(
+//                        cf,
+//                        SafeHtmlUtils.fromSafeConstant(sb.toString()),
+//                        StatusBar.Kind.APP_ERROR
+//                ).setTitle(I18nConstants.INSTANCE.violations() + ": " + violations.size());
             }
 
             @Override
@@ -116,7 +109,11 @@ public class EmployeeEditorWorkflow {
                 cf.getEb().fireEvent(new DoneEvent());
             }
         });
+    }
 
+    @UiHandler("ok")
+    public void onOk(ClickEvent event) {
+        save();
     }
 
     @UiHandler("cancel")
@@ -127,7 +124,7 @@ public class EmployeeEditorWorkflow {
     static void register(EventBus eb, final ClientFactory cf) {
         eb.addHandler(EditEmployeeEvent.TYPE, new EditEmployeeEvent.Handler() {
             public void startEdit(EmployeeProxy employee, RequestContext requestContext) {
-                new EmployeeEditorWorkflow(employee, cf).edit(requestContext);
+//                new EmployeeEditorWorkflow(employee, cf).edit(requestContext);
             }
         });
     }
@@ -140,53 +137,30 @@ public class EmployeeEditorWorkflow {
         });
     }
 
-    EmployeeEditorWorkflow() {
-        Binder.BINDER.createAndBindUi(this);
+//    EmployeeEditorWorkflow() {
+//        Binder.BINDER.createAndBindUi(this);
+//
+//        dialog.center();
+//        create();
+//    }
 
-        dialog.center();
-    }
-
-    EmployeeEditorWorkflow(EmployeeProxy employee, ClientFactory cf) {
-        this.employee = employee;
-        this.cf = cf;
-    }
+//    EmployeeEditorWorkflow(EmployeeProxy employee, ClientFactory cf) {
+//        this.employee = employee;
+//        this.cf = cf;
+//    }
 
     EmployeeEditorWorkflow(ClientFactory cf) {
-        this.cf = cf;
         Binder.BINDER.createAndBindUi(this);
-//        driver.initialize(employeeEditor);
+        this.cf = cf;
 
         dialog.center();
-    }
-
-    void edit(EmployeeProxy employee) {
-        // PersonEditor is a DialogBox that extends Editor<Person>
-        EmployeeEditor editor = new EmployeeEditor();
-        // Initialize the driver with the top-level editor
-        driver.initialize(editor);
-
-
-        // Copy the data in the object into the UI
-//    driver.edit(employee);
-        // Put the UI on the screen.
-//    editor.center();
+        create();
     }
 
     private void edit(RequestContext requestContext) {
-//        driver = GWT.create(Driver.class);
+        driver = GWT.create(Driver.class);
         driver.initialize(cf.getRf(), employeeEditor);
 
-        if (requestContext == null) {
-            return;
-        }
-
         driver.edit(employee, requestContext);
-//        employeeEditor.show();
-        dialog.center();
-    }
-
-    //    @Override
-    public RequestFactoryEditorDriver<EmployeeProxy, EmployeeEditor> getEditorDriver() {
-        return driver;
     }
 }

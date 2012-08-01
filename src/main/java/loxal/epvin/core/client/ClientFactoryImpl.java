@@ -32,6 +32,12 @@ public class ClientFactoryImpl implements ClientFactory {
     private final EmployeeView employeeView = new EmployeeViewImpl();
     private final ReqFactory rf = GWT.create(ReqFactory.class);
     private final Logger logger = Logger.getLogger(this.getClass().getName());
+    private static final Property clientResource = ClientResource.INSTANCE.factory().create();
+
+    @Override
+    public Property getClientResource() {
+        return clientResource;
+    }
 
     @Override
     public Logger getLogger() {

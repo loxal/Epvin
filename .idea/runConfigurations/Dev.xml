@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Epvin" type="GWT.ConfigurationType" factoryName="GWT Configuration">
+  <configuration default="false" name="Dev" type="GWT.ConfigurationType" factoryName="GWT Configuration">
     <module name="Epvin" />
     <option name="VM_PARAMETERS" value="-server -Xms128m -Xmx256m -XX:MaxPermSize=128m -Xss2m -Duser.timezone=GMT -Djava.util.logging.config.file=/Users/alex/my/project/Verp/src/logging.properties -Dcatalina.home=/Users/alex/my/opt/tomcat" />
     <option name="SHELL_PARAMETERS" value="-logLevel INFO -bindAddress localhost -codeServerPort 9000 -port 8000 " />

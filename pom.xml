@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>loxal</groupId>
     <artifactId>epvin</artifactId>
-    <version>1.0.0.0-RELEASE</version>
+    <version>1.1.0.0-RELEASE</version>
     <packaging>war</packaging>
     <name>Epvin</name>
     <inceptionYear>2012</inceptionYear>
@@ -111,14 +111,14 @@
                     <emailAccount>${my.gae.deployment.email}</emailAccount>
                     <passIn>true</passIn>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>net.kindleit</groupId>
-                        <artifactId>gae-runtime</artifactId>
-                        <version>${gae.ver}</version>
-                        <type>pom</type>
-                    </dependency>
-                </dependencies>
+                <!--<dependencies>-->
+                <!--<dependency>-->
+                <!--<groupId>net.kindleit</groupId>-->
+                <!--<artifactId>gae-runtime</artifactId>-->
+                <!--<version>${gae.ver}</version>-->
+                <!--<type>pom</type>-->
+                <!--</dependency>-->
+                <!--</dependencies>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

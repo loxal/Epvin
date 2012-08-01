@@ -15,6 +15,7 @@
             float: right;
         }
     </ui:style>
+    <ui:with field="cf" type="loxal.epvin.core.client.ClientFactory"/>
     <g:DialogBox ui:field="dialog"
                  autoHideEnabled="false"
                  glassEnabled="true"
@@ -25,7 +26,7 @@
             <ui:msg key="Employee" description="Employee dialog caption">Employee</ui:msg>
         </g:caption>
         <g:HTMLPanel ui:field="contents">
-            <epvin:EmployeeEditor ui:field="employeeEditor"/>
+            <epvin:EmployeeEditor ui:field="employeeEditor" cf="{cf}"/>
             <hr/>
             <g:Button ui:field="ok" addStyleNames="icon-ok {style.button}">
                 <ui:msg key="ok" description="Ok button">Ok</ui:msg>
