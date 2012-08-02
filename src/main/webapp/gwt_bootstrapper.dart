@@ -28,6 +28,7 @@ void init() {
   final moduleSrc = '/$moduleFqn/$moduleFqn.nocache.js';
 
   moduleContainer.src = moduleSrc;
+  print('moduleContainer.src: ${moduleContainer.src}');
 }
 
 void main() {

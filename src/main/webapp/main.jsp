@@ -14,7 +14,6 @@
 
 <%--Try this in SuperDevMode again--%>
 <script type="application/dart" src="gwt_bootstrapper.dart"></script>
-<script src="gwt_bootstrapper.dart.js"></script>
 <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
 <script id="module"></script>
 
@@ -26,5 +25,5 @@
         module = request.getParameter("module");
     }
 %>
-<%--<script src="<%= "/" + module + "/" + module + ".nocache.js" %>"></script>--%>
+<script src="<%= "/" + module + "/" + module + ".nocache.js" %>"></script>
 <iframe src="javascript:''" id="__gwt_historyFrame" style="width:0; height:0; border:0;"></iframe>

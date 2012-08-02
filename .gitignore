@@ -4,6 +4,7 @@
 *.bin
 *.class
 *.jar
+*.js.map
 /\.requestfactory-apt_generated
 
 /target
