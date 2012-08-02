@@ -10,7 +10,7 @@ import com.google.gwt.event.shared.GwtEvent;
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
-public class DoneEvent extends GwtEvent<DoneEvent.Handler> {
+public class RefreshEvent extends GwtEvent<RefreshEvent.Handler> {
     public static final Type<Handler> TYPE = new Type<Handler>();
 
     public interface Handler extends EventHandler {

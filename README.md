@@ -1,3 +1,3 @@
 # Epvin
 
-* Multi-dimensional Enterprise Resource Planing & Management System
+* GWT / GAE best practices technology showcase

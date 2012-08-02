@@ -43,5 +43,4 @@
     <set-property name="compiler.stackMode" value="native"/>
 
     <set-configuration-property name="UiBinder.useSafeHtmlTemplates" value="true"/>
-    <servlet path="/gwtRequest" class="com.google.web.bindery.requestfactory.server.RequestFactoryServlet"/>
 </module>

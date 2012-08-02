@@ -29,7 +29,7 @@ import java.util.logging.Logger;
 public class ClientFactoryImpl implements ClientFactory {
     private final EventBus eb = new SimpleEventBus();
     private final PlaceController placeController = new PlaceController(eb);
-    private final EmployeeView employeeView = new EmployeeViewImpl();
+    private final EmployeeView employeeView = new EmployeeViewImpl(this);
     private final ReqFactory rf = GWT.create(ReqFactory.class);
     private final Logger logger = Logger.getLogger(this.getClass().getName());
     private static final Property clientResource = ClientResource.INSTANCE.factory().create();
@@ -78,8 +78,6 @@ public class ClientFactoryImpl implements ClientFactory {
         final PlaceHistoryHandler placeHistoryHandler = new PlaceHistoryHandler(historyMapper);
         final Place defaultPlace = new EmployeePlace("Alexander");
         placeHistoryHandler.register(placeController, eb, defaultPlace);
-
-        employeeView.setCf(this);
 
         // Goes to the place represented on URL or default place
         placeHistoryHandler.handleCurrentHistory();

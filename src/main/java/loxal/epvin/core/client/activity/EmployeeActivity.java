@@ -46,7 +46,7 @@ public class EmployeeActivity extends AbstractActivity implements EmployeeView.P
      */
     @Override
     public void start(AcceptsOneWidget containerWidget, EventBus eventBus) {
-        this.refresh();
+        refresh();
         final EmployeeView employeeView = getView();
         employeeView.setName(name);
         employeeView.setPresenter(this);
@@ -87,7 +87,7 @@ public class EmployeeActivity extends AbstractActivity implements EmployeeView.P
     }
 
     @Override
-    public void save() {
+    public void save() { // moved to EmployeeEditorWorkflow, so this can be deleted?
         new StatusBar(
                 cf,
                 SafeHtmlUtils.fromSafeConstant(I18nConstants.INSTANCE.updating()),
@@ -159,8 +159,6 @@ public class EmployeeActivity extends AbstractActivity implements EmployeeView.P
                         SafeHtmlUtils.fromSafeConstant(I18nConstants.INSTANCE.employeeDeleted()),
                         StatusBar.Kind.SUCCESS
                 );
-//                retrieveEmployees();
-//                presenter.refresh();
                 refresh();
             }
 

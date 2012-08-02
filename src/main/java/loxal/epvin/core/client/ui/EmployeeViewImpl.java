@@ -25,6 +25,7 @@ import com.google.web.bindery.requestfactory.gwt.client.RequestFactoryEditorDriv
 import loxal.epvin.core.client.ClientFactory;
 import loxal.epvin.core.client.ClientResource;
 import loxal.epvin.core.client.ui.editor.EmployeeEditor;
+import loxal.epvin.core.event.RefreshEvent;
 import loxal.epvin.core.shared.EmployeeProxy;
 import loxal.epvin.core.shared.EmployeeReqCtx;
 
@@ -85,16 +86,25 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
 
     @UiHandler("add")
     void onAdd(ClickEvent event) {
-//        create();
         new EmployeeEditorWorkflow(cf);
     }
 
     private ClientFactory cf;
 
-    public EmployeeViewImpl() {
+    public EmployeeViewImpl(ClientFactory cf) {
+        this.cf = cf;
         initWidget(binder.createAndBindUi(this));
-//        driver.initialize(employeeEditor);
+        attachHandler();
         init();
+    }
+
+    private void attachHandler() {
+        cf.getEb().addHandler(RefreshEvent.TYPE, new RefreshEvent.Handler() {
+            @Override
+            public void onDone() {
+                presenter.refresh();
+            }
+        });
     }
 
     private void init() {
@@ -258,11 +268,6 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
         });
         employeeTable.addColumnSortHandler(sortBirthHandler);
         birth.setSortable(true);
-    }
-
-    @Override
-    public void setCf(ClientFactory cf) { // TODO remove it because its not necessary in a ViewImpl
-        this.cf = cf;
     }
 
     @Override
