@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact name="Epvin:GWT">
-    <output-path>$PROJECT_DIR$/target/FEST_ODA</output-path>
-    <root id="root">
-      <element id="gwt-compiler-output" facet="Epvin/gwt/GWT" />
-    </root>
-  </artifact>
-</component>

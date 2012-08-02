@@ -28,8 +28,8 @@
       <configuration>
         <setting name="compilerParameters" value="-draftCompile -optimize 0 -extra /Users/alex/my/project/Epvin/target/extra -strict" />
         <setting name="compilerMaxHeapSize" value="256" />
-        <setting name="gwtScriptOutputStyle" value="PRETTY" />
-        <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.5.0-rc1/" />
+        <setting name="gwtScriptOutputStyle" value="OBF" />
+        <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.5.0-rc1" />
         <setting name="gwtSdkType" value="maven" />
         <setting name="webFacet" value="Web" />
       </configuration>

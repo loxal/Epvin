@@ -3,17 +3,13 @@
   ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
   -->
 
-<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4//EN"
-        "http://google-web-toolkit.googlecode.com/svn/releases/2.4/distro-source/core/src/gwt-module.dtd">
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.5//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.5/distro-source/core/src/gwt-module.dtd">
 
 <module>
     <source path="client"/>
 
     <inherits name="loxal.epvin.planer.Planer"/>
-
-    <!--<replace-with class="loxal.epvin.manager.client.ClientFactoryImpl">-->
-    <!--<when-type-is class="loxal.epvin.manager.client.ClientFactory"/>-->
-    <!--</replace-with>-->
 
     <entry-point class="loxal.epvin.manager.client.Main"/>
 </module>

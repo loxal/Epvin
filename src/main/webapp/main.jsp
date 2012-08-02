@@ -21,3 +21,12 @@
 %>
 <script src="<%= "/" + module + "/" + module + ".nocache.js" %>"></script>
 <iframe src="javascript:''" id="__gwt_historyFrame" style="width:0; height:0; border:0;"></iframe>
+
+<script>
+    // replace JSP logic by JavaScript?
+    console.log(window.location.href
+    getParameter('module')
+    )
+    ;
+
+</script>

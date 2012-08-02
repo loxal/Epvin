@@ -68,8 +68,8 @@
         <default-facet-configuration>
           <configuration>
             <setting name="compilerMaxHeapSize" value="256" />
-            <setting name="gwtScriptOutputStyle" value="DETAILED" />
-            <setting name="gwtSdkUrl" value="file://$PROJECT_DIR$/../../sdk/gwt" />
+            <setting name="gwtScriptOutputStyle" value="OBF" />
+            <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.5.0-rc1" />
           </configuration>
         </default-facet-configuration>
       </entry>
