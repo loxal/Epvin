@@ -137,18 +137,6 @@ public class EmployeeEditorWorkflow {
         });
     }
 
-//    EmployeeEditorWorkflow() {
-//        Binder.BINDER.createAndBindUi(this);
-//
-//        dialog.center();
-//        create();
-//    }
-
-//    EmployeeEditorWorkflow(EmployeeProxy employee, ClientFactory cf) {
-//        this.employee = employee;
-//        this.cf = cf;
-//    }
-
     EmployeeEditorWorkflow(ClientFactory cf) {
         Binder.BINDER.createAndBindUi(this);
         this.cf = cf;

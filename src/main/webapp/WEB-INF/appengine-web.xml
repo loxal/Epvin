@@ -28,6 +28,7 @@
         <include path="/**.xml.gz"/>
         <include path="/**.css"/>
         <include path="/**.js"/>
+        <include path="/**.dart"/>
 
         <include path="/**.eot"/>
         <include path="/**.svg"/>
