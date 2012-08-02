@@ -43,7 +43,7 @@ public class EmployeeEditorWorkflow {
     Button ok;
     @UiField
     Button cancel;
-    @UiField
+    @UiField(provided = true)
     ClientFactory cf;
 
     private EmployeeProxy employee;
@@ -52,8 +52,8 @@ public class EmployeeEditorWorkflow {
         final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
         employee = reqCtx.create(EmployeeProxy.class);
         edit(reqCtx);
-        // necessary to persist the entity later
-        reqCtx.put(employee);
+//        // necessary to persist the entity later
+//        reqCtx.put(employee);
     }
 
     private void save() {
@@ -127,15 +127,23 @@ public class EmployeeEditorWorkflow {
         dialog.hide();
     }
 
-    EmployeeEditorWorkflow(ClientFactory cf) {
+    EmployeeEditorWorkflow(ClientFactory cf, Boolean isNew) {
+        this.cf = cf;
         Binder.BINDER.createAndBindUi(this);
-
-        create();
+        if (isNew) create();
     }
 
-    private void edit(RequestContext requestContext) {
+    EmployeeEditorWorkflow(ClientFactory cf, EmployeeProxy employee) {
+        this(cf, false);
+        this.employee = employee;
+    }
+
+    private void edit(EmployeeReqCtx reqCtx) {
         Driver.DRIVER.initialize(cf.getRf(), employeeEditor);
-        Driver.DRIVER.edit(employee, requestContext);
+        Driver.DRIVER.edit(employee, reqCtx);
         dialog.center();
+
+        // necessary to persist the entity later
+        reqCtx.put(employee);
     }
 }

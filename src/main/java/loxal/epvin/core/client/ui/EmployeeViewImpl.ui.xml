@@ -23,17 +23,9 @@
                     <gcv:SimplePager location="RIGHT" ui:field="pager"/>
                     <gcv:PageSizePager increment="3" pageSize="5" ui:field="pageSizer"/>
                 </g:HorizontalPanel>
-                <g:HTMLPanel>
-                    <g:Button ui:field="save" visible="false" addStyleNames="icon-check">
-                        <ui:msg key="save" description="button action">Save</ui:msg>
-                    </g:Button>
-                    <g:Button ui:field="create" visible="false" addStyleNames="icon-asterisk">
-                        <ui:msg key="create" description="button action">Create</ui:msg>
-                    </g:Button>
-                    <g:Button ui:field="add" addStyleNames="icon-plus">
-                        <ui:msg key="add" description="button action">Add</ui:msg>
-                    </g:Button>
-                </g:HTMLPanel>
+                <g:Button ui:field="add" addStyleNames="icon-plus">
+                    <ui:msg key="add" description="button action">Add</ui:msg>
+                </g:Button>
             </g:VerticalPanel>
         </g:HorizontalPanel>
     </g:ScrollPanel>

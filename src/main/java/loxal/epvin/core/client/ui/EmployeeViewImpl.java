@@ -19,7 +19,7 @@ import com.google.gwt.user.cellview.client.*;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.web.bindery.requestfactory.gwt.client.RequestFactoryEditorDriver;
 import loxal.epvin.core.client.ClientFactory;
@@ -37,9 +37,8 @@ import java.util.List;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class EmployeeViewImpl extends Composite implements EmployeeView {
-    private static final Binder binder = GWT.create(Binder.class);
-
-    interface Binder extends UiBinder<Widget, EmployeeViewImpl> {
+    interface Binder extends UiBinder<ScrollPanel, EmployeeViewImpl> {
+        static final Binder BINDER = GWT.create(Binder.class);
     }
 
     private void edit(EmployeeProxy employee) {  // TODO move this to EmployeeActivity and make usage of EmployeeActivities Cf
@@ -67,33 +66,20 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     PageSizePager pageSizer;
     @UiField
     Button add;
-    @UiField
-    Button create;
-    @UiField
-    Button save;
+
     private Presenter presenter;
     private String name;
 
-    @UiHandler("save")
-    void onSave(ClickEvent event) {
-        presenter.save();
-    }
-
-    @UiHandler("create")
-    void onCreate(ClickEvent event) {
-        presenter.save();
-    }
-
     @UiHandler("add")
     void onAdd(ClickEvent event) {
-        new EmployeeEditorWorkflow(cf);
+        new EmployeeEditorWorkflow(cf, true);
     }
 
     private ClientFactory cf;
 
     public EmployeeViewImpl(ClientFactory cf) {
         this.cf = cf;
-        initWidget(binder.createAndBindUi(this));
+        initWidget(Binder.BINDER.createAndBindUi(this));
         attachHandler();
         init();
     }
@@ -200,10 +186,7 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
         final ActionCell.Delegate<EmployeeProxy> editDelegate = new ActionCell.Delegate<EmployeeProxy>() {
             @Override
             public void execute(EmployeeProxy object) {
-                edit(object);
-//                employeeEditor.setVisible(true);
-                add.setVisible(false);
-                save.setVisible(true);
+                new EmployeeEditorWorkflow(cf, object);
             }
         };
 
