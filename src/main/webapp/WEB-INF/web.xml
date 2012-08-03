@@ -24,9 +24,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>reqFactory</servlet-name>
-        <!--<url-pattern>/loxal.epvin.manager.Manager/gwtRequest</url-pattern>-->
-        <!--<url-pattern>/loxal.epvin.core.Core/gwtRequest</url-pattern>-->
-        <!--<url-pattern>/loxal.epvin.planer.Planer/gwtRequest</url-pattern>-->
         <url-pattern>/gwtRequest</url-pattern>
     </servlet-mapping>
 

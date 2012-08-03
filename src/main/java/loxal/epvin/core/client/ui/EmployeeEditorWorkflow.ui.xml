@@ -20,12 +20,12 @@
                  autoHideEnabled="false"
                  glassEnabled="true"
                  animationEnabled="true"
-                 modal="true"
+                 modal="false"
             >
         <g:caption>
             <ui:msg key="Employee" description="Employee dialog caption">Employee</ui:msg>
         </g:caption>
-        <g:HTMLPanel ui:field="contents">
+        <g:HTMLPanel>
             <epvin:EmployeeEditor ui:field="employeeEditor" cf="{cf}"/>
             <hr/>
             <g:Button ui:field="ok" addStyleNames="icon-ok {style.button}">

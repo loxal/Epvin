@@ -20,103 +20,105 @@ import loxal.epvin.core.event.PreventSiblingEvent;
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
+// NTH make this a widget in the Layout.ui that gets its contents via NotificationEvent
 public class StatusBar extends Composite {
-    private final Kind msgKind;
+  private final Kind msgKind;
 
-    private static final Binder binder = GWT.create(Binder.class);
+  interface Binder extends UiBinder<DecoratedPopupPanel, StatusBar> {
+    static final Binder BINDER = GWT.create(Binder.class);
+  }
 
-    interface Binder extends UiBinder<DecoratedPopupPanel, StatusBar> {
-    }
+  @UiField
+  DecoratedPopupPanel container;
+  @UiField
+  HTML msg;
+  @UiField
+  Button close;
+  @UiField(provided = true)
+  EventBus eb;
+  @UiField
+  Label kind;
 
-    @UiField
-    DecoratedPopupPanel container;
-    @UiField
-    HTML msg;
-    @UiField
-    Button close;
-    @UiField(provided = true)
-    EventBus eb;
-    @UiField
-    Label kind;
+  public enum Kind {
+    INFO, SUCCESS, APP_ERROR, USAGE_INFO, SERVER_FAILURE,
+  }
 
-    public enum Kind {
-        INFO, SUCCESS, APP_ERROR, USAGE_INFO, SERVER_FAILURE,
-    }
-
-    private void addAutoDisappearing() {
-        final int toDisplayDuration = 3000; // 3s
-        new Timer() {
-            public void run() {
-                removeFromParent();
-            }
-        }.schedule(toDisplayDuration);
-    }
-
-    // show "processing" status only when it takes a certain time for the process to finish
-    private void showWithDelay() {
-        new Timer() {
-            @Override
-            public void run() {
-                // display widget
-            }
-        }.schedule(500); // 0.5s
-    }
-
-    private void preventSibling() {
-        eb.fireEvent(new PreventSiblingEvent(msgKind));
-        eb.addHandler(PreventSiblingEvent.TYPE, new PreventSiblingEvent.Handler() {
-            @Override
-            public void onSiblingExists(PreventSiblingEvent event) {
-                if (event.getKind() instanceof Kind) {
-                    if (event.getKind().equals(msgKind)) {
-                        removeFromParent();
-                    }
-                }
-            }
-        });
-    }
-
-    public StatusBar(ClientFactory cf, SafeHtml statusMsg, Kind msgKind) {
-        this.msgKind = msgKind;
-        this.eb = cf.getEb();
-        initWidget(binder.createAndBindUi(this));
-        preventSibling();
-        RootPanel.get().add(this);
-
-        msg.setHTML(statusMsg);
-        switch (msgKind) {
-            case SUCCESS:
-                container.addStyleName(ClientResource.INSTANCE.design().success());
-                kind.addStyleName("icon-ok-sign");
-                addAutoDisappearing();
-                break;
-            case APP_ERROR:
-                container.addStyleName(ClientResource.INSTANCE.design().error());
-                kind.addStyleName("icon-warning-sign");
-                break;
-            case INFO:
-                eb.addHandler(DoneEvent.TYPE, new DoneEvent.Handler() {
-                    @Override
-                    public void onDone() {
-                        removeFromParent();
-                    }
-                });
-                container.addStyleName(ClientResource.INSTANCE.design().info());
-                kind.addStyleName("icon-info-sign");
-                break;
-            case USAGE_INFO:
-                container.addStyleName(ClientResource.INSTANCE.design().info());
-                kind.addStyleName("icon-question-sign");
-                break;
-            case SERVER_FAILURE:
-                container.addStyleName(ClientResource.INSTANCE.design().failure());
-                kind.addStyleName("icon-remove-sign");
-                break;
-        }
-    }
-
-    @UiHandler(value = "close")
-    void onClose(ClickEvent event) {
+  private void addAutoDisappearing() {
+    final int toDisplayDuration = 3000; // 3s
+    new Timer() {
+      public void run() {
         removeFromParent();
+      }
+    }.schedule(toDisplayDuration);
+  }
+
+  // show "processing" status only when it takes a certain time for the process to finish
+  private void showWithDelay() {
+    new Timer() {
+      @Override
+      public void run() {
+        // display widget
+      }
+    }.schedule(500); // 0.5s
+  }
+
+  private void preventSibling() {
+    eb.fireEvent(new PreventSiblingEvent(msgKind));
+    eb.addHandler(PreventSiblingEvent.TYPE, new PreventSiblingEvent.Handler() {
+      @Override
+      public void onSiblingExists(PreventSiblingEvent event) {
+        if (event.getKind() instanceof Kind) {
+          if (event.getKind().equals(msgKind)) {
+            removeFromParent();
+          } else if (msgKind.equals(Kind.APP_ERROR) && event.getKind().equals(Kind.SUCCESS)) {
+            removeFromParent();
+          }
+        }
+      }
+    });
+  }
+
+  public StatusBar(ClientFactory cf, SafeHtml statusMsg, Kind msgKind) {
+    this.msgKind = msgKind;
+    this.eb = cf.getEb();
+    initWidget(Binder.BINDER.createAndBindUi(this));
+    preventSibling();
+    RootPanel.get().add(this);
+
+    msg.setHTML(statusMsg);
+    switch (msgKind) {
+      case SUCCESS:
+        container.addStyleName(ClientResource.INSTANCE.design().success());
+        kind.addStyleName("icon-ok-sign");
+        addAutoDisappearing();
+        break;
+      case APP_ERROR:
+        container.addStyleName(ClientResource.INSTANCE.design().error());
+        kind.addStyleName("icon-warning-sign");
+        break;
+      case INFO:
+        eb.addHandler(DoneEvent.TYPE, new DoneEvent.Handler() {
+          @Override
+          public void onDone() {
+            removeFromParent();
+          }
+        });
+        container.addStyleName(ClientResource.INSTANCE.design().info());
+        kind.addStyleName("icon-info-sign");
+        break;
+      case USAGE_INFO:
+        container.addStyleName(ClientResource.INSTANCE.design().info());
+        kind.addStyleName("icon-question-sign");
+        break;
+      case SERVER_FAILURE:
+        container.addStyleName(ClientResource.INSTANCE.design().failure());
+        kind.addStyleName("icon-remove-sign");
+        break;
     }
+  }
+
+  @UiHandler(value = "close")
+  void onClose(ClickEvent event) {
+    removeFromParent();
+  }
 }

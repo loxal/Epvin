@@ -22,36 +22,41 @@ import java.util.Date;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class EmployeeEditor extends Composite implements Editor<EmployeeProxy> {
-    static DateBox.Format format;
+  static DateBox.Format format;
 
-    interface Binder extends UiBinder<VerticalPanel, EmployeeEditor> {
-        static final Binder BINDER = GWT.create(Binder.class);
-    }
+  interface Binder extends UiBinder<VerticalPanel, EmployeeEditor> {
+    static final Binder BINDER = GWT.create(Binder.class);
+  }
 
-    @UiField
-    TextBox nameFirst;
-    @UiField
-    TextBox nameLast;
-    @UiField
-    TextBox mail;
-    @UiField
-    DateBox birth;
+  @UiField
+  TextBox nameFirst;
+  @UiField
+  TextBox nameLast;
+  @UiField
+  TextBox mail;
+  @UiField
+  DateBox birth;
 
-    @UiConstructor
-    public EmployeeEditor(ClientFactory cf) {
-        initWidget(Binder.BINDER.createAndBindUi(this));
-        format = new DateBox.DefaultFormat(cf.getClientResource().defaultDateFormat);
+  public void focus() {
+    nameFirst.setFocus(true);
+  }
 
-        nameFirst.setAccessKey('1');
-        nameLast.setAccessKey('2');
-        mail.setAccessKey('3');
-        birth.setAccessKey('4');
+  public void setDefaults() {
+    @SuppressWarnings("deprecation")
+    final Date presetBirth = new Date(84, 5, 15); // preset default for convenience reasons
+//    birth.setFormat(format);
+    birth.setValue(presetBirth);
+  }
 
-        {
-            @SuppressWarnings("deprecation")
-            final Date presetBirth = new Date(84, 5, 15); // preset for convenience reasons
-            birth.setFormat(format);
-            birth.setValue(presetBirth);
-        }
-    }
+  @UiConstructor
+  public EmployeeEditor(ClientFactory cf) {
+    initWidget(Binder.BINDER.createAndBindUi(this));
+    format = new DateBox.DefaultFormat(cf.getClientResource().defaultDateFormat);
+    birth.setFormat(format);
+
+    nameFirst.setAccessKey('1');
+    nameLast.setAccessKey('2');
+    mail.setAccessKey('3');
+    birth.setAccessKey('4');
+  }
 }
