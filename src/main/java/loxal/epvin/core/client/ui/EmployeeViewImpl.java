@@ -4,10 +4,7 @@
 
 package loxal.epvin.core.client.ui;
 
-import com.google.gwt.cell.client.ActionCell;
-import com.google.gwt.cell.client.ClickableTextCell;
-import com.google.gwt.cell.client.DateCell;
-import com.google.gwt.cell.client.SafeHtmlCell;
+import com.google.gwt.cell.client.*;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.safehtml.shared.SafeHtml;
@@ -16,6 +13,8 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.cellview.client.*;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
@@ -34,6 +33,8 @@ import loxal.epvin.core.shared.EmployeeReqCtx;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
@@ -182,18 +183,40 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     };
     employeeTable.addColumn(birth, birthColHeader, avgAgeFooter);
 
-    final ActionCell.Delegate<Long> deleteDelegate = new ActionCell.Delegate<Long>() {
-      @Override
-      public void execute(Long object) {
-        presenter.delete(object);
+    ButtonCell previewButton = new ButtonCell();
+
+
+    Column<EmployeeProxy, String> delete = new Column<EmployeeProxy, String>(previewButton) {
+      public String getValue(EmployeeProxy object) {
+//        DOM.eventCancelBubble(Event.getCurrentEvent(), true);
+//        DOM.eventCancelBubble(DOM.eventGetCurrentEvent(), true);
+        return "Preview";
       }
     };
-    final Column<EmployeeProxy, Long> delete = new Column<EmployeeProxy, Long>(new ActionCell<Long>(SafeHtmlUtils.fromSafeConstant("<span class='icon-remove'/>"), deleteDelegate)) {
+    delete.setFieldUpdater(new FieldUpdater<EmployeeProxy, String>() {
       @Override
-      public Long getValue(EmployeeProxy object) {
-        return object.getId();
+      public void update(int index, EmployeeProxy object, String value) {
+        DOM.eventCancelBubble(Event.getCurrentEvent(), false);
+//        DOM.eventCancelBubble(DOM.eventGetCurrentEvent(), true);
+
+        // The user clicked on the button for the passed auction.
+        Logger.getLogger("\"Yes!\": ").log(Level.INFO, "Yes!" + "");
       }
-    };
+    });
+
+//        final ActionCell.Delegate<Long> deleteDelegate = new ActionCell.Delegate<Long>() {
+//          @Override
+//          public void execute(Long object) {
+//    //        presenter.delete(object);
+//          }
+//        };
+//    final Column<EmployeeProxy, Long> delete = new Column<EmployeeProxy, Long>(new ActionCell<Long>(SafeHtmlUtils.fromSafeConstant("<span class='icon-remove'/>"), deleteDelegate)) {
+//      @Override
+//      public Long getValue(EmployeeProxy object) {
+//        return object.getId();
+//      }
+//    };
+
     employeeTable.addColumn(delete);
 
     final ActionCell.Delegate<EmployeeProxy> editDelegate = new ActionCell.Delegate<EmployeeProxy>() {

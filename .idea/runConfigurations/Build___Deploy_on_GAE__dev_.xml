@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Deploy on GAE (dev)" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="Build &amp; Deploy on GAE (dev)" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings">
         <MavenGeneralSettings>
