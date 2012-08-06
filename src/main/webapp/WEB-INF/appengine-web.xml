@@ -41,7 +41,7 @@
 
     <resource-files>
         <include path="**/*.gwt.rpc"/>
-        <!--<include path="/**.xml"/>-->
+        <include path="/**.xml"/>
         <include path="/**.properties"/>
     </resource-files>
 

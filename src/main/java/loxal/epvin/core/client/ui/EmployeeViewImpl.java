@@ -171,8 +171,7 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
         }
       }
     };
-    // NTH move ClientResource.INSTANCE.factory().create() to CF
-    //    final Column<EmployeeProxy, Date> birth = new Column<EmployeeProxy, Date>(new DateCell(ClientResource.INSTANCE.factory().create().defaultDateFormat)) {
+
     final Column<EmployeeProxy, Date> birth = new Column<EmployeeProxy, Date>(new DateCell(cf.getClientResource().defaultDateFormat)) {
       @Override
       public Date getValue(EmployeeProxy object) {
