@@ -10,9 +10,9 @@ import com.google.gwt.user.client.Window;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class ClientFactoryPhoneImpl extends ClientFactoryImpl {
-    ClientFactoryPhoneImpl() {
-        super();
-        ClientResource.INSTANCE.main().ensureInjected();
-        Window.setTitle("PHONE Employee Import | " + ClientResource.INSTANCE.factory().create().companyDesignator);
-    }
+  ClientFactoryPhoneImpl() {
+    super();
+    ClientResource.INSTANCE.main().ensureInjected();
+    Window.setTitle("PHONE Employee Import | " + super.getClientResource().companyDesignator);
+  }
 }

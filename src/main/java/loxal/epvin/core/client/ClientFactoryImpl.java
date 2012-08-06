@@ -27,61 +27,61 @@ import java.util.logging.Logger;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class ClientFactoryImpl implements ClientFactory {
-    private final EventBus eb = new SimpleEventBus();
-    private final PlaceController placeController = new PlaceController(eb);
-    private final EmployeeView employeeView = new EmployeeViewImpl(this);
-    private final ReqFactory rf = GWT.create(ReqFactory.class);
-    private final Logger logger = Logger.getLogger(this.getClass().getName());
-    private static final Property clientResource = ClientResource.INSTANCE.factory().create();
+  private final EventBus eb = new SimpleEventBus();
+  private final PlaceController placeController = new PlaceController(eb);
+  private final EmployeeView employeeView = new EmployeeViewImpl(this);
+  private final ReqFactory rf = GWT.create(ReqFactory.class);
+  private final Logger logger = Logger.getLogger(this.getClass().getName());
+  private static final Property clientResource = ClientResource.INSTANCE.factory().create();
 
-    @Override
-    public Property getClientResource() {
-        return clientResource;
-    }
+  @Override
+  public Property getClientResource() {
+    return clientResource;
+  }
 
-    @Override
-    public Logger getLogger() {
-        return logger;
-    }
+  @Override
+  public Logger getLogger() {
+    return logger;
+  }
 
-    @Override
-    public EventBus getEb() {
-        return eb;
-    }
+  @Override
+  public EventBus getEb() {
+    return eb;
+  }
 
-    @Override
-    public ReqFactory getRf() {
-        return rf;
-    }
+  @Override
+  public ReqFactory getRf() {
+    return rf;
+  }
 
-    @Override
-    public PlaceController getPlaceController() {
-        return placeController;
-    }
+  @Override
+  public PlaceController getPlaceController() {
+    return placeController;
+  }
 
-    @Override
-    public EmployeeView getEmployeeView() {
-        return employeeView;
-    }
+  @Override
+  public EmployeeView getEmployeeView() {
+    return employeeView;
+  }
 
-    ClientFactoryImpl() {
-        final Layout shell = new Layout();
+  ClientFactoryImpl() {
+    final Layout shell = new Layout();
 
-        ClientResource.INSTANCE.design().ensureInjected();
-        rf.initialize(eb);
-        final ActivityMapper activityMapper = new AppActivityMapper(this);
-        final ActivityManager activityManager = new ActivityManager(activityMapper, eb);
-        activityManager.setDisplay(shell);
-        RootLayoutPanel.get().add(shell);
+    ClientResource.INSTANCE.design().ensureInjected();
+    rf.initialize(eb);
+    final ActivityMapper activityMapper = new AppActivityMapper(this);
+    final ActivityManager activityManager = new ActivityManager(activityMapper, eb);
+    activityManager.setDisplay(shell);
+    RootLayoutPanel.get().add(shell);
 
-        final AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
-        final PlaceHistoryHandler placeHistoryHandler = new PlaceHistoryHandler(historyMapper);
-        final Place defaultPlace = new EmployeePlace("Alexander");
-        placeHistoryHandler.register(placeController, eb, defaultPlace);
+    final AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
+    final PlaceHistoryHandler placeHistoryHandler = new PlaceHistoryHandler(historyMapper);
+    final Place defaultPlace = new EmployeePlace("Alexander");
+    placeHistoryHandler.register(placeController, eb, defaultPlace);
 
-        // Goes to the place represented on URL or default place
-        placeHistoryHandler.handleCurrentHistory();
+    // Goes to the place represented on URL or default place
+    placeHistoryHandler.handleCurrentHistory();
 
-        Window.setTitle("Employee Import | " + ClientResource.INSTANCE.factory().create().companyDesignator);
-    }
+    Window.setTitle("Employee Import | " + this.getClientResource().companyDesignator);
+  }
 }
