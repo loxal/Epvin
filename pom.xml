@@ -31,6 +31,20 @@
             <version>${gwt.ver}</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.smartgwt</groupId>
+            <artifactId>smartgwt</artifactId>
+            <version>2.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.smartgwt</groupId>
+            <artifactId>smartgwt-skins</artifactId>
+            <version>2.4</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>com.google.web.bindery</groupId>
             <artifactId>requestfactory-apt</artifactId>
@@ -111,14 +125,14 @@
                     <emailAccount>${my.gae.deployment.email}</emailAccount>
                     <passIn>true</passIn>
                 </configuration>
-                <!--<dependencies>-->
-                <!--<dependency>-->
-                <!--<groupId>net.kindleit</groupId>-->
-                <!--<artifactId>gae-runtime</artifactId>-->
-                <!--<version>${gae.ver}</version>-->
-                <!--<type>pom</type>-->
-                <!--</dependency>-->
-                <!--</dependencies>-->
+                <dependencies>
+                    <!--this is evenutally unnecessary-->
+                    <dependency>
+                        <groupId>org.codehaus.plexus</groupId>
+                        <artifactId>plexus-archiver</artifactId>
+                        <version>2.1.1</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

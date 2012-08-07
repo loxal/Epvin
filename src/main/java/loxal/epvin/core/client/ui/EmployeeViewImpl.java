@@ -23,6 +23,7 @@ import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.web.bindery.requestfactory.gwt.client.RequestFactoryEditorDriver;
+import com.smartgwt.client.widgets.calendar.Calendar;
 import loxal.epvin.core.client.ClientFactory;
 import loxal.epvin.core.client.ui.editor.EmployeeEditor;
 import loxal.epvin.core.event.RefreshEvent;
@@ -84,6 +85,9 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     initWidget(Binder.BINDER.createAndBindUi(this));
     attachHandler();
     init();
+
+    Calendar calendar = new Calendar();
+    calendar.draw();
   }
 
   private void attachHandler() {
