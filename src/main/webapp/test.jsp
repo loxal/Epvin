@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta charset="utf-8">
 <meta name="viewport"
-      content="width=device-width, height=device-height, initial-scale=0.2, minimum-scale=0.1, maximum-scale=1.0, user-scalable=yes">
+      content="width=device-width, height=device-height, initial-scale=1.2, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
 <link rel="apple-touch-startup-image" href="http://module.loxal.net/resource/logo.png"/>
 <title>Epvin | Loxal</title>
 
