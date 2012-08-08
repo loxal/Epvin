@@ -24,8 +24,10 @@
     <ui:with field="eb" type="com.google.web.bindery.event.shared.EventBus"/>
     <g:DecoratedPopupPanel ui:field="container"
                            addStyleNames="{style.statusBar}"
-                           modal="false"
+                           modal="true"
                            animationEnabled="true"
+                           autoHideEnabled="true"
+                           autoHideOnHistoryEventsEnabled="true"
             >
         <g:HTMLPanel>
             <g:Label ui:field="kind" addStyleNames="{style.kind}"/>
