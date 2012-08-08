@@ -11,7 +11,10 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.DecoratedPopupPanel;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Label;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.ResettableEventBus;
 import loxal.epvin.core.event.AutoDisappearanceEvent;
@@ -24,7 +27,7 @@ import loxal.epvin.core.event.PreventSiblingEvent;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 // NTH make this a widget in the Layout.ui that gets its contents via NotificationEvent
-public class StatusBar extends Composite {
+public class StatusBar {
   private final Kind msgKind;
   private DeleteEvent deleteEvent;
 
@@ -53,7 +56,7 @@ public class StatusBar extends Composite {
   private void addAutoDisappearing() {
     new Timer() {
       public void run() {
-        removeFromParent();
+        container.hide();
         if (deleteEvent != null)
           reb.fireEvent(new AutoDisappearanceEvent());
       }
@@ -77,21 +80,26 @@ public class StatusBar extends Composite {
       public void onSiblingExists(PreventSiblingEvent event) {
         if (event.getKind() instanceof Kind) {
           if (event.getKind().equals(msgKind)) {
-            removeFromParent();
+            container.hide();
           } else if (msgKind.equals(Kind.APP_ERROR) && event.getKind().equals(Kind.SUCCESS)) {
-            removeFromParent();
+            container.hide();
           }
         }
       }
     });
   }
 
-  public StatusBar(ClientFactory cf, SafeHtml statusMsg, Kind msgKind) {
+  private void show() {
+    container.center();
+    preventSibling();
+  }
+
+  public StatusBar(ClientFactory cf, SafeHtml statusMsg, Kind msgKind, String title) {
     this.msgKind = msgKind;
     this.eb = cf.getEb();
-    initWidget(Binder.BINDER.createAndBindUi(this));
-    preventSibling();
-    RootPanel.get().add(this);
+    Binder.BINDER.createAndBindUi(this);
+    container.setTitle(title);
+    show();
 
     msg.setHTML(statusMsg);
     switch (msgKind) {
@@ -108,7 +116,7 @@ public class StatusBar extends Composite {
         eb.addHandler(DoneEvent.TYPE, new DoneEvent.Handler() {
           @Override
           public void onDone() {
-            removeFromParent();
+            container.hide();
           }
         });
         container.addStyleName(ClientResource.INSTANCE.design().info());
@@ -135,8 +143,8 @@ public class StatusBar extends Composite {
 
   ResettableEventBus reb;
 
-  public StatusBar(ClientFactory cf, SafeHtml statusMsg, Kind msgKind, final DeleteEvent deleteEvent) {
-    this(cf, statusMsg, msgKind);
+  public StatusBar(ClientFactory cf, SafeHtml statusMsg, Kind msgKind, final DeleteEvent deleteEvent, String title) {
+    this(cf, statusMsg, msgKind, title);
     this.deleteEvent = deleteEvent;
 
     reb = new ResettableEventBus(eb);
@@ -150,7 +158,7 @@ public class StatusBar extends Composite {
 
   @UiHandler(value = "close")
   void onClose(ClickEvent event) {
-    removeFromParent();
+    container.hide();
   }
 
   @UiHandler(value = "undo")

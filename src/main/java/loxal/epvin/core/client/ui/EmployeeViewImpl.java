@@ -195,8 +195,8 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
             cf,
             SafeHtmlUtils.fromSafeConstant(I18nConstants.INSTANCE.deletingEmployee()),
             StatusBar.Kind.REVERSIBLE_SUCCESS,
-            new DeleteEvent(id)
-        );
+            new DeleteEvent(id),
+            null);
       }
     };
     final Column<EmployeeProxy, Long> delete = new Column<EmployeeProxy, Long>(new ActionCell<Long>(SafeHtmlUtils.fromSafeConstant("<span class='icon-remove'/>"), deleteDelegate)) {

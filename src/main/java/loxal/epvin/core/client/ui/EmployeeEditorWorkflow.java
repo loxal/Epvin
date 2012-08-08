@@ -68,8 +68,8 @@ public class EmployeeEditorWorkflow {
     new StatusBar(
         cf,
         SafeHtmlUtils.fromSafeConstant(I18nConstants.INSTANCE.updating()),
-        StatusBar.Kind.INFO
-    );
+        StatusBar.Kind.INFO,
+        null);
 
     final RequestContext driverCtx = Driver.DRIVER.flush();
     if (Driver.DRIVER.hasErrors()) {
@@ -78,8 +78,8 @@ public class EmployeeEditorWorkflow {
       new StatusBar(
           cf,
           SafeHtmlUtils.fromSafeConstant(I18nConstants.INSTANCE.editorHasErrors()),
-          StatusBar.Kind.APP_ERROR
-      );
+          StatusBar.Kind.APP_ERROR,
+          null);
     }
 
     driverCtx.fire(new Receiver<Void>() {
@@ -110,8 +110,9 @@ public class EmployeeEditorWorkflow {
         new StatusBar(
             cf,
             SafeHtmlUtils.fromSafeConstant(sb.toString()),
-            StatusBar.Kind.APP_ERROR
-        ).setTitle(I18nConstants.INSTANCE.violations() + ": " + violations.size());
+            StatusBar.Kind.APP_ERROR,
+            I18nConstants.INSTANCE.violations() + ": " + violations.size()
+        );
       }
 
       @Override
@@ -123,8 +124,8 @@ public class EmployeeEditorWorkflow {
         new StatusBar(
             cf,
             SafeHtmlUtils.fromSafeConstant(I18nConstants.INSTANCE.employeeUpdated()),
-            StatusBar.Kind.SUCCESS
-        );
+            StatusBar.Kind.SUCCESS,
+            null);
       }
     });
   }
