@@ -28,7 +28,7 @@ class GWTBootstrapper {
     final paramMapping = getUriParams(uriSearch);
 
     final defaultModuleFqn = 'loxal.epvin.manager.Manager';
-    final moduleFqn = paramMapping == null ? defaultModuleFqn : paramMapping['module'];
+    final moduleFqn = paramMapping == null || paramMapping['module'] == null ? defaultModuleFqn : paramMapping['module'];
     final moduleSrc = '/$moduleFqn/$moduleFqn.nocache.js';
 
     moduleContainer.async = true;

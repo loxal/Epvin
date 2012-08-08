@@ -13,6 +13,9 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.*;
 import com.google.web.bindery.event.shared.EventBus;
+import com.google.web.bindery.event.shared.ResettableEventBus;
+import loxal.epvin.core.event.AutoDisappearanceEvent;
+import loxal.epvin.core.event.DeleteEvent;
 import loxal.epvin.core.event.DoneEvent;
 import loxal.epvin.core.event.PreventSiblingEvent;
 
@@ -23,6 +26,7 @@ import loxal.epvin.core.event.PreventSiblingEvent;
 // NTH make this a widget in the Layout.ui that gets its contents via NotificationEvent
 public class StatusBar extends Composite {
   private final Kind msgKind;
+  private DeleteEvent deleteEvent;
 
   interface Binder extends UiBinder<DecoratedPopupPanel, StatusBar> {
     static final Binder BINDER = GWT.create(Binder.class);
@@ -38,16 +42,20 @@ public class StatusBar extends Composite {
   EventBus eb;
   @UiField
   Label kind;
+  @UiField
+  Button undo;
+  Integer toDisplayDuration = 3000; // 3s
 
   public enum Kind {
-    INFO, SUCCESS, APP_ERROR, USAGE_INFO, SERVER_FAILURE,
+    INFO, SUCCESS, APP_ERROR, USAGE_INFO, SERVER_FAILURE, REVERSIBLE_SUCCESS,
   }
 
   private void addAutoDisappearing() {
-    final int toDisplayDuration = 3000; // 3s
     new Timer() {
       public void run() {
         removeFromParent();
+        if (deleteEvent != null)
+          reb.fireEvent(new AutoDisappearanceEvent());
       }
     }.schedule(toDisplayDuration);
   }
@@ -114,11 +122,40 @@ public class StatusBar extends Composite {
         container.addStyleName(ClientResource.INSTANCE.design().failure());
         kind.addStyleName("icon-remove-sign");
         break;
+      case REVERSIBLE_SUCCESS:
+        this.toDisplayDuration = 2000; // 2s
+        undo.setVisible(true);
+        close.setVisible(false);
+        container.addStyleName(ClientResource.INSTANCE.design().reversibleSuccess());
+        kind.addStyleName("icon-info-sign");
+        addAutoDisappearing();
+        break;
     }
+  }
+
+  ResettableEventBus reb;
+
+  public StatusBar(ClientFactory cf, SafeHtml statusMsg, Kind msgKind, final DeleteEvent deleteEvent) {
+    this(cf, statusMsg, msgKind);
+    this.deleteEvent = deleteEvent;
+
+    reb = new ResettableEventBus(eb);
+    reb.addHandler(AutoDisappearanceEvent.TYPE, new AutoDisappearanceEvent.Handler() {
+      @Override
+      public void onDisappear() {
+        eb.fireEvent(deleteEvent);
+      }
+    });
   }
 
   @UiHandler(value = "close")
   void onClose(ClickEvent event) {
     removeFromParent();
+  }
+
+  @UiHandler(value = "undo")
+  void onUndo(ClickEvent event) {
+    reb.removeHandlers();
+    onClose(event);
   }
 }

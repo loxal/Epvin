@@ -21,6 +21,10 @@
         color: successColor;
     }
 
+    .reversibleSuccess {
+        color: infoColor;
+    }
+
     .error {
         color: errorColor;
     }

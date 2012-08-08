@@ -23,9 +23,10 @@ import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.web.bindery.requestfactory.gwt.client.RequestFactoryEditorDriver;
-import com.smartgwt.client.widgets.calendar.Calendar;
 import loxal.epvin.core.client.ClientFactory;
+import loxal.epvin.core.client.StatusBar;
 import loxal.epvin.core.client.ui.editor.EmployeeEditor;
+import loxal.epvin.core.event.DeleteEvent;
 import loxal.epvin.core.event.RefreshEvent;
 import loxal.epvin.core.shared.EmployeeProxy;
 import loxal.epvin.core.shared.EmployeeReqCtx;
@@ -85,9 +86,6 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     initWidget(Binder.BINDER.createAndBindUi(this));
     attachHandler();
     init();
-
-    Calendar calendar = new Calendar();
-    calendar.draw();
   }
 
   private void attachHandler() {
@@ -95,6 +93,12 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
       @Override
       public void onDone() {
         presenter.refresh();
+      }
+    });
+    cf.getEb().addHandler(DeleteEvent.TYPE, new DeleteEvent.Handler() {
+      @Override
+      public void onDelete(Long id) {
+        presenter.delete(id);
       }
     });
 
@@ -186,8 +190,13 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
 
     final ActionCell.Delegate<Long> deleteDelegate = new ActionCell.Delegate<Long>() {
       @Override
-      public void execute(Long object) {
-        presenter.delete(object);
+      public void execute(Long id) {
+        new StatusBar(
+            cf,
+            SafeHtmlUtils.fromSafeConstant(I18nConstants.INSTANCE.deletingEmployee()),
+            StatusBar.Kind.REVERSIBLE_SUCCESS,
+            new DeleteEvent(id)
+        );
       }
     };
     final Column<EmployeeProxy, Long> delete = new Column<EmployeeProxy, Long>(new ActionCell<Long>(SafeHtmlUtils.fromSafeConstant("<span class='icon-remove'/>"), deleteDelegate)) {

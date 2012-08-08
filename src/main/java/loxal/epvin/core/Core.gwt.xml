@@ -15,7 +15,7 @@
     <source path="shared"/>
     <stylesheet src="icon/css/font-awesome.css"/>
 
-    <inherits name="com.smartgwt.SmartGwt"/>
+    <!--<inherits name="com.smartgwt.SmartGwt"/>-->
 
     <inherits name="com.google.gwt.user.User"/>
     <inherits name="com.google.gwt.uibinder.UiBinder"/>

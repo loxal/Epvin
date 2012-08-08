@@ -10,11 +10,13 @@ import com.google.gwt.resources.client.CssResource;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public interface DesignCss extends CssResource {
-    String error();
+  String error();
 
-    String success();
+  String success();
 
-    String failure();
+  String failure();
 
-    String info();
+  String info();
+
+  String reversibleSuccess();
 }

@@ -5,6 +5,7 @@
 package loxal.epvin.core.client.ui;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.editor.client.EditorError;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
@@ -30,7 +31,10 @@ import loxal.epvin.core.shared.EmployeeProxy;
 import loxal.epvin.core.shared.EmployeeReqCtx;
 
 import javax.validation.ConstraintViolation;
+import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EmployeeEditorWorkflow {
   interface Binder extends UiBinder<DialogBox, EmployeeEditorWorkflow> {
@@ -83,6 +87,10 @@ public class EmployeeEditorWorkflow {
       public void onConstraintViolation(Set<ConstraintViolation<?>> violations) {
         dialog.setText("Errors detected");
         Driver.DRIVER.setConstraintViolations(violations);
+        List<EditorError> editorErrors = Driver.DRIVER.getErrors();
+        for (EditorError editorError : editorErrors) {
+          Logger.getLogger("editorError.getMessage(): ").log(Level.INFO, editorError.getMessage() + "");
+        }
 
         cf.getEb().fireEvent(new DoneEvent());
 

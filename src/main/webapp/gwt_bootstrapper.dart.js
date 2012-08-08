@@ -915,7 +915,7 @@ $$.GWTBootstrapper = {"":["moduleContainer"],
     super:"Object",
     init$0:function () {
         var paramMapping = this.getUriParams$1($.window().get$location().get$search());
-        var moduleFqn = paramMapping == null ? 'loxal.epvin.manager.Manager' : $.index(paramMapping, 'module');
+        var moduleFqn = paramMapping == null || $.index(paramMapping, 'module') == null ? 'loxal.epvin.manager.Manager' : $.index(paramMapping, 'module');
         var moduleSrc = '/' + $.S(moduleFqn) + '/' + $.S(moduleFqn) + '.nocache.js';
         var t1 = this.moduleContainer;
         t1.set$async(true);

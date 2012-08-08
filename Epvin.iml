@@ -41,7 +41,6 @@
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/gwt-unitCache" />
       <excludeFolder url="file://$MODULE_DIR$/target/.generated" />
-      <excludeFolder url="file://$MODULE_DIR$/target/.requestfactory-apt_generated" />
       <excludeFolder url="file://$MODULE_DIR$/target/Epvin" />
       <excludeFolder url="file://$MODULE_DIR$/target/deploy" />
       <excludeFolder url="file://$MODULE_DIR$/target/gwt-unitCache" />
@@ -56,8 +55,6 @@
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.validation:validation-api:sources:1.0.0.GA" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20090211" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.smartgwt:smartgwt:2.4" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.smartgwt:smartgwt-skins:2.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.web.bindery:requestfactory-apt:2.5.0-rc1" level="project" />
     <orderEntry type="library" name="Maven: com.google.web.bindery:requestfactory-server:2.5.0-rc1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.10" level="project" />

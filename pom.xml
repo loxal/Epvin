@@ -32,18 +32,18 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.smartgwt</groupId>
-            <artifactId>smartgwt</artifactId>
-            <version>2.4</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.smartgwt</groupId>
-            <artifactId>smartgwt-skins</artifactId>
-            <version>2.4</version>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.smartgwt</groupId>-->
+        <!--<artifactId>smartgwt</artifactId>-->
+        <!--<version>2.4</version>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>com.smartgwt</groupId>-->
+        <!--<artifactId>smartgwt-skins</artifactId>-->
+        <!--<version>2.4</version>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>com.google.web.bindery</groupId>
@@ -288,8 +288,8 @@
             <properties>
                 <java.optimize>true</java.optimize>
 
-                <gwt.locales>de,zh,es_ES,fr_FR,pt_BR,ru_RU</gwt.locales>
-                <gwt.userAgent>ie6,ie8,ie9,gecko1_8,safari,opera</gwt.userAgent>
+                <gwt.locales>de_DE,zh</gwt.locales>
+                <gwt.userAgent>ie8,ie9,gecko1_8,safari</gwt.userAgent>
                 <gwt.draftCompile>false</gwt.draftCompile>
                 <gwt.optimizationLevel>9</gwt.optimizationLevel>
             </properties>
