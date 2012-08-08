@@ -80,6 +80,8 @@ public class EmployeeEditorWorkflow {
           SafeHtmlUtils.fromSafeConstant(I18nConstants.INSTANCE.editorHasErrors()),
           StatusBar.Kind.APP_ERROR,
           null);
+
+      return;
     }
 
     driverCtx.fire(new Receiver<Void>() {
