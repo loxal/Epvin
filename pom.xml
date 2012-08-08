@@ -125,14 +125,14 @@
                     <emailAccount>${my.gae.deployment.email}</emailAccount>
                     <passIn>true</passIn>
                 </configuration>
-                <dependencies>
-                    <!--this is evenutally unnecessary-->
-                    <dependency>
-                        <groupId>org.codehaus.plexus</groupId>
-                        <artifactId>plexus-archiver</artifactId>
-                        <version>2.1.1</version>
-                    </dependency>
-                </dependencies>
+                <!--<dependencies>-->
+                <!--this is evenutally unnecessary-->
+                <!--<dependency>-->
+                <!--<groupId>org.codehaus.plexus</groupId>-->
+                <!--<artifactId>plexus-archiver</artifactId>-->
+                <!--<version>2.1.1</version>-->
+                <!--</dependency>-->
+                <!--</dependencies>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
