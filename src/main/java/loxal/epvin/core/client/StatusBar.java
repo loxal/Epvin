@@ -22,6 +22,9 @@ import loxal.epvin.core.event.DeleteEvent;
 import loxal.epvin.core.event.DoneEvent;
 import loxal.epvin.core.event.PreventSiblingEvent;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
@@ -57,6 +60,8 @@ public class StatusBar {
     new Timer() {
       public void run() {
         container.hide();
+        // using deleteEvent doesn't work because it's !=null after first successful deletion
+        Logger.getLogger("deleteEvent: ").log(Level.INFO, deleteEvent + "");
         if (deleteEvent != null)
           reb.fireEvent(new AutoDisappearanceEvent());
       }

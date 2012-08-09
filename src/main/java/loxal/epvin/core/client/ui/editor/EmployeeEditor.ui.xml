@@ -5,6 +5,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:e="urn:import:com.google.gwt.editor.ui.client"
              xmlns:datepicker="urn:import:com.google.gwt.user.datepicker.client"
              ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
              ui:generateKeys="com.google.gwt.i18n.server.keygen.MD5KeyGenerator"
@@ -15,18 +16,37 @@
         <g:Label addStyleNames="icon-tag">
             <ui:msg key="nameFirst" description="personnel data">First name</ui:msg>
         </g:Label>
-        <g:TextBox ui:field="nameFirst"/>
+        <e:ValueBoxEditorDecorator ui:field="nameFirst">
+            <e:valuebox>
+                <g:TextBox/>
+            </e:valuebox>
+        </e:ValueBoxEditorDecorator>
         <g:Label addStyleNames="icon-tag">
             <ui:msg key="nameLast" description="personnel data">Last name</ui:msg>
         </g:Label>
-        <g:TextBox ui:field="nameLast"/>
+        <e:ValueBoxEditorDecorator ui:field="nameLast">
+            <e:valuebox>
+                <!--<g:TextBox ui:field="nameLast"/>-->
+                <g:TextBox/>
+            </e:valuebox>
+        </e:ValueBoxEditorDecorator>
         <g:Label addStyleNames="icon-envelope">
             <ui:msg key="mail" description="e-mail address">Mail</ui:msg>
         </g:Label>
-        <g:TextBox ui:field="mail"/>
+        <e:ValueBoxEditorDecorator ui:field="mail">
+            <e:valuebox>
+                <g:TextBox/>
+                <!--<g:TextBox ui:field="mail"/>-->
+            </e:valuebox>
+        </e:ValueBoxEditorDecorator>
         <g:Label addStyleNames="icon-calendar">
             <ui:msg key="birth" description="personnel data: birthday">Birth</ui:msg>
         </g:Label>
+        <!--<e:ValueBoxEditorDecorator ui:field="birth">-->
+        <!--<e:valuebox>-->
+        <!--<datepicker:DateBox addStyleNames="icon-calendar"/>-->
         <datepicker:DateBox ui:field="birth" addStyleNames="icon-calendar"/>
+        <!--</e:valuebox>-->
+        <!--</e:ValueBoxEditorDecorator>-->
     </g:VerticalPanel>
 </ui:UiBinder>

@@ -33,7 +33,7 @@
             <g:Label ui:field="kind" addStyleNames="{style.kind}"/>
             <g:HTML ui:field="msg" addStyleNames="{style.msg}"/>
             <g:Button ui:field="close" addStyleNames="icon-remove"/>
-            <g:Button ui:field="undo" visible="false" addStyleNames="icon-fast-backward" title="Undo action"/>
+            <g:Button ui:field="undo" visible="false" addStyleNames="icon-undo" title="Undo action"/>
         </g:HTMLPanel>
     </g:DecoratedPopupPanel>
 </ui:UiBinder>
