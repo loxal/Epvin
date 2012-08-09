@@ -8,7 +8,7 @@
     <option name="MAXIMUM_HEAP_SIZE" value="512" />
   </component>
   <component name="CompilerConfiguration">
-    <option name="DEFAULT_COMPILER" value="compAPI" />
+    <option name="DEFAULT_COMPILER" value="Javac" />
     <resourceExtensions />
     <wildcardResourcePatterns>
       <entry name="?*.properties" />
@@ -22,13 +22,23 @@
       <entry name="?*.tld" />
       <entry name="?*.ftl" />
     </wildcardResourcePatterns>
-    <annotationProcessing enabled="true" useClasspath="true">
-      <processorPath value="$PROJECT_DIR$/../../sdk/gwt/requestfactory-apt.jar" />
-      <processModule name="Epvin" generatedDirName="target/.requestfactory-apt_generated" />
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true">
+          <entry name="$PROJECT_DIR$/../../sdk/gwt/requestfactory-apt.jar" />
+        </processorPath>
+      </profile>
+      <profile default="false" name="Profile1" enabled="true">
+        <sourceOutputDir name="target/.requestfactory-apt_generated" />
+        <processorPath useClasspath="true">
+          <entry name="$PROJECT_DIR$/../../sdk/gwt/requestfactory-apt.jar" />
+        </processorPath>
+        <module name="Epvin" />
+      </profile>
     </annotationProcessing>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_STRING" value="-target 1.6" />
+    <bytecodeTargetLevel>
+      <module name="Epvin" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

@@ -18,7 +18,7 @@
         </g:Label>
         <e:ValueBoxEditorDecorator ui:field="nameFirst">
             <e:valuebox>
-                <g:TextBox/>
+                <g:TextBox ui:field="nameFirstElement"/>
             </e:valuebox>
         </e:ValueBoxEditorDecorator>
         <g:Label addStyleNames="icon-tag">
