@@ -126,7 +126,8 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
         return object.getNameFirst();
       }
     };
-    final SafeHtmlHeader nameFirstHeader = new SafeHtmlHeader(SafeHtmlUtils.fromSafeConstant("<span class='icon-tag'> " + I18nConstants.INSTANCE.firstName()));
+//    final SafeHtmlHeader nameFirstHeader = new SafeHtmlHeader(SafeHtmlUtils.fromSafeConstant("<span class='icon-tag'> " + I18nConstants.INSTANCE.firstName()));
+    final SafeHtmlHeader nameFirstHeader = new SafeHtmlHeader(SafeHtmlUtils.fromSafeConstant("<span class='icon-tag'> " + "FIRST"));
     employeeTable.addColumn(nameFirst, nameFirstHeader, nameFirstHeader);
 
     final Column<EmployeeProxy, String> nameLast = new Column<EmployeeProxy, String>(new ClickableTextCell()) {

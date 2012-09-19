@@ -9,6 +9,11 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/target/generated-sources/annotations" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
+        </sourceRoots>
       </configuration>
       <facet type="google-app-engine" name="Google App Engine">
         <configuration>
@@ -25,6 +30,9 @@
         <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.5.0-rc1/" />
         <setting name="gwtSdkType" value="maven" />
         <setting name="webFacet" value="Web" />
+        <packaging>
+          <module name="loxal.epvin.core.Screen" enabled="false" />
+        </packaging>
       </configuration>
     </facet>
   </component>
@@ -37,6 +45,7 @@
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/.gwt" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/gwt-unitCache" />
       <excludeFolder url="file://$MODULE_DIR$/target/.requestfactory-apt_generated" />
       <excludeFolder url="file://$MODULE_DIR$/target/Epvin" />
@@ -45,7 +54,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Dart SDK" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.gwt:gwt-user:2.5.0-rc1" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.validation:validation-api:sources:1.0.0.GA" level="project" />
