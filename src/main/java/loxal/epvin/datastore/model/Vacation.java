@@ -7,36 +7,36 @@ package loxal.epvin.datastore.model;
 import java.util.Date;
 
 /**
- * @author Alexander Orlov <a.orlov@digitalpublishing.de>
+ * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class Vacation extends DatastoreEntity {
-    private AppUser vacationer;
+  private AppUser vacationer;
 
-    public AppUser getVacationer() {
-        return vacationer;
-    }
+  public AppUser getVacationer() {
+    return vacationer;
+  }
 
-    public void setVacationer(AppUser vacationer) {
-        this.vacationer = vacationer;
-    }
+  public void setVacationer(AppUser vacationer) {
+    this.vacationer = vacationer;
+  }
 
-    private Date day;
+  private Date day;
 
-    public Date getDay() {
-        return day;
-    }
+  public Date getDay() {
+    return day;
+  }
 
-    public void setDay(Date day) {
-        this.day = day;
-    }
+  public void setDay(Date day) {
+    this.day = day;
+  }
 
-    private boolean halfDay;
+  private boolean halfDay;
 
-    public boolean isHalfDay() {
-        return halfDay;
-    }
+  public boolean isHalfDay() {
+    return halfDay;
+  }
 
-    public void setHalfDay(boolean halfDay) {
-        this.halfDay = halfDay;
-    }
+  public void setHalfDay(boolean halfDay) {
+    this.halfDay = halfDay;
+  }
 }
