@@ -8,35 +8,34 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.OnSave;
 
-
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 @Entity
 public class DatastoreEntity {
-    @OnSave
-    void prePersist() {
-        this.version++;
-    }
+  @OnSave
+  void prePersist() {
+    this.version++;
+  }
 
-    @Id
-    private Long id;
+  @Id
+  private Long id;
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(final Long id) {
-        this.id = id;
-    }
+  public void setId(final Long id) {
+    this.id = id;
+  }
 
-    private Integer version = 0;
+  private Integer version = 0;
 
-    public Integer getVersion() {
-        return version;
-    }
+  public Integer getVersion() {
+    return version;
+  }
 
-    public void setVersion(final Integer version) {
-        this.version = version;
-    }
+  public void setVersion(final Integer version) {
+    this.version = version;
+  }
 }
