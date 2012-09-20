@@ -165,17 +165,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <!--necessary for injecting values into CompileTimeProperties.gwt.xml-->
-        <resources>
-            <resource>
-                <directory>src</directory>
-                <includes>
-                    <include>CompileTimeProperties.gwt.xml</include>
-                </includes>
-                <filtering>true</filtering>
-                <targetPath>${project.basedir}/src/main/java/loxal/epvin/generated</targetPath>
-            </resource>
-        </resources>
     </build>
 
     <scm>
