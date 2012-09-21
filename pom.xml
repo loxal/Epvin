@@ -58,6 +58,13 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
+            <!--required for CI but not for IntelliJ-->
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
+            <version>${gwt.ver}</version>
+            <scope>system</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.10</version>
