@@ -57,13 +57,13 @@
             <version>${gwt.ver}</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <!--required for CI but not for IntelliJ-->
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-dev</artifactId>
-            <version>${gwt.ver}</version>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+        <!--&lt;!&ndash;required for CI but not for IntelliJ&ndash;&gt;-->
+        <!--<groupId>com.google.gwt</groupId>-->
+        <!--<artifactId>gwt-dev</artifactId>-->
+        <!--<version>${gwt.ver}</version>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
