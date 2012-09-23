@@ -55,7 +55,7 @@
     <orderEntry type="library" name="Maven: org.json:json:20090211" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.web.bindery:requestfactory-apt:2.5.0-rc1" level="project" />
     <orderEntry type="library" name="Maven: com.google.web.bindery:requestfactory-server:2.5.0-rc1" level="project" />
-    <orderEntry type="library" name="Maven: com.google.gwt:gwt-dev:2.5.0-rc1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.gwt:gwt-dev:2.5.0-rc1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.hibernate:hibernate-validator:4.3.0.Final" level="project" />
