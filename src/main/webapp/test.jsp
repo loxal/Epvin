@@ -1,7 +1,3 @@
-<%--
-  ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
-  --%>
-
 <!DOCTYPE html>
 <!--
 ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
