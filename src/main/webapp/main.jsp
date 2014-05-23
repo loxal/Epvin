@@ -14,8 +14,6 @@
 <title>Epvin | Loxal</title>
 
 <%--Try this in SuperDevMode again--%>
-<script type="application/dart" src="gwt_bootstrapper.dart"></script>
-<script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
 <script id="module"></script>
 
 <%

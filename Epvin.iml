@@ -18,7 +18,7 @@
     </facet>
     <facet type="gwt" name="GWT">
       <configuration>
-        <setting name="compilerParameters" value="-draftCompile -optimize 0" />
+        <setting name="compilerParameters" value="-optimize ${gwt.optimizationLevel}" />
         <setting name="gwtScriptOutputStyle" value="OBF" />
         <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.6.1/" />
         <setting name="gwtSdkType" value="maven" />

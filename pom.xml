@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>loxal</groupId>
     <artifactId>epvin</artifactId>
-    <version>1.1.0.0-RELEASE</version>
+    <version>1.2.0-RELEASE</version>
     <packaging>war</packaging>
     <name>Epvin</name>
     <inceptionYear>2012</inceptionYear>
@@ -21,7 +21,6 @@
         <gae.app.name>epvin-loxal</gae.app.name>
         <gwt.ver>2.6.1</gwt.ver>
         <gae.ver>1.9.4</gae.ver>
-        <gae.home>${user.home}/my/sdk/gae.java</gae.home>
     </properties>
 
     <dependencies>
@@ -226,37 +225,4 @@
             <url>file://${user.home}/.m2/repository</url>
         </snapshotRepository>
     </distributionManagement>
-
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <java.optimize>false</java.optimize>
-
-                <gwt.locales>default</gwt.locales>
-                <gwt.userAgent>safari</gwt.userAgent>
-                <gwt.draftCompile>true</gwt.draftCompile>
-                <gwt.optimizationLevel>0</gwt.optimizationLevel>
-            </properties>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <activation>
-                <file>
-                    <exists>prod.profile.marker</exists>
-                </file>
-            </activation>
-            <properties>
-                <java.optimize>true</java.optimize>
-
-                <gwt.locales>de_DE,zh</gwt.locales>
-                <gwt.userAgent>ie8,ie9,gecko1_8,safari</gwt.userAgent>
-                <gwt.draftCompile>false</gwt.draftCompile>
-                <gwt.optimizationLevel>9</gwt.optimizationLevel>
-            </properties>
-        </profile>
-    </profiles>
 </project>
