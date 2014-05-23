@@ -14,14 +14,14 @@ import java.util.List;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class ResourceDAO extends DAO {
-    final Objectify ofy = ObjectifyService.begin();
+    final Objectify ofy = ObjectifyService.ofy();
 
     public void put(final Resource resource) {
         ofy.save().entity(resource).now();
     }
 
     public Resource get(final Long id) {
-        return ofy.load().type(Resource.class).id(id).get();
+        return ofy.load().type(Resource.class).id(id).now();
     }
 
     public List<Resource> retrieve() {

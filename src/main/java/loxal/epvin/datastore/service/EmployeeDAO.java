@@ -4,7 +4,6 @@
 
 package loxal.epvin.datastore.service;
 
-import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 import loxal.epvin.datastore.model.Employee;
@@ -15,19 +14,18 @@ import java.util.List;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class EmployeeDAO extends DAO {
-    final Objectify ofy = ObjectifyService.begin();
+    final Objectify ofy = ObjectifyService.ofy();
 
     public void put(final Employee employee) {
         ofy.save().entity(employee).now();
     }
 
     public void delete(final Long id) {
-        final Key<Employee> key = ofy.load().type(Employee.class).id(id).getKey();
-        ofy.delete().key(key);
+        ofy.delete().type(Employee.class).id(id);
     }
 
     public Employee get(final Long id) {
-        return ofy.load().type(Employee.class).id(id).get();
+        return ofy.load().type(Employee.class).id(id).now();
     }
 
     public List<Employee> retrieve() {

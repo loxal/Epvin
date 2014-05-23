@@ -14,14 +14,14 @@ import java.util.List;
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class AppUserDAO extends DAO {
-    final Objectify ofy = ObjectifyService.begin();
+    final Objectify ofy = ObjectifyService.ofy();
 
     public void put(final AppUser appUser) {
         ofy.save().entity(appUser).now();
     }
 
     public AppUser get(final Long id) {
-        return ofy.load().type(AppUser.class).id(id).get();
+        return ofy.load().type(AppUser.class).id(id).now();
     }
 
     public List<AppUser> retrieve() {

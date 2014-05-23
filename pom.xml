@@ -3,8 +3,8 @@
   ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>loxal</groupId>
@@ -19,8 +19,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>epvin-loxal</gae.app.name>
-        <gwt.ver>2.5.0-rc1</gwt.ver>
-        <gae.ver>1.7.0</gae.ver>
+        <gwt.ver>2.6.1</gwt.ver>
+        <gae.ver>1.9.4</gae.ver>
         <gae.home>${user.home}/my/sdk/gae.java</gae.home>
     </properties>
 
@@ -31,19 +31,6 @@
             <version>${gwt.ver}</version>
             <scope>provided</scope>
         </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>com.smartgwt</groupId>-->
-        <!--<artifactId>smartgwt</artifactId>-->
-        <!--<version>2.4</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>com.smartgwt</groupId>-->
-        <!--<artifactId>smartgwt-skins</artifactId>-->
-        <!--<version>2.4</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>com.google.web.bindery</groupId>
@@ -114,7 +101,7 @@
         <dependency>
             <groupId>com.googlecode.objectify</groupId>
             <artifactId>objectify</artifactId>
-            <version>4.0a3</version>
+            <version>5.0.2</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -125,36 +112,24 @@
         <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
         <plugins>
             <plugin>
-                <groupId>net.kindleit</groupId>
-                <artifactId>maven-gae-plugin</artifactId>
-                <version>0.9.4</version>
-                <configuration>
-                    <emailAccount>${my.gae.deployment.email}</emailAccount>
-                    <passIn>true</passIn>
-                </configuration>
-                <!--<dependencies>-->
-                <!--this is evenutally unnecessary-->
-                <!--<dependency>-->
-                <!--<groupId>org.codehaus.plexus</groupId>-->
-                <!--<artifactId>plexus-archiver</artifactId>-->
-                <!--<version>2.1.1</version>-->
-                <!--</dependency>-->
-                <!--</dependencies>-->
+                <groupId>com.google.appengine</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>${gae.ver}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
+                <version>3.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                     <optimize>${java.optimize}</optimize>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
-                <version>2.5.0-rc1</version>
+                <version>${gwt.ver}</version>
                 <configuration>
                     <modules>
                         <module>${project.groupId}.${project.artifactId}.manager.Manager</module>
@@ -251,13 +226,6 @@
             <url>file://${user.home}/.m2/repository</url>
         </snapshotRepository>
     </distributionManagement>
-
-    <repositories>
-        <repository>
-            <id>objectify-appengine</id>
-            <url>http://objectify-appengine.googlecode.com/svn/maven</url>
-        </repository>
-    </repositories>
 
     <profiles>
         <profile>

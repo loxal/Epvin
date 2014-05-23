@@ -16,17 +16,15 @@ public class OfyLocator extends Locator<DatastoreEntity, Long> {
     public DatastoreEntity create(final Class<? extends DatastoreEntity> cls) {
         try {
             return cls.newInstance();
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
     public DatastoreEntity find(final Class<? extends DatastoreEntity> cls, final Long id) {
-        final Objectify ofy = ObjectifyService.begin();
-        return ofy.load().type(cls).id(id).get();
+        final Objectify ofy = ObjectifyService.ofy();
+        return ofy.load().type(cls).id(id).now();
     }
 
     // never called
