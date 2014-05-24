@@ -13,25 +13,31 @@ import com.google.web.bindery.requestfactory.server.SimpleRequestProcessor;
 import com.google.web.bindery.requestfactory.server.testing.InProcessRequestTransport;
 import com.google.web.bindery.requestfactory.shared.Receiver;
 import com.google.web.bindery.requestfactory.vm.RequestFactorySource;
-import loxal.epvin.core.shared.*;
+import loxal.epvin.core.shared.AppUserProxy;
+import loxal.epvin.core.shared.AppUserReqCtx;
+import loxal.epvin.core.shared.EmployeeProxy;
+import loxal.epvin.core.shared.EmployeeReqCtx;
+import loxal.epvin.core.shared.ReqFactory;
+import loxal.epvin.core.shared.ResourceProxy;
+import loxal.epvin.core.shared.ResourceReqCtx;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Alexander Orlov <alexander.orlov@loxal.net>
  */
 public class PopulateDatastore extends Data {
-  private final LocalServiceTestHelper helper = new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
   final ServiceLayer serviceLayer = ServiceLayer.create();
   final SimpleRequestProcessor processor = new SimpleRequestProcessor(serviceLayer);
   final ReqFactory rf = RequestFactorySource.create(ReqFactory.class);
   final EventBus eb = new SimpleEventBus();
+    private final LocalServiceTestHelper helper = new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
 
   @Before
   public void setUp() {

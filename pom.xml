@@ -53,30 +53,17 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
         <!--only necessary to prevent exception:-->
         <!--javax.validation.ValidationException: Unable to find a default provider-->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>4.3.0.Final</version>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.gwt.inject</groupId>
-            <artifactId>gin</artifactId>
-            <version>1.5.0</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.gwt</groupId>
-                    <artifactId>gwt-servlet</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.hibernate</groupId>-->
+        <!--<artifactId>hibernate-validator</artifactId>-->
+        <!--<version>4.3.0.Final</version>-->
+        <!--<scope>runtime</scope>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>com.google.appengine</groupId>
@@ -96,7 +83,6 @@
             <version>${gae.ver}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>com.googlecode.objectify</groupId>
             <artifactId>objectify</artifactId>
@@ -147,6 +133,39 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <java.optimize>false</java.optimize>
+
+                <gwt.locales>default</gwt.locales>
+                <gwt.userAgent>safari</gwt.userAgent>
+                <gwt.draftCompile>true</gwt.draftCompile>
+                <gwt.optimizationLevel>0</gwt.optimizationLevel>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <file>
+                    <exists>prod.profile.marker</exists>
+                </file>
+            </activation>
+            <properties>
+                <java.optimize>true</java.optimize>
+
+                <gwt.locales>de_DE,zh</gwt.locales>
+                <gwt.userAgent>ie8,ie9,gecko1_8,safari</gwt.userAgent>
+                <gwt.draftCompile>false</gwt.draftCompile>
+                <gwt.optimizationLevel>9</gwt.optimizationLevel>
+            </properties>
+        </profile>
+    </profiles>
 
     <scm>
         <connection>scm:git:git@bitbucket.org:loxal/epvin.git</connection>

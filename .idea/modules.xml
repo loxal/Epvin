@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/epvin.iml" filepath="$PROJECT_DIR$/epvin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Epvin.iml" filepath="$PROJECT_DIR$/Epvin.iml" />
     </modules>
   </component>
 </project>
