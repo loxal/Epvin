@@ -9,18 +9,16 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>loxal</groupId>
     <artifactId>epvin</artifactId>
-    <version>1.2.0-RELEASE</version>
+    <version>1.3.0-RELEASE</version>
     <packaging>war</packaging>
     <name>Epvin</name>
-    <inceptionYear>2012</inceptionYear>
-    <url>http://www.epvin.com</url>
     <description>Best practices project</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>epvin-loxal</gae.app.name>
-        <gwt.ver>2.6.1</gwt.ver>
-        <gae.ver>1.9.4</gae.ver>
+        <gwt.ver>2.7.0</gwt.ver>
+        <gae.ver>1.9.17a</gae.ver>
     </properties>
 
     <dependencies>
@@ -61,10 +59,9 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.3.1.Final</version>
+            <version>4.3.2.Final</version>
             <scope>runtime</scope>
         </dependency>
-
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
@@ -86,7 +83,7 @@
         <dependency>
             <groupId>com.googlecode.objectify</groupId>
             <artifactId>objectify</artifactId>
-            <version>5.0.2</version>
+            <version>5.1.3</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -244,4 +241,7 @@
             <url>file://${user.home}/.m2/repository</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <inceptionYear>2012</inceptionYear>
+    <url>http://www.epvin.com</url>
 </project>
