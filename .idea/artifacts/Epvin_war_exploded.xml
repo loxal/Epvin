@@ -21,8 +21,8 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="Epvin/web/Web" />
-      <element id="gwt-compiler-output" facet="Epvin/gwt/GWT" />
+      <element id="javaee-facet-resources" facet="epvin/web/Web" />
+      <element id="gwt-compiler-output" facet="epvin/gwt/GWT" />
     </root>
   </artifact>
 </component>
