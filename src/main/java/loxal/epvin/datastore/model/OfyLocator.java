@@ -8,9 +8,6 @@ import com.google.web.bindery.requestfactory.shared.Locator;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
 public class OfyLocator extends Locator<DatastoreEntity, Long> {
     @Override
     public DatastoreEntity create(final Class<? extends DatastoreEntity> cls) {
