@@ -6,6 +6,11 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="appengine-java" url="file://$PROJECT_DIR$" />
+    <file type="gwt" url="file://$PROJECT_DIR$" />
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
   <component name="IdProvider" IDEtalkID="CA0F1A2FD54F302A77C8E46C1ECFC2EA" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">

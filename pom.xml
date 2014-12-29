@@ -135,7 +135,9 @@
         <profile>
             <id>dev</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <file>
+                    <exists>de.profile.marker</exists>
+                </file>
             </activation>
             <properties>
                 <java.optimize>false</java.optimize>
@@ -149,9 +151,7 @@
         <profile>
             <id>prod</id>
             <activation>
-                <file>
-                    <exists>prod.profile.marker</exists>
-                </file>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <java.optimize>true</java.optimize>
