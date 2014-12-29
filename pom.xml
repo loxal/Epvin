@@ -204,12 +204,11 @@
     </profiles>
 
     <scm>
-        <connection>scm:git:git@bitbucket.org:loxal/epvin.git</connection>
-        <developerConnection>scm:git:git@bitbucket.org:loxal/epvin.git</developerConnection>
-        <url>git@bitbucket.org:loxal/epvin.git</url>
-        <tag>RELEASE</tag>
+        <connection>scm:git:git://github.com:loxal/Epvin.git</connection>
+        <developerConnection>scm:git:git@github.com:loxal/Epvin.git</developerConnection>
+        <url>https://github.com/loxal/Epvin</url>
+        <tag>HEAD</tag>
     </scm>
-
     <issueManagement>
         <system>YouTrack</system>
         <url>http://loxal.myjetbrains.com/youtrack</url>
