@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Build &amp; Deploy on GAE" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="Build &amp; Deploy on GAE" type="MavenRunConfiguration" factoryName="Maven" singleton="true">
     <MavenSettings>
       <option name="myGeneralSettings">
         <MavenGeneralSettings>
@@ -44,7 +44,7 @@
               <option value="gwt:clean" />
               <option value="compile" />
               <option value="gwt:compile" />
-              <option value="gae:update" />
+              <option value="appengine:update" />
             </list>
           </option>
           <option name="profilesMap">
