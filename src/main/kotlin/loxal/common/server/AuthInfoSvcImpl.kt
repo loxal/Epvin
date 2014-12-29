@@ -18,14 +18,14 @@ public class AuthInfoSvcImpl : RemoteServiceServlet(), AuthInfoSvc {
         val auth = AuthInfo()
 
         if (user == null) {
-            auth.setLoggedIn(false)
-            auth.setLoginURL(userService.createLoginURL(requestUri))
+            auth.loggedIn = false
+            auth.loginUrl = userService.createLoginURL(requestUri)
         } else {
-            auth.setLoggedIn(true)
-            auth.setAdmin(userService.isUserAdmin())
-            auth.setEmail(user.getEmail())
-            auth.setNickname(user.getNickname())
-            auth.setLogoutUrl(userService.createLogoutURL(requestUri))
+            auth.loggedIn = true
+            auth.admin = userService.isUserAdmin()
+            auth.email = user.getEmail()
+            auth.nickname = user.getNickname()
+            auth.logoutUrl = userService.createLogoutURL(requestUri)
         }
         return auth
     }
