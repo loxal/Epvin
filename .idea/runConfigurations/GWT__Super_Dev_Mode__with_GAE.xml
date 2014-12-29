@@ -1,18 +1,16 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Dev -noserver" type="GWT.ConfigurationType" factoryName="GWT Configuration">
+  <configuration default="false" name="GWT (Super Dev Mode) with GAE" type="GWT.ConfigurationType" factoryName="GWT Configuration" singleton="true">
     <module name="epvin" />
-    <option name="SHELL_PARAMETERS" value="-bindAddress localhost -port 8000 -noserver" />
-    <option name="RUN_PAGE" value="?module=loxal.epvin.manager.Manager" />
+    <option name="RUN_PAGE" value="http://localhost:8888/?module=loxal.epvin.manager.Manager" />
     <option name="SERVER_ID" value="app-engine:AppEngine Dev" />
     <option name="UPDATE_RESOURCES_ON_FRAME_DEACTIVATION" value="true" />
+    <option name="USE_SUPER_DEV_MODE" value="true" />
     <RunnerSettings RunnerId="Debug">
       <option name="DEBUG_PORT" value="" />
       <option name="TRANSPORT" value="0" />
       <option name="LOCAL" value="true" />
     </RunnerSettings>
-    <RunnerSettings RunnerId="Run" />
     <ConfigurationWrapper RunnerId="Debug" />
-    <ConfigurationWrapper RunnerId="Run" />
     <method />
   </configuration>
 </component>
