@@ -12,9 +12,7 @@ import loxal.epvin.datastore.service.DAOServiceLocator;
 
 import java.util.List;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 @Service(value = AppUserDAO.class, locator = DAOServiceLocator.class)
 public interface AppUserReqCtx extends RequestContext {
     Request<Void> put(AppUserProxy appUser);

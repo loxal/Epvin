@@ -15,9 +15,7 @@ import loxal.epvin.core.client.place.EmployeePlace;
  * separate TokenizerFactory.
  */
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 @WithTokenizers({
         EmployeePlace.Tokenizer.class
 })

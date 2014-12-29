@@ -19,16 +19,9 @@ import loxal.epvin.core.shared.EmployeeProxy;
 
 import java.util.Date;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class EmployeeEditor extends Composite implements Editor<EmployeeProxy> {
     static DateBox.Format format;
-
-    interface Binder extends UiBinder<VerticalPanel, EmployeeEditor> {
-        static final Binder BINDER = GWT.create(Binder.class);
-    }
-
     @UiField
     ValueBoxEditorDecorator<String> nameFirst;
     @UiField
@@ -39,6 +32,18 @@ public class EmployeeEditor extends Composite implements Editor<EmployeeProxy> {
     DateBox birth;
     @UiField
     Focusable nameFirstElement;
+
+	@UiConstructor
+	public EmployeeEditor(ClientFactory cf) {
+		initWidget(Binder.BINDER.createAndBindUi(this));
+		format = new DateBox.DefaultFormat(cf.getClientResource().defaultDateFormat);
+		birth.setFormat(format);
+
+		nameFirstElement.setAccessKey('1');
+//    nameLast.setAccessKey('2');
+//    mail.setAccessKey('3');
+		birth.setAccessKey('4');
+	}
 
     public void focus() {
         nameFirstElement.setFocus(true);
@@ -51,15 +56,7 @@ public class EmployeeEditor extends Composite implements Editor<EmployeeProxy> {
         birth.setValue(presetBirth);
     }
 
-    @UiConstructor
-    public EmployeeEditor(ClientFactory cf) {
-        initWidget(Binder.BINDER.createAndBindUi(this));
-        format = new DateBox.DefaultFormat(cf.getClientResource().defaultDateFormat);
-        birth.setFormat(format);
-
-        nameFirstElement.setAccessKey('1');
-//    nameLast.setAccessKey('2');
-//    mail.setAccessKey('3');
-        birth.setAccessKey('4');
+	interface Binder extends UiBinder<VerticalPanel, EmployeeEditor> {
+		static final Binder BINDER = GWT.create(Binder.class);
     }
 }

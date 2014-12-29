@@ -11,9 +11,7 @@ import loxal.epvin.core.shared.ReqFactory;
 
 import java.util.logging.Logger;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public interface ClientFactory {
     Property getClientResource();
 

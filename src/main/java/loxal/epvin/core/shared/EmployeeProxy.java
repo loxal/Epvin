@@ -11,26 +11,24 @@ import loxal.epvin.datastore.model.OfyLocator;
 
 import java.util.Date;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 @ProxyFor(value = Employee.class, locator = OfyLocator.class)
 public interface EmployeeProxy extends EntityProxy {
     Long getId();
 
-    void setNameFirst(String nameFirst);
-
     String getNameFirst();
 
-    void setNameLast(String nameLast);
+	void setNameFirst(String nameFirst);
 
     String getNameLast();
 
-    void setMail(String mail);
+	void setNameLast(String nameLast);
 
     String getMail();
 
-    void setBirth(Date birth);
+	void setMail(String mail);
 
     Date getBirth();
+
+	void setBirth(Date birth);
 }

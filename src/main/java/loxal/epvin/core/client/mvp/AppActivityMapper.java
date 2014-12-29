@@ -11,9 +11,7 @@ import loxal.epvin.core.client.ClientFactory;
 import loxal.epvin.core.client.activity.EmployeeActivity;
 import loxal.epvin.core.client.place.EmployeePlace;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class AppActivityMapper implements ActivityMapper {
 
     private ClientFactory cf;

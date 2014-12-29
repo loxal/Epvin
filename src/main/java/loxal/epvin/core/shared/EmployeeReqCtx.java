@@ -12,9 +12,7 @@ import loxal.epvin.datastore.service.EmployeeDAO;
 
 import java.util.List;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 @Service(value = EmployeeDAO.class, locator = DAOServiceLocator.class)
 public interface EmployeeReqCtx extends RequestContext {
     Request<EmployeeProxy> get(Long id);

@@ -26,18 +26,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 // NTH make this a widget in the Layout.ui that gets its contents via NotificationEvent
 public class StatusBar {
     private final Kind msgKind;
-    private DeleteEvent deleteEvent;
-
-    interface Binder extends UiBinder<DecoratedPopupPanel, StatusBar> {
-        Binder BINDER = GWT.create(Binder.class);
-    }
-
     @UiField
     DecoratedPopupPanel container;
     @UiField
@@ -51,54 +43,8 @@ public class StatusBar {
     @UiField
     Button undo;
     Integer toDisplayDuration = 3000; // 3s
-
-    public enum Kind {
-        INFO, SUCCESS, APP_ERROR, USAGE_INFO, SERVER_FAILURE, REVERSIBLE_SUCCESS,
-    }
-
-    private void addAutoDisappearing() {
-        new Timer() {
-            public void run() {
-                container.hide();
-                // using deleteEvent doesn't work because it's !=null after first successful deletion
-                Logger.getLogger("deleteEvent: ").log(Level.INFO, deleteEvent + "");
-                if (deleteEvent != null) {
-                    reb.fireEvent(new AutoDisappearanceEvent());
-                }
-            }
-        }.schedule(toDisplayDuration);
-    }
-
-    // show "processing" status only when it takes a certain time for the process to finish
-    private void showWithDelay() {
-        new Timer() {
-            @Override
-            public void run() {
-                // display widget
-            }
-        }.schedule(500); // 0.5s
-    }
-
-    private void preventSibling() {
-        eb.fireEvent(new PreventSiblingEvent(msgKind));
-        eb.addHandler(PreventSiblingEvent.TYPE, new PreventSiblingEvent.Handler() {
-            @Override
-            public void onSiblingExists(PreventSiblingEvent event) {
-                if (event.getKind() instanceof Kind) {
-                    if (event.getKind().equals(msgKind)) {
-                        container.hide();
-                    } else if (msgKind.equals(Kind.APP_ERROR) && event.getKind().equals(Kind.SUCCESS)) {
-                        container.hide();
-                    }
-                }
-            }
-        });
-    }
-
-    private void show() {
-        container.center();
-        preventSibling();
-    }
+	ResettableEventBus reb;
+	private DeleteEvent deleteEvent;
 
     public StatusBar(ClientFactory cf, SafeHtml statusMsg, Kind msgKind, String title) {
         this.msgKind = msgKind;
@@ -147,20 +93,62 @@ public class StatusBar {
         }
     }
 
-    ResettableEventBus reb;
-
     public StatusBar(ClientFactory cf, SafeHtml statusMsg, Kind msgKind, final DeleteEvent deleteEvent, String title) {
         this(cf, statusMsg, msgKind, title);
         this.deleteEvent = deleteEvent;
 
         reb = new ResettableEventBus(eb);
         reb.addHandler(AutoDisappearanceEvent.TYPE, new AutoDisappearanceEvent.Handler() {
-            @Override
-            public void onDisappear() {
-                eb.fireEvent(deleteEvent);
-            }
-        });
+		@Override
+		public void onDisappear() {
+			eb.fireEvent(deleteEvent);
+		}
+	});
     }
+
+	private void addAutoDisappearing() {
+		new Timer() {
+			public void run() {
+				container.hide();
+				// using deleteEvent doesn't work because it's !=null after first successful deletion
+				Logger.getLogger("deleteEvent: ").log(Level.INFO, deleteEvent + "");
+				if (deleteEvent != null) {
+					reb.fireEvent(new AutoDisappearanceEvent());
+				}
+			}
+		}.schedule(toDisplayDuration);
+	}
+
+	// show "processing" status only when it takes a certain time for the process to finish
+	private void showWithDelay() {
+		new Timer() {
+			@Override
+			public void run() {
+				// display widget
+			}
+		}.schedule(500); // 0.5s
+	}
+
+	private void preventSibling() {
+		eb.fireEvent(new PreventSiblingEvent(msgKind));
+		eb.addHandler(PreventSiblingEvent.TYPE, new PreventSiblingEvent.Handler() {
+			@Override
+			public void onSiblingExists(PreventSiblingEvent event) {
+				if (event.getKind() instanceof Kind) {
+					if (event.getKind().equals(msgKind)) {
+						container.hide();
+					} else if (msgKind.equals(Kind.APP_ERROR) && event.getKind().equals(Kind.SUCCESS)) {
+						container.hide();
+					}
+				}
+			}
+		});
+	}
+
+	private void show() {
+		container.center();
+		preventSibling();
+	}
 
     @UiHandler(value = "close")
     void onClose(ClickEvent event) {
@@ -172,4 +160,12 @@ public class StatusBar {
         reb.removeHandlers();
         onClose(event);
     }
+
+	public enum Kind {
+		INFO, SUCCESS, APP_ERROR, USAGE_INFO, SERVER_FAILURE, REVERSIBLE_SUCCESS,
+	}
+
+	interface Binder extends UiBinder<DecoratedPopupPanel, StatusBar> {
+		Binder BINDER = GWT.create(Binder.class);
+	}
 }
