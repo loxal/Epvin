@@ -9,24 +9,24 @@ import com.google.gwt.event.shared.GwtEvent;
 
 
 public class DeleteEvent extends GwtEvent<DeleteEvent.Handler> {
-  public static final Type<Handler> TYPE = new Type<Handler>();
-  private final Long id;
+	public static final Type<Handler> TYPE = new Type<>();
+	private final Long id;
 
-  public DeleteEvent(Long id) {
-    this.id = id;
-  }
+	public DeleteEvent(Long id) {
+		this.id = id;
+	}
 
-  @Override
-  public Type<Handler> getAssociatedType() {
-    return TYPE;
-  }
+	@Override
+	public Type<Handler> getAssociatedType() {
+		return TYPE;
+	}
 
-  @Override
-  protected void dispatch(Handler handler) {
-    handler.onDelete(id);
-  }
+	@Override
+	protected void dispatch(Handler handler) {
+		handler.onDelete(id);
+	}
 
 	public interface Handler extends EventHandler {
 		void onDelete(Long id);
-  }
+	}
 }

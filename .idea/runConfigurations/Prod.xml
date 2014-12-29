@@ -28,9 +28,7 @@
       </SHUTDOWN>
     </ConfigurationWrapper>
     <method>
-      <option name="BuildArtifacts" enabled="true">
-        <artifact name="epvin:war exploded" />
-      </option>
+      <option name="BuildArtifacts" enabled="true" />
     </method>
   </configuration>
 </component>

@@ -3,7 +3,6 @@ package loxal.epvin.datastore.service
 import loxal.epvin.datastore.model.Employee
 import com.googlecode.objectify.ObjectifyService
 
-
 public class EmployeeDAO : DAO() {
     val ofy = ObjectifyService.ofy()
 
