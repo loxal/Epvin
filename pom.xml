@@ -12,7 +12,7 @@
     <version>1.4.0-RELEASE</version>
     <packaging>war</packaging>
     <name>Epvin</name>
-    <description>Best practices project</description>
+    <description>HTML5 Web CRUD Showcase</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
