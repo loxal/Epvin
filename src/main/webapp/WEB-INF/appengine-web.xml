@@ -11,6 +11,10 @@
     <sessions-enabled>false</sessions-enabled>
     <threadsafe>false</threadsafe>
 
+    <automatic-scaling>
+        <min-pending-latency>5.0s</min-pending-latency>
+    </automatic-scaling>
+
     <admin-console>
         <page name="App Stats" url="/appstats/stats"/>
     </admin-console>
