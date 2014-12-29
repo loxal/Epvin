@@ -7,7 +7,7 @@ import loxal.epvin.datastore.model.Resource
 import com.googlecode.objectify.ObjectifyService
 
 
-public open class DAO : DatastoreUtils() {
+open class DAO : DatastoreUtils() {
     class object {
         {
             ObjectifyService.register(javaClass<AppUser>())

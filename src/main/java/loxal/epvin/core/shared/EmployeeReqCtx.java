@@ -21,5 +21,4 @@ public interface EmployeeReqCtx extends RequestContext {
     Request<List<EmployeeProxy>> retrieve();
 
     Request<Void> put(EmployeeProxy employee);
-
 }
