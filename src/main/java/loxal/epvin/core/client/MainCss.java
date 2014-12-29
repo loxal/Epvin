@@ -6,8 +6,6 @@ package loxal.epvin.core.client;
 
 import com.google.gwt.resources.client.CssResource;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public interface MainCss extends CssResource {
 }

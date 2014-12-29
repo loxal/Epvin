@@ -3,9 +3,7 @@ package loxal.epvin.datastore.service
 import loxal.epvin.datastore.model.AppUser
 import com.googlecode.objectify.ObjectifyService
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class AppUserDAO : DAO() {
     val ofy = ObjectifyService.ofy()
 

@@ -7,9 +7,7 @@ package loxal.epvin.core.client.ui;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.i18n.client.Messages;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public interface I18nMessages extends Messages {
     public static final I18nMessages INSTANCE = GWT.create(I18nMessages.class);
 

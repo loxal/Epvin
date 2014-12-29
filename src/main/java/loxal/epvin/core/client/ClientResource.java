@@ -8,9 +8,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.GwtCreateResource;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public interface ClientResource extends ClientBundle {
     final ClientResource INSTANCE = GWT.create(ClientResource.class);
 

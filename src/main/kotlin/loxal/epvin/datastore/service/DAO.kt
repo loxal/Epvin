@@ -6,9 +6,7 @@ import loxal.epvin.datastore.model.Employee
 import loxal.epvin.datastore.model.Resource
 import com.googlecode.objectify.ObjectifyService
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public open class DAO : DatastoreUtils() {
     class object {
         {

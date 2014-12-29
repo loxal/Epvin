@@ -6,9 +6,7 @@ package loxal.epvin.core.client;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class Property {
     public final String companyDesignator = "Loxal";
     public final DateTimeFormat defaultDateFormat = DateTimeFormat.getFormat(DateTimeFormat.PredefinedFormat.DATE_SHORT);

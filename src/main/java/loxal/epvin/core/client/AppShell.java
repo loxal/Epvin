@@ -7,8 +7,6 @@ package loxal.epvin.core.client;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public interface AppShell extends AcceptsOneWidget, IsWidget {
 }

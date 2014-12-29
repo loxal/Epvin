@@ -27,9 +27,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class EmployeeActivity extends AbstractActivity implements EmployeeView.Presenter {
   // Used to obtain views, eventBus, placeController
   // Alternatively, could be injected via GIN

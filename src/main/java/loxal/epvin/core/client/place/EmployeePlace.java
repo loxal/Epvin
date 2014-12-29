@@ -8,9 +8,7 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 import com.google.gwt.place.shared.Prefix;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class EmployeePlace extends Place {
     private String token;
 

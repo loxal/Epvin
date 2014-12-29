@@ -8,9 +8,7 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import loxal.epvin.core.client.ClientFactory;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 class Main implements EntryPoint {
     @Override
     public void onModuleLoad() {

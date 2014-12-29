@@ -6,9 +6,7 @@ package loxal.epvin.datastore.model
 
 import java.util.Date
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class Vacation : DatastoreEntity() {
     public var vacationer: AppUser? = null
 

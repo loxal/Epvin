@@ -12,9 +12,7 @@ import loxal.epvin.core.shared.EmployeeProxy;
 
 import java.util.List;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public interface EmployeeView extends IsWidget {
     void setName(String name);
 

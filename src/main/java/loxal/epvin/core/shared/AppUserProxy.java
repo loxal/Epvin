@@ -9,9 +9,7 @@ import com.google.web.bindery.requestfactory.shared.ProxyFor;
 import loxal.epvin.datastore.model.AppUser;
 import loxal.epvin.datastore.model.OfyLocator;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 @ProxyFor(value = AppUser.class, locator = OfyLocator.class)
 public interface AppUserProxy extends EntityProxy {
     String getEmail();

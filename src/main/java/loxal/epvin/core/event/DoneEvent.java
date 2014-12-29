@@ -7,15 +7,9 @@ package loxal.epvin.core.event;
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class DoneEvent extends GwtEvent<DoneEvent.Handler> {
     public static final Type<Handler> TYPE = new Type<Handler>();
-
-    public interface Handler extends EventHandler {
-        void onDone();
-    }
 
     @Override
     public Type<Handler> getAssociatedType() {
@@ -25,5 +19,9 @@ public class DoneEvent extends GwtEvent<DoneEvent.Handler> {
     @Override
     protected void dispatch(Handler handler) {
         handler.onDone();
+    }
+
+	public interface Handler extends EventHandler {
+		void onDone();
     }
 }

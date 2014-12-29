@@ -6,9 +6,7 @@ package loxal.epvin.core.client;
 
 import com.google.gwt.user.client.Window;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class ClientFactoryPhoneImpl extends ClientFactoryImpl {
   ClientFactoryPhoneImpl() {
     super();

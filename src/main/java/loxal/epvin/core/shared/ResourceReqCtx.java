@@ -12,9 +12,7 @@ import loxal.epvin.datastore.service.ResourceDAO;
 
 import java.util.List;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 @Service(value = ResourceDAO.class, locator = DAOServiceLocator.class)
 public interface ResourceReqCtx extends RequestContext {
     Request<Void> put(ResourceProxy resource);

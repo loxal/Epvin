@@ -7,9 +7,7 @@ package loxal.epvin.core.client.ui;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.i18n.client.Constants;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public interface I18nConstants extends Constants {
     static final I18nConstants INSTANCE = GWT.create(I18nConstants.class);
 

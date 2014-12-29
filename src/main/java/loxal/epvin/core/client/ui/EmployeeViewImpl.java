@@ -15,7 +15,13 @@ import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.cellview.client.*;
+import com.google.gwt.user.cellview.client.CellTable;
+import com.google.gwt.user.cellview.client.Column;
+import com.google.gwt.user.cellview.client.ColumnSortEvent;
+import com.google.gwt.user.cellview.client.Header;
+import com.google.gwt.user.cellview.client.PageSizePager;
+import com.google.gwt.user.cellview.client.SafeHtmlHeader;
+import com.google.gwt.user.cellview.client.SimplePager;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
@@ -35,50 +41,23 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class EmployeeViewImpl extends Composite implements EmployeeView {
-  interface Binder extends UiBinder<ScrollPanel, EmployeeViewImpl> {
-    static final Binder BINDER = GWT.create(Binder.class);
-  }
-
-  private final SingleSelectionModel<EmployeeProxy> selection = new SingleSelectionModel<EmployeeProxy>();
-
-  private void edit(EmployeeProxy employee) {  // TODO move this to EmployeeActivity and make usage of EmployeeActivities Cf
-    final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
-    reqCtx.put(employee); // necessary to persist the entity later
-//        driver.edit(employee, reqCtx);
-  }
-
-  private void create() { // TODO move this to EmployeeActivity and make usage of EmployeeActivities Cf
-    final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
-    final EmployeeProxy entity = reqCtx.create(EmployeeProxy.class);
-    reqCtx.put(entity); // necessary to persist the entity later
-//        driver.edit(entity, reqCtx);
-  }
-
-  @UiField
-  CellTable<EmployeeProxy> employeeTable;
   @UiField(provided = true)
   final ListDataProvider<EmployeeProxy> dataProvider = new ListDataProvider<EmployeeProxy>();
   @UiField(provided = true)
   final List<EmployeeProxy> dataList = dataProvider.getList();
+	private final SingleSelectionModel<EmployeeProxy> selection = new SingleSelectionModel<EmployeeProxy>();
   @UiField
+  CellTable<EmployeeProxy> employeeTable;
+	@UiField
   SimplePager pager;
   @UiField
   PageSizePager pageSizer;
   @UiField
   Button add;
-
   private Presenter presenter;
   private String name;
-
-  @UiHandler("add")
-  void onAdd(ClickEvent event) {
-    new EmployeeEditorWorkflow(cf, true);
-  }
-
   private ClientFactory cf;
 
   public EmployeeViewImpl(ClientFactory cf) {
@@ -88,6 +67,24 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
     init();
   }
 
+	private void edit(EmployeeProxy employee) {  // TODO move this to EmployeeActivity and make usage of EmployeeActivities Cf
+		final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
+		reqCtx.put(employee); // necessary to persist the entity later
+//        driver.edit(employee, reqCtx);
+	}
+
+	private void create() { // TODO move this to EmployeeActivity and make usage of EmployeeActivities Cf
+		final EmployeeReqCtx reqCtx = cf.getRf().employeeReqCtx();
+		final EmployeeProxy entity = reqCtx.create(EmployeeProxy.class);
+		reqCtx.put(entity); // necessary to persist the entity later
+//        driver.edit(entity, reqCtx);
+	}
+
+	@UiHandler("add")
+	void onAdd(ClickEvent event) {
+		new EmployeeEditorWorkflow(cf, true);
+	}
+
   private void attachHandler() {
     cf.getEb().addHandler(RefreshEvent.TYPE, new RefreshEvent.Handler() {
       @Override
@@ -96,10 +93,10 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
       }
     });
     cf.getEb().addHandler(DeleteEvent.TYPE, new DeleteEvent.Handler() {
-      @Override
-      public void onDelete(Long id) {
-        presenter.delete(id);
-      }
+	    @Override
+	    public void onDelete(Long id) {
+		    presenter.delete(id);
+	    }
     });
 
 //    selection.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
@@ -300,5 +297,9 @@ public class EmployeeViewImpl extends Composite implements EmployeeView {
   public RequestFactoryEditorDriver<EmployeeProxy, EmployeeEditor> getEditorDriver() {
 //        return driver;
     return null;
+  }
+
+	interface Binder extends UiBinder<ScrollPanel, EmployeeViewImpl> {
+		static final Binder BINDER = GWT.create(Binder.class);
   }
 }

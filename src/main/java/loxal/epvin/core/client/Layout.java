@@ -12,39 +12,35 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.Anchor;
+import com.google.gwt.user.client.ui.DeckLayoutPanel;
+import com.google.gwt.user.client.ui.DockLayoutPanel;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.ResizeComposite;
+import com.google.gwt.user.client.ui.SimpleLayoutPanel;
+import com.google.gwt.user.client.ui.Widget;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
+
 public class Layout extends ResizeComposite implements AppShell {
-    @Override
-    public void setWidget(IsWidget content) {
-        contentContainer.setWidget(content);
-    }
-
-    interface Binder extends UiBinder<Widget, Layout> {
-    }
-
     private static final Binder binder = GWT.create(Binder.class);
+	@UiField
+	DeckLayoutPanel contentContainer;
+	@UiField
+	SimpleLayoutPanel pieChartContainer;
 
 //    private AuthInfo authInfo;
 //
 //    public void setAuthInfo(AuthInfo authInfo) {
 //        this.authInfo = authInfo;
 //    }
-
-    @UiField
-    DeckLayoutPanel contentContainer;
-    @UiField
-    SimpleLayoutPanel pieChartContainer;
     @UiField
     DockLayoutPanel leftNav;
     @UiField
     Anchor signIn;
     @UiField
     ListBox localeSwitch;
-
     public Layout() {
         initWidget(binder.createAndBindUi(this));
         localeSwitch();
@@ -55,6 +51,11 @@ public class Layout extends ResizeComposite implements AppShell {
         contentContainer.add(new HTML("editView"));
         contentContainer.setAnimationDuration(800);
     }
+
+	@Override
+	public void setWidget(IsWidget content) {
+		contentContainer.setWidget(content);
+	}
 
     void localeSwitch() {
         localeSwitch.setAccessKey('L');
@@ -81,6 +82,9 @@ public class Layout extends ResizeComposite implements AppShell {
         UrlBuilder builder = Window.Location.createUrlBuilder().setParameter("locale",
                 localeName);
         Window.Location.replace(builder.buildString());
+    }
+
+	interface Binder extends UiBinder<Widget, Layout> {
     }
 
 //    void authentication() {
