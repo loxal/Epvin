@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="GAE for GWT" type="GoogleAppEngineDevServer" factoryName="Local" APPLICATION_SERVER_NAME="AppEngine Dev" ALTERNATIVE_JRE_ENABLED="false">
+  <configuration default="false" name="GAE for GWT" type="GoogleAppEngineDevServer" factoryName="Local" APPLICATION_SERVER_NAME="AppEngine Dev" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
     <option name="OPEN_IN_BROWSER" value="false" />
     <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
     <server-settings>
-      <option name="artifact" value="Epvin:war exploded" />
+      <option name="artifact" value="epvin:war exploded" />
       <option name="port" value="8001" />
     </server-settings>
     <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -27,6 +27,10 @@
         <option name="PROGRAM_PARAMETERS" value="" />
       </SHUTDOWN>
     </ConfigurationWrapper>
-    <method />
+    <method>
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="epvin:war exploded" />
+      </option>
+    </method>
   </configuration>
 </component>

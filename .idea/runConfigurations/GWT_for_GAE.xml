@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="GWT for GAE" type="GWT.ConfigurationType" factoryName="GWT Configuration">
-    <module name="Epvin" />
+    <module name="epvin" />
     <option name="SHELL_PARAMETERS" value="-bindAddress localhost -noserver -codeServerPort 9876" />
     <option name="RUN_PAGE" value="http://localhost:8001/?module=loxal.epvin.manager.Manager" />
     <option name="UPDATE_RESOURCES_ON_FRAME_DEACTIVATION" value="true" />

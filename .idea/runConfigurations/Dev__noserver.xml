@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Dev -noserver" type="GWT.ConfigurationType" factoryName="GWT Configuration">
-    <module name="Epvin" />
+    <module name="epvin" />
     <option name="SHELL_PARAMETERS" value="-bindAddress localhost -port 8000 -noserver" />
     <option name="RUN_PAGE" value="?module=loxal.epvin.manager.Manager" />
     <option name="SERVER_ID" value="app-engine:AppEngine Dev" />

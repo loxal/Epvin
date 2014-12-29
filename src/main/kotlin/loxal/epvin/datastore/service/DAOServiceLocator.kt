@@ -18,6 +18,5 @@ public class DAOServiceLocator : ServiceLocator {
         } catch (e: IllegalAccessException) {
             throw RuntimeException(e)
         }
-
     }
 }
