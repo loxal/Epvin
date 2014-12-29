@@ -6,9 +6,6 @@ package loxal.common.auth;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
 public interface AuthInfoSvcAsync {
     /**
      * Google Authentication Service

@@ -6,9 +6,6 @@ package loxal.common.auth;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
 
-/**
- * @author Alexander Orlov <alexander.orlov@loxal.net>
- */
 public class AuthInfo implements IsSerializable {
 
     private boolean loggedIn;
