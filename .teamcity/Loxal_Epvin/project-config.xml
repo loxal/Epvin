@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" parent-id="Loxal" uuid="d6b3c84e-d2da-495e-a895-e3d7b1193d8e" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/9.0/project-config.xsd">
+  <name>Epvin</name>
+  <parameters />
+  <cleanup />
+</project>
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="d6c1eb36-51ef-4711-84ee-26ec46c5b7a6" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/9.0/project-config.xsd">
+  <name>Build</name>
+  <description />
+  <settings ref="Build">
+    <parameters />
+    <build-runners order="RUNNER_5, RUNNER_1" />
+    <vcs-settings>
+      <vcs-entry-ref root-id="Loxal_Epvin_Epvin" />
+    </vcs-settings>
+    <requirements />
+    <build-triggers />
+    <cleanup />
+  </settings>
+</build-type>
+
