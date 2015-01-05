@@ -6,6 +6,6 @@
 <messagebundle>
     <msg name="gadget_title">Epvin</msg>
     <msg name="gadget_description">Enterprise Resource Management</msg>
-    <msg name="gadget_thumbnail">http://module.loxal.net/resource/logo.png</msg>
-    <msg name="gadget_screenshot">http://module.loxal.net/resource/logo.png</msg>
+    <msg name="gadget_thumbnail">http://me.loxal.net/resource/loxal-logo.png</msg>
+    <msg name="gadget_screenshot">http://me.loxal.net/resource/loxal-logo.png</msg>
 </messagebundle>
