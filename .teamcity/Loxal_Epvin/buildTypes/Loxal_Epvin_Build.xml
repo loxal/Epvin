@@ -10,7 +10,7 @@
     <build-runners order="RUNNER_5, RUNNER_1, RUNNER_4">
       <runner id="RUNNER_4" name="GWT Build" type="Maven2">
         <parameters>
-          <param name="goals" value="clean gwt:clean gwt:compile compile test" />
+          <param name="goals" value="clean gwt:clean compile gwt:compile test" />
           <param name="maven.home" value="" />
           <param name="mavenSelection" value="mavenSelection:default" />
           <param name="pomLocation" value="pom.xml" />
