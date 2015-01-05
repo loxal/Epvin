@@ -11,6 +11,6 @@
         <Locale messages="ALL_ALL.xml"/>
     </ModulePrefs>
 
-    <Content href="http://main.epvin.com/?channel=web" type="url"/>
+    <Content href="/" type="url"/>
 </Module>
         
