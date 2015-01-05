@@ -8,6 +8,6 @@
 ## Deploy to Google App Engine
 Using JDK v7
 
-* mvn clean compile gwt:clean gwt:compile test appengine:update
+* ***mvn clean compile gwt:clean gwt:compile test appengine:update***
 
 * A **showcase is running** on [Google App Engine](http://epvin.loxal.net)
