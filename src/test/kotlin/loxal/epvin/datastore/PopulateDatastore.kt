@@ -46,7 +46,7 @@ public class PopulateDatastore : Data() {
     }
 
     Test
-    throws(javaClass<Exception>())
+//    throws(javaClass<Exception>())
     public fun populateAndVerifyUsers() {
         for (email in mails) {
             createUser(email)
@@ -98,7 +98,7 @@ public class PopulateDatastore : Data() {
     }
 
     Test
-    throws(javaClass<Exception>())
+//    throws(javaClass<Exception>())
     public fun populateAndVerifyResources() {
         for (name in names) {
             createResource(name)
@@ -150,7 +150,7 @@ public class PopulateDatastore : Data() {
     }
 
     Test
-    throws(javaClass<Exception>())
+//    throws(javaClass<Exception>())
     public fun populateAndVerifyEmployees() {
         for (i in 0..10 - 1) {
             val reqCtx = rf.employeeReqCtx()

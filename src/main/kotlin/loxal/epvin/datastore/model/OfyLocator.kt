@@ -22,7 +22,8 @@ public class OfyLocator : Locator<DatastoreEntity, Long>() {
 
     override fun find(cls: Class<out DatastoreEntity>, id: Long): DatastoreEntity {
         val ofy = ObjectifyService.ofy()
-        return ofy.load().type(cls).id(id).now()
+//        return ofy.load().type(cls).id(id).now()  // TODO fix this and do not use the expression below
+        return DatastoreEntity()
     }
 
     // never called

@@ -11,7 +11,6 @@ import loxal.epvin.datastore.model.OfyLocator;
 
 import java.util.Date;
 
-
 @ProxyFor(value = Employee.class, locator = OfyLocator.class)
 public interface EmployeeProxy extends EntityProxy {
     Long getId();
