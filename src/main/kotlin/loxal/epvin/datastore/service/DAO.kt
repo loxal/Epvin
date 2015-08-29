@@ -4,6 +4,12 @@
 
 package loxal.epvin.datastore.service
 
+import com.googlecode.objectify.ObjectifyService
+import com.googlecode.objectify.util.DatastoreUtils
+import loxal.epvin.datastore.model.AppUser
+import loxal.epvin.datastore.model.Employee
+import loxal.epvin.datastore.model.Resource
+
 open class DAO : DatastoreUtils() {
     companion object {
         init {

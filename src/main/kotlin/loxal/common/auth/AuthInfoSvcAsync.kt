@@ -4,6 +4,8 @@
 
 package loxal.common.auth
 
+import com.google.gwt.user.client.rpc.AsyncCallback
+
 public interface AuthInfoSvcAsync {
     /**
      * Google Authentication Service

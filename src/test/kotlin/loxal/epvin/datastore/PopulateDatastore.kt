@@ -60,7 +60,7 @@ public class PopulateDatastore : Data() {
         val appUser = appUserReqCtx.create<AppUserProxy>(javaClass<AppUserProxy>())
         appUser.setEmail(email)
 
-        val onSuccess = booleanArray(false)
+        val onSuccess = booleanArrayOf(false)
         appUserReqCtx.put(appUser).fire(object : Receiver<Void>() {
             override fun onSuccess(response: Void) {
                 onSuccess[0] = true
@@ -127,7 +127,7 @@ public class PopulateDatastore : Data() {
         val resource = resourceReqCtx.create<ResourceProxy>(javaClass<ResourceProxy>())
         resource.setName(name)
 
-        val onSuccess = booleanArray(false)
+        val onSuccess = booleanArrayOf(false)
         resourceReqCtx.put(resource).fire(object : Receiver<Void>() {
             override fun onSuccess(response: Void) {
                 onSuccess[0] = true
@@ -167,7 +167,7 @@ public class PopulateDatastore : Data() {
     }
 
     private fun createEmployee(employee: EmployeeProxy, reqCtx: EmployeeReqCtx) {
-        val onSuccess = booleanArray(false)
+        val onSuccess = booleanArrayOf(false)
         reqCtx.put(employee).fire(object : Receiver<Void>() {
             override fun onSuccess(response: Void) {
                 onSuccess[0] = true
