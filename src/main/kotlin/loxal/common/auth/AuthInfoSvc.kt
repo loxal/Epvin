@@ -1,14 +1,11 @@
 /*
- * Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package loxal.common.auth
 
-import com.google.gwt.user.client.rpc.RemoteService
-import com.google.gwt.user.client.rpc.RemoteServiceRelativePath
-
 RemoteServiceRelativePath("AuthInfo")
-public trait AuthInfoSvc : RemoteService {
+public interface AuthInfoSvc : RemoteService {
     /**
      * Google Authentication Service
      *

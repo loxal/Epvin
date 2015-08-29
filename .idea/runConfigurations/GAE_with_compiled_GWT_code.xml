@@ -5,6 +5,8 @@
     <server-settings>
       <option name="artifact" value="epvin:war exploded" />
       <option name="port" value="8001" />
+      <port>8001</port>
+      <artifact>epvin:war exploded</artifact>
     </server-settings>
     <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
     <RunnerSettings RunnerId="Debug">

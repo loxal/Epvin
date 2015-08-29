@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  ~ Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
   -->
 
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>epvin-loxal</application>
-    <version>1</version>
+    <version>2</version>
     <ssl-enabled>true</ssl-enabled>
     <precompilation-enabled>true</precompilation-enabled>
     <sessions-enabled>false</sessions-enabled>

@@ -1,12 +1,10 @@
 /*
- * Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package loxal.common.auth
 
-import com.google.gwt.user.client.rpc.AsyncCallback
-
-public trait AuthInfoSvcAsync {
+public interface AuthInfoSvcAsync {
     /**
      * Google Authentication Service
      *

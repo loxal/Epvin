@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  ~ Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
   -->
 
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>loxal</groupId>
     <artifactId>epvin</artifactId>
-    <version>1.4.0-RELEASE</version>
+    <version>1.4.1-RELEASE</version>
     <packaging>war</packaging>
     <name>Epvin</name>
     <description>HTML5 Web CRUD Showcase</description>
@@ -18,8 +18,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>epvin-loxal</gae.app.name>
         <gwt.ver>2.7.0</gwt.ver>
-        <gae.ver>1.9.17</gae.ver>
-        <kotlin.version>0.10.195</kotlin.version>
+        <gae.ver>1.9.25</gae.ver>
+        <kotlin.version>0.12.1230</kotlin.version>
     </properties>
 
     <dependencies>
@@ -112,9 +112,9 @@
                         </goals>
                         <configuration>
                             <sourceDirs>
-                                <source>src/main/java</source>
+                                <!--<source>src/main/java</source>-->
                                 <source>src/main/kotlin</source>
-                                <source>src/main/resources</source>
+                                <!--<source>src/main/resources</source>-->
                             </sourceDirs>
                         </configuration>
                     </execution>
