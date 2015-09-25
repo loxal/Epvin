@@ -11,14 +11,14 @@ public class EmployeeDAO : DAO() {
     }
 
     public fun delete(id: Long?) {
-        ofy.delete().type(javaClass<Employee>()).id(id!!)
+        ofy.delete().type(Employee::class.java).id(id!!)
     }
 
     public fun get(id: Long?): Employee {
-        return ofy.load().type<Employee>(javaClass<Employee>()).id(id!!).now()
+        return ofy.load().type<Employee>(Employee::class.java).id(id!!).now()
     }
 
     public fun retrieve(): List<Employee> {
-        return ofy.load().type<Employee>(javaClass<Employee>()).list()
+        return ofy.load().type<Employee>(Employee::class.java).list()
     }
 }

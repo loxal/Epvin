@@ -8,14 +8,14 @@ import com.googlecode.objectify.annotation.Entity
 import com.googlecode.objectify.annotation.Id
 import com.googlecode.objectify.annotation.OnSave
 
-Entity
+@Entity
 public open class DatastoreEntity {
-    OnSave
+    @OnSave
     fun prePersist() {
         this.version++
     }
 
-    Id
+    @Id
     public var id: Long? = null
 
     public var version: Int = 0

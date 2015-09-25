@@ -6,7 +6,6 @@ package loxal.epvin.datastore.model
 
 import java.util.Date
 
-
 public class Vacation : DatastoreEntity() {
     public var vacationer: AppUser? = null
 

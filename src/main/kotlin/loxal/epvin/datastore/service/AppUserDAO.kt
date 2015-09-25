@@ -12,10 +12,10 @@ public class AppUserDAO : DAO() {
     }
 
     public fun get(id: Long?): AppUser {
-        return ofy.load().type<AppUser>(javaClass<AppUser>()).id(id!!).now()
+        return ofy.load().type<AppUser>(AppUser::class.java).id(id!!).now()
     }
 
     public fun retrieve(): List<AppUser> {
-        return ofy.load().type<AppUser>(javaClass<AppUser>()).list()
+        return ofy.load().type<AppUser>(AppUser::class.java).list()
     }
 }

@@ -6,7 +6,7 @@ package loxal.epvin.datastore.model
 
 import com.googlecode.objectify.annotation.Entity
 
-Entity
+@Entity
 public class Resource : DatastoreEntity() {
     var name: String = ""
 

@@ -6,7 +6,7 @@ package loxal.epvin.datastore.model
 
 import com.googlecode.objectify.annotation.Entity
 
-Entity
+@Entity
 public class AppUser : DatastoreEntity() {
     public var role: String = ""
 

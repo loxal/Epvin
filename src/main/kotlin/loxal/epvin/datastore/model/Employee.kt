@@ -12,20 +12,20 @@ import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
 import java.util.Date
 
-Entity
+@Entity
 public class Employee : DatastoreEntity() {
-    Past(message = "Birth date must be a past date.")
+    @Past(message = "Birth date must be a past date.")
     public var birth: Date? = null
 
-    Pattern(message = "Invalid format.", regexp = ".*@.*")
+    @Pattern(message = "Invalid format.", regexp = ".*@.*")
     public var mail: String = ""
 
-    NotNull(message = "Required field.")
-    Size(message = "Invalid length.", min = 1, max = 35)
+    @NotNull(message = "Required field.")
+    @Size(message = "Invalid length.", min = 1, max = 35)
     public var nameFirst: String = ""
 
-    NotNull(message = "Required field.")
-    Size(message = "Invalid length.", min = 1, max = 35)
+    @NotNull(message = "Required field.")
+    @Size(message = "Invalid length.", min = 1, max = 35)
     public var nameLast: String = ""
 
     public var joining: Date? = null

@@ -13,9 +13,9 @@ import loxal.epvin.datastore.model.Resource
 open class DAO : DatastoreUtils() {
     companion object {
         init {
-            ObjectifyService.register(javaClass<AppUser>())
-            ObjectifyService.register(javaClass<Employee>())
-            ObjectifyService.register(javaClass<Resource>())
+            ObjectifyService.register(AppUser::class.java)
+            ObjectifyService.register(Employee::class.java)
+            ObjectifyService.register(Resource::class.java)
         }
 
         public fun hasRight(authToken: String): Boolean {

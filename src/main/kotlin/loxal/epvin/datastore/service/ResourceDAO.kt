@@ -12,10 +12,10 @@ public class ResourceDAO : DAO() {
     }
 
     public fun get(id: Long?): Resource {
-        return ofy.load().type<Resource>(javaClass<Resource>()).id(id!!).now()
+        return ofy.load().type<Resource>(Resource::class.java).id(id!!).now()
     }
 
     public fun retrieve(): List<Resource> {
-        return ofy.load().type<Resource>(javaClass<Resource>()).list()
+        return ofy.load().type<Resource>(Resource::class.java).list()
     }
 }

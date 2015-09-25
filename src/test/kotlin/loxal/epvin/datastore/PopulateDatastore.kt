@@ -30,23 +30,23 @@ import org.junit.Assert.assertTrue
 public class PopulateDatastore : Data() {
     val serviceLayer = ServiceLayer.create()
     val processor = SimpleRequestProcessor(serviceLayer)
-    val rf = RequestFactorySource.create<ReqFactory>(javaClass<ReqFactory>())
+    val rf = RequestFactorySource.create<ReqFactory>(ReqFactory::class.java)
     val eb: EventBus = SimpleEventBus()
     private val helper = LocalServiceTestHelper(LocalDatastoreServiceTestConfig())
 
-    Before
+    @Before
     public fun setUp() {
         helper.setUp()
         rf.initialize(eb, InProcessRequestTransport(processor))
     }
 
-    After
+    @After
     public fun tearDown() {
         helper.tearDown()
     }
 
-    Test
-//    throws(javaClass<Exception>())
+    @Test
+//    throws(Exception::class.java)
     public fun populateAndVerifyUsers() {
         for (email in mails) {
             createUser(email)
@@ -57,7 +57,7 @@ public class PopulateDatastore : Data() {
 
     public fun createUser(email: String) {
         val appUserReqCtx = rf.appUserReqCtx()
-        val appUser = appUserReqCtx.create<AppUserProxy>(javaClass<AppUserProxy>())
+        val appUser = appUserReqCtx.create<AppUserProxy>(AppUserProxy::class.java)
         appUser.setEmail(email)
 
         val onSuccess = booleanArrayOf(false)
@@ -97,7 +97,7 @@ public class PopulateDatastore : Data() {
         })
     }
 
-    Test
+    @Test
 //    throws(javaClass<Exception>())
     public fun populateAndVerifyResources() {
         for (name in names) {
@@ -124,7 +124,7 @@ public class PopulateDatastore : Data() {
 
     private fun createResource(name: String) {
         val resourceReqCtx = rf.resourceReqCtx()
-        val resource = resourceReqCtx.create<ResourceProxy>(javaClass<ResourceProxy>())
+        val resource = resourceReqCtx.create<ResourceProxy>(ResourceProxy::class.java)
         resource.setName(name)
 
         val onSuccess = booleanArrayOf(false)
@@ -149,12 +149,12 @@ public class PopulateDatastore : Data() {
         })
     }
 
-    Test
+    @Test
 //    throws(javaClass<Exception>())
     public fun populateAndVerifyEmployees() {
         for (i in 0..10 - 1) {
             val reqCtx = rf.employeeReqCtx()
-            val entity = reqCtx.create<EmployeeProxy>(javaClass<EmployeeProxy>())
+            val entity = reqCtx.create<EmployeeProxy>(EmployeeProxy::class.java)
             entity.setNameFirst(firstNames[i])
             entity.setNameLast(lastNames[i])
             entity.setMail(mails[i])
