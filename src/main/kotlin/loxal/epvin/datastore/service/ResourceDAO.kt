@@ -1,7 +1,11 @@
+/*
+ * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ */
+
 package loxal.epvin.datastore.service
 
-import loxal.epvin.datastore.model.Resource
 import com.googlecode.objectify.ObjectifyService
+import loxal.epvin.datastore.model.Resource
 
 
 public class ResourceDAO : DAO() {
@@ -11,7 +15,7 @@ public class ResourceDAO : DAO() {
         ofy.save().entity<Resource>(resource).now()
     }
 
-    public fun get(id: Long?): Resource {
+    operator public fun get(id: Long?): Resource {
         return ofy.load().type<Resource>(Resource::class.java).id(id!!).now()
     }
 

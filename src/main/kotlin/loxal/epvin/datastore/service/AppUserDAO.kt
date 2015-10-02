@@ -1,7 +1,11 @@
+/*
+ * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ */
+
 package loxal.epvin.datastore.service
 
-import loxal.epvin.datastore.model.AppUser
 import com.googlecode.objectify.ObjectifyService
+import loxal.epvin.datastore.model.AppUser
 
 
 public class AppUserDAO : DAO() {
@@ -11,7 +15,7 @@ public class AppUserDAO : DAO() {
         ofy.save().entity<AppUser>(appUser).now()
     }
 
-    public fun get(id: Long?): AppUser {
+    operator public fun get(id: Long?): AppUser {
         return ofy.load().type<AppUser>(AppUser::class.java).id(id!!).now()
     }
 
