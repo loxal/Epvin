@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package loxal.epvin.datastore
@@ -13,19 +13,12 @@ import com.google.web.bindery.requestfactory.server.SimpleRequestProcessor
 import com.google.web.bindery.requestfactory.server.testing.InProcessRequestTransport
 import com.google.web.bindery.requestfactory.shared.Receiver
 import com.google.web.bindery.requestfactory.vm.RequestFactorySource
-import loxal.epvin.core.shared.AppUserProxy
-import loxal.epvin.core.shared.AppUserReqCtx
-import loxal.epvin.core.shared.EmployeeProxy
-import loxal.epvin.core.shared.EmployeeReqCtx
-import loxal.epvin.core.shared.ReqFactory
-import loxal.epvin.core.shared.ResourceProxy
-import loxal.epvin.core.shared.ResourceReqCtx
+import loxal.epvin.core.shared.*
 import org.junit.After
-import org.junit.Before
-import org.junit.Test
-
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import org.junit.Before
+import org.junit.Test
 
 public class PopulateDatastore : Data() {
     val serviceLayer = ServiceLayer.create()
@@ -46,7 +39,7 @@ public class PopulateDatastore : Data() {
     }
 
     @Test
-//    throws(Exception::class.java)
+    @kotlin.jvm.Throws(kotlin.Throwable::class)
     public fun populateAndVerifyUsers() {
         for (email in mails) {
             createUser(email)
@@ -58,7 +51,7 @@ public class PopulateDatastore : Data() {
     public fun createUser(email: String) {
         val appUserReqCtx = rf.appUserReqCtx()
         val appUser = appUserReqCtx.create<AppUserProxy>(AppUserProxy::class.java)
-        appUser.setEmail(email)
+        appUser.email = email
 
         val onSuccess = booleanArrayOf(false)
         appUserReqCtx.put(appUser).fire(object : Receiver<Void>() {
@@ -81,7 +74,7 @@ public class PopulateDatastore : Data() {
                 assertEquals(numOfUsers.toLong(), response.size().toLong())
                 var idx = 0
                 for (appUser in response) {
-                    assertEquals(mails[idx], response.get(idx++).getEmail())
+                    assertEquals(mails[idx], response.get(idx++).email)
                 }
             }
         })
@@ -92,7 +85,7 @@ public class PopulateDatastore : Data() {
 
         appUserReqCtx.get(1).fire(object : Receiver<AppUserProxy>() {
             override fun onSuccess(response: AppUserProxy) {
-                assertEquals(mails[0], response.getEmail())
+                assertEquals(mails[0], response.email)
             }
         })
     }
@@ -116,7 +109,7 @@ public class PopulateDatastore : Data() {
                 assertEquals(numOfResources.toLong(), response.size().toLong())
                 var idx = 0
                 for (resource in response) {
-                    assertEquals(names[idx], response.get(idx++).getName())
+                    assertEquals(names[idx], response.get(idx++).name)
                 }
             }
         })
@@ -125,7 +118,7 @@ public class PopulateDatastore : Data() {
     private fun createResource(name: String) {
         val resourceReqCtx = rf.resourceReqCtx()
         val resource = resourceReqCtx.create<ResourceProxy>(ResourceProxy::class.java)
-        resource.setName(name)
+        resource.name = name
 
         val onSuccess = booleanArrayOf(false)
         resourceReqCtx.put(resource).fire(object : Receiver<Void>() {
@@ -144,7 +137,7 @@ public class PopulateDatastore : Data() {
 
         resourceReqCtx.get(1).fire(object : Receiver<ResourceProxy>() {
             override fun onSuccess(response: ResourceProxy) {
-                assertEquals(names[0], response.getName())
+                assertEquals(names[0], response.name)
             }
         })
     }
@@ -155,10 +148,10 @@ public class PopulateDatastore : Data() {
         for (i in 0..10 - 1) {
             val reqCtx = rf.employeeReqCtx()
             val entity = reqCtx.create<EmployeeProxy>(EmployeeProxy::class.java)
-            entity.setNameFirst(firstNames[i])
-            entity.setNameLast(lastNames[i])
-            entity.setMail(mails[i])
-            entity.setBirth(births[i])
+            entity.nameFirst = firstNames[i]
+            entity.nameLast = lastNames[i]
+            entity.mail = mails[i]
+            entity.birth = births[i]
 
             createEmployee(entity, reqCtx)
         }
@@ -181,10 +174,10 @@ public class PopulateDatastore : Data() {
 
         reqCtx.get(1).fire(object : Receiver<EmployeeProxy>() {
             override fun onSuccess(response: EmployeeProxy) {
-                assertEquals(firstNames[0], response.getNameFirst())
-                assertEquals(lastNames[0], response.getNameLast())
-                assertEquals(mails[0], response.getMail())
-                assertEquals(births[0], response.getBirth())
+                assertEquals(firstNames[0], response.nameFirst)
+                assertEquals(lastNames[0], response.nameLast)
+                assertEquals(mails[0], response.mail)
+                assertEquals(births[0], response.birth)
             }
         })
     }
@@ -198,10 +191,10 @@ public class PopulateDatastore : Data() {
                 assertEquals(numOfEntities.toLong(), response.size().toLong())
                 for (idx in response.indices) {
                     System.out.println("idx = " + idx)
-                    assertEquals(firstNames[idx], response.get(idx).getNameFirst())
-                    assertEquals(lastNames[idx], response.get(idx).getNameLast())
-                    assertEquals(mails[idx], response.get(idx).getMail())
-                    assertEquals(births[idx], response.get(idx).getBirth())
+                    assertEquals(firstNames[idx], response.get(idx).nameFirst)
+                    assertEquals(lastNames[idx], response.get(idx).nameLast)
+                    assertEquals(mails[idx], response.get(idx).mail)
+                    assertEquals(births[idx], response.get(idx).birth)
                 }
             }
         })
