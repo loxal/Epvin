@@ -13,6 +13,7 @@ import com.google.web.bindery.requestfactory.server.SimpleRequestProcessor
 import com.google.web.bindery.requestfactory.server.testing.InProcessRequestTransport
 import com.google.web.bindery.requestfactory.shared.Receiver
 import com.google.web.bindery.requestfactory.vm.RequestFactorySource
+import com.googlecode.objectify.ObjectifyService
 import loxal.epvin.core.shared.*
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -31,6 +32,7 @@ public class PopulateDatastore : Data() {
     public fun setUp() {
         helper.setUp()
         rf.initialize(eb, InProcessRequestTransport(processor))
+        ObjectifyService.begin()
     }
 
     @After
@@ -60,7 +62,7 @@ public class PopulateDatastore : Data() {
             }
         })
         if (!onSuccess[0]) {
-            System.out.println("email = " + email)
+            println("email = " + email)
         }
         assertTrue(onSuccess[0])
     }
@@ -127,7 +129,7 @@ public class PopulateDatastore : Data() {
             }
         })
         if (!onSuccess[0]) {
-            System.out.println("name = " + name)
+            println("name = " + name)
         }
         assertTrue(onSuccess[0])
     }
@@ -190,7 +192,7 @@ public class PopulateDatastore : Data() {
             override fun onSuccess(response: List<EmployeeProxy>) {
                 assertEquals(numOfEntities.toLong(), response.size().toLong())
                 for (idx in response.indices) {
-                    System.out.println("idx = " + idx)
+                    println("idx = " + idx)
                     assertEquals(firstNames[idx], response.get(idx).nameFirst)
                     assertEquals(lastNames[idx], response.get(idx).nameLast)
                     assertEquals(mails[idx], response.get(idx).mail)
