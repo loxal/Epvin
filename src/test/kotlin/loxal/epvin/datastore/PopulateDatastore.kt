@@ -73,7 +73,7 @@ public class PopulateDatastore : Data() {
         val appUserReqCtx = rf.appUserReqCtx()
         appUserReqCtx.retrieve().fire(object : Receiver<List<AppUserProxy>>() {
             override fun onSuccess(response: List<AppUserProxy>) {
-                assertEquals(numOfUsers.toLong(), response.size().toLong())
+                assertEquals(numOfUsers.toLong(), response.size.toLong())
                 var idx = 0
                 for (appUser in response) {
                     assertEquals(mails[idx], response.get(idx++).email)
@@ -108,7 +108,7 @@ public class PopulateDatastore : Data() {
         val resourceReqCtx = rf.resourceReqCtx()
         resourceReqCtx.retrieve().fire(object : Receiver<List<ResourceProxy>>() {
             override fun onSuccess(response: List<ResourceProxy>) {
-                assertEquals(numOfResources.toLong(), response.size().toLong())
+                assertEquals(numOfResources.toLong(), response.size.toLong())
                 var idx = 0
                 for (resource in response) {
                     assertEquals(names[idx], response.get(idx++).name)
@@ -190,7 +190,7 @@ public class PopulateDatastore : Data() {
         val employeeReqCtx = rf.employeeReqCtx()
         employeeReqCtx.retrieve().fire(object : Receiver<List<EmployeeProxy>>() {
             override fun onSuccess(response: List<EmployeeProxy>) {
-                assertEquals(numOfEntities.toLong(), response.size().toLong())
+                assertEquals(numOfEntities.toLong(), response.size.toLong())
                 for (idx in response.indices) {
                     println("idx = " + idx)
                     assertEquals(firstNames[idx], response.get(idx).nameFirst)

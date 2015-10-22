@@ -7,8 +7,8 @@
           <element id="module-output" name="epvin" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:0.14.449" />
-          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-runtime:0.14.449" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-1038" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-runtime:1.0.0-beta-1038" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.0.0.GA" />
           <element id="library" level="project" name="Maven: com.google.web.bindery:requestfactory-server:2.7.0" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:4.3.2.Final" />
