@@ -18,8 +18,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>epvin-loxal</gae.app.name>
         <gwt.ver>2.7.0</gwt.ver>
-        <gae.ver>1.9.27</gae.ver>
-        <kotlin.version>1.0.0-beta-2417</kotlin.version>
+        <gae.ver>1.9.30</gae.ver>
+        <kotlin.version>1.0.0-beta-3595</kotlin.version>
     </properties>
 
     <dependencies>
@@ -135,6 +135,19 @@
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>${gae.ver}</version>
+            </plugin>
+            <plugin>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>gcloud-maven-plugin</artifactId>
+                <version>2.0.9.88.v20151125</version>
+                <configuration>
+                    <max_module_instances>default:1</max_module_instances>
+                    <version>
+                        ${parsedVersion.majorVersion}-${parsedVersion.minorVersion}-${parsedVersion.incrementalVersion}
+                    </version>
+                    <log_level>info</log_level>
+                    <verbosity>warning</verbosity>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
