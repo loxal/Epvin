@@ -1,8 +1,11 @@
+<%--
+  ~ Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  --%>
+
 <!DOCTYPE html>
 <!--
 ~ Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
 -->
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta charset="utf-8">
 <meta name="viewport"
       content="width=device-width, height=device-height, initial-scale=0.2, minimum-scale=0.1, maximum-scale=1.0, user-scalable=yes">

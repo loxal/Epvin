@@ -4,15 +4,23 @@
   -->
 
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <vm>false</vm>
+
+    <vm-settings>
+        <setting name="machine_type" value="g1-small"/>
+        <setting name="image" value="coreos"/>
+    </vm-settings>
+
+    <manual-scaling>
+        <instances>1</instances>
+    </manual-scaling>
+
     <application>epvin-loxal</application>
     <version>2</version>
     <ssl-enabled>true</ssl-enabled>
-    <precompilation-enabled>true</precompilation-enabled>
     <sessions-enabled>false</sessions-enabled>
+    <precompilation-enabled>false</precompilation-enabled>
     <threadsafe>false</threadsafe>
-
-    <automatic-scaling>
-    </automatic-scaling>
 
     <admin-console>
         <page name="App Stats" url="/appstats/stats"/>
@@ -23,30 +31,19 @@
     </inbound-services>
 
     <static-files>
-        <include path="/**.txt"/>
-        <include path="/**.gif"/>
-        <include path="/**.png"/>
-        <include path="/**.ico"/>
-        <include path="/**.html"/>
-        <include path="/**.xml.gz"/>
-        <include path="/**.css"/>
-        <include path="/**.js"/>
-        <include path="/**.dart"/>
-
-        <include path="/**.eot"/>
-        <include path="/**.svg"/>
-        <include path="/**.svgz"/>
-        <include path="/**.ttf"/>
-        <include path="/**.woff"/>
-
-        <include path="/**.xml"/>
+        <include path="**/*.json"/>
+        <include path="**/*.txt"/>
+        <include path="**/*.gif"/>
+        <include path="**/*.png"/>
+        <include path="**/*.ico"/>
+        <include path="**/*.html"/>
+        <include path="**/*.css"/>
+        <include path="**/*.js"/>
+        <include path="**/*.jpg"/>
+        <include path="**/*.pdf"/>
+        <include path="**/*"/>
+        <include path="*"/>
     </static-files>
-
-    <resource-files>
-        <include path="**/*.gwt.rpc"/>
-        <include path="/**.xml"/>
-        <include path="/**.properties"/>
-    </resource-files>
 
     <system-properties>
         <property name="admin.name" value="Alexander Orlov"/>

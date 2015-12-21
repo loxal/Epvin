@@ -132,6 +132,20 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.10</version>
+                <executions>
+                    <execution>
+                        <id>extract-cf-app-version</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>parse-version</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>${gae.ver}</version>
@@ -141,7 +155,8 @@
                 <artifactId>gcloud-maven-plugin</artifactId>
                 <version>2.0.9.88.v20151125</version>
                 <configuration>
-                    <max_module_instances>default:1</max_module_instances>
+                    <project>${gae.app.name}</project>
+                    <max_module_instances>1</max_module_instances>
                     <version>
                         ${parsedVersion.majorVersion}-${parsedVersion.minorVersion}-${parsedVersion.incrementalVersion}
                     </version>
@@ -156,6 +171,9 @@
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
+                    <compilerArgument>-Xlint:unchecked</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
             <plugin>
@@ -190,8 +208,6 @@
                 </file>
             </activation>
             <properties>
-                <java.optimize>false</java.optimize>
-
                 <gwt.locales>default</gwt.locales>
                 <gwt.userAgent>safari</gwt.userAgent>
                 <gwt.draftCompile>true</gwt.draftCompile>
