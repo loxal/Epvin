@@ -10,7 +10,7 @@
           <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-3595" />
           <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-runtime:1.0.0-beta-3595" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.0.0.GA" />
-          <element id="library" level="project" name="Maven: com.google.web.bindery:requestfactory-server:2.7.0" />
+          <element id="library" level="project" name="Maven: com.google.web.bindery:requestfactory-server:2.8.0-beta1" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:4.3.2.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.0.CR2" />
           <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.30" />

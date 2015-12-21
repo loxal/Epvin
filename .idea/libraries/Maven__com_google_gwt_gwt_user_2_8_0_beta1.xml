@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.google.gwt:gwt-user:2.8.0-beta1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-user/2.8.0-beta1/gwt-user-2.8.0-beta1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-user/2.8.0-beta1/gwt-user-2.8.0-beta1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-user/2.8.0-beta1/gwt-user-2.8.0-beta1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
