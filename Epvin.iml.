@@ -50,6 +50,7 @@
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/target/.generated" />
       <excludeFolder url="file://$MODULE_DIR$/target/Epvin" />
+      <excludeFolder url="file://$MODULE_DIR$/target/appengine-staging" />
       <excludeFolder url="file://$MODULE_DIR$/target/deploy" />
       <excludeFolder url="file://$MODULE_DIR$/target/gwt-unitCache" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />

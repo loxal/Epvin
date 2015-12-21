@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="epvin:war">
+  <artifact type="war" name="Epvin:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="Epvin.war">
-      <element id="artifact" artifact-name="epvin:war exploded" />
+      <element id="artifact" artifact-name="Epvin:war exploded" />
     </root>
   </artifact>
 </component>

@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="epvin:war exploded">
+  <artifact type="exploded-war" name="Epvin:war exploded">
     <output-path>$PROJECT_DIR$/target/Epvin</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="epvin" />
+          <element id="module-output" name="Epvin" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-3595" />
@@ -21,8 +21,8 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/Epvin/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="epvin/web/Web" />
-      <element id="gwt-compiler-output" facet="epvin/gwt/GWT" />
+      <element id="javaee-facet-resources" facet="Epvin/web/Web" />
+      <element id="gwt-compiler-output" facet="Epvin/gwt/GWT" />
     </root>
   </artifact>
 </component>
