@@ -2,11 +2,7 @@
  * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
-    /*
- * Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
- */
-
-    @def borderColor #8ab;
+@def borderColor #8ab;
 
     @def slightlyTransparent .9;
     @def almostTransparent .5;
