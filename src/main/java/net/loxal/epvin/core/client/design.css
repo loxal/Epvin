@@ -1,0 +1,44 @@
+/*
+ * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ */
+
+    /*
+ * Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ */
+
+    @def borderColor #8ab;
+
+    @def slightlyTransparent .9;
+    @def almostTransparent .5;
+    @def transparent .1;
+
+    @def emphasisColor #fb6;
+
+    @def infoColor #b80;
+    @def errorColor #911;
+    @def successColor #191;
+
+    @def thinBorder .1em;
+    @def borderRadius 1em;
+
+    .success {
+        color: successColor;
+    }
+
+    .reversibleSuccess {
+        color: infoColor;
+    }
+
+    .error {
+        color: errorColor;
+    }
+
+    .failure {
+        color: errorColor;
+    }
+
+    .info {
+        color: infoColor;
+    }
+
+

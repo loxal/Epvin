@@ -30,6 +30,10 @@
           <module name="loxal.epvin.core.Screen" enabled="false" />
           <module name="loxal.epvin.generated.CompileTimeProperties" enabled="false" />
           <module name="loxal.epvin.planer.Planer" enabled="false" />
+          <module name="net.loxal.epvin.core.Core" enabled="false" />
+          <module name="net.loxal.epvin.core.Screen" enabled="false" />
+          <module name="net.loxal.epvin.generated.CompileTimeProperties" enabled="false" />
+          <module name="net.loxal.epvin.planer.Planer" enabled="false" />
         </packaging>
       </configuration>
     </facet>

@@ -22,7 +22,7 @@
 <%
     final String module;
     if (request.getParameter("module") == null) {
-        module = "loxal.epvin.manager.Manager"; // default GWT module
+        module = "net.loxal.epvin.manager.Manager"; // default GWT module
     } else {
         module = request.getParameter("module");
     }

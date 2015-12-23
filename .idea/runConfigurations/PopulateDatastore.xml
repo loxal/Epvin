@@ -9,8 +9,8 @@
     <module name="Epvin" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
     <option name="ALTERNATIVE_JRE_PATH" />
-    <option name="PACKAGE_NAME" value="loxal.epvin.datastore" />
-    <option name="MAIN_CLASS_NAME" value="loxal.epvin.datastore.PopulateDatastore" />
+    <option name="PACKAGE_NAME" value="net.loxal.epvin.datastore" />
+    <option name="MAIN_CLASS_NAME" value="net.loxal.epvin.datastore.PopulateDatastore" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="class" />
     <option name="VM_PARAMETERS" value="" />

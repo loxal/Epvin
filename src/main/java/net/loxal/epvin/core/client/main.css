@@ -1,0 +1,13 @@
+/*
+ * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ */
+
+    /*
+ * Copyright 2012 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ */
+
+    button[type = "button"] {
+        min-width: 6em;
+        min-height: 4em;
+        margin: 1em;
+    }
