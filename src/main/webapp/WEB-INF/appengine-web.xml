@@ -8,7 +8,6 @@
 
     <vm-settings>
         <setting name="machine_type" value="g1-small"/>
-        <setting name="image" value="coreos"/>
     </vm-settings>
 
     <manual-scaling>
