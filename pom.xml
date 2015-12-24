@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.loxal</groupId>
     <artifactId>epvin</artifactId>
-    <version>1.4.2</version>
+    <version>1.0.0</version>
     <packaging>war</packaging>
     <name>Epvin</name>
     <description>HTML5 Web CRUD Showcase</description>
@@ -155,7 +155,7 @@
                 <artifactId>gcloud-maven-plugin</artifactId>
                 <version>2.0.9.88.v20151125</version>
                 <configuration>
-                    <project>${gae.app.name}</project>
+                    <gcloud_project>${gae.app.name}</gcloud_project>
                     <max_module_instances>1</max_module_instances>
                     <version>
                         ${parsedVersion.majorVersion}-${parsedVersion.minorVersion}-${parsedVersion.incrementalVersion}
