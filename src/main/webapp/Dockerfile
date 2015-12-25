@@ -1,4 +1,4 @@
-FROM tomcat:8-jre8
+FROM jetty:9
 
 MAINTAINER Alexander Orlov <alexander.orlov@loxal.net>
 

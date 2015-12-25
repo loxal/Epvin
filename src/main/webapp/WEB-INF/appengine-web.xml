@@ -19,7 +19,7 @@
     <ssl-enabled>true</ssl-enabled>
     <sessions-enabled>false</sessions-enabled>
     <precompilation-enabled>false</precompilation-enabled>
-    <threadsafe>false</threadsafe>
+    <threadsafe>true</threadsafe>
 
     <admin-console>
         <page name="App Stats" url="/appstats/stats"/>
@@ -29,21 +29,6 @@
         <service>warmup</service>
     </inbound-services>
 
-    <static-files>
-        <include path="**/*.json"/>
-        <include path="**/*.txt"/>
-        <include path="**/*.gif"/>
-        <include path="**/*.png"/>
-        <include path="**/*.ico"/>
-        <include path="**/*.html"/>
-        <include path="**/*.css"/>
-        <include path="**/*.js"/>
-        <include path="**/*.jpg"/>
-        <include path="**/*.pdf"/>
-        <include path="**/*"/>
-        <include path="*"/>
-    </static-files>
-
     <system-properties>
         <property name="admin.name" value="Alexander Orlov"/>
         <property name="admin.mail" value="alexander.orlov@loxal.net"/>
@@ -52,39 +37,4 @@
 
     <env-variables>
     </env-variables>
-
-    <!--	<error-page>-->
-    <!-- not yet implemented in GAE -->
-    <!--		<error-code>500</error-code>-->
-    <!--		<location>/errors/servererror.jsp</location>-->
-    <!--	</error-page>-->
-
-    <!--<security-constraint> -->
-    <!--<web-resource-collection> -->
-    <!--<url-pattern>/profile/*</url-pattern> -->
-    <!--</web-resource-collection> -->
-    <!--<auth-constraint> -->
-    <!--<role-name>*</role-name> -->
-    <!--</auth-constraint> -->
-    <!--</security-constraint> -->
-
-    <!--<security-constraint> -->
-    <!--<web-resource-collection> -->
-    <!--<url-pattern>/admin/*</url-pattern> -->
-    <!--</web-resource-collection> -->
-    <!--<auth-constraint> -->
-    <!--<role-name>admin</role-name> -->
-    <!--</auth-constraint> -->
-    <!--</security-constraint> -->
-
-
-    <!--<security-constraint> -->
-    <!--<web-resource-collection> -->
-    <!--<url-pattern>/profile/*</url-pattern> -->
-    <!--</web-resource-collection> -->
-    <!--<user-data-constraint> -->
-    <!--<transport-guarantee>CONFIDENTIAL</transport-guarantee> -->
-    <!--</user-data-constraint> -->
-    <!--</security-constraint> -->
-
 </appengine-web-app>
