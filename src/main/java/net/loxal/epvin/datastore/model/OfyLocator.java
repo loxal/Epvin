@@ -23,6 +23,7 @@ public class OfyLocator extends Locator<DatastoreEntity, Long> {
 
     @Override
     public DatastoreEntity find(final Class<? extends DatastoreEntity> clazz, final Long id) {
+        ObjectifyService.begin();
         return ObjectifyService.ofy().load().type(clazz).id(id).now();
     }
 

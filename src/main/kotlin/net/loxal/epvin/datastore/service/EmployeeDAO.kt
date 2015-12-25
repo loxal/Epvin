@@ -25,4 +25,10 @@ public class EmployeeDAO : DAO() {
     public fun retrieve(): List<Employee> {
         return ofy.load().type<Employee>(Employee::class.java).list()
     }
+
+    companion object {
+        init {
+            ObjectifyService.begin()
+        }
+    }
 }
