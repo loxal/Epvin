@@ -14,7 +14,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <link rel="apple-touch-startup-image" href="http://me.loxal.net/resource/loxal-logo.png"/>
-<title>Epvin | Loxal</title>
+<title>Epvin | loxal</title>
 
 <%--Try this in SuperDevMode again--%>
 <script id="module"></script>
