@@ -1,5 +1,8 @@
 # Epvin single-page HTML5 Web CRUD Showcase
 
+## DEV Status
+[![Build Status](https://travis-ci.org/loxal/Epvin.svg?branch=master)](https://travis-ci.org/loxal/Epvin)
+
 **Support this project**
 <!-- BADGES/ -->
 <span class="badge-paypal">

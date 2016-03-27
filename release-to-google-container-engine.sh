@@ -6,7 +6,7 @@
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 mvn clean validate compile gwt:compile gcloud:stage
-cp target/Epvin/WEB-INF/lib/appengine-api-1.0-sdk-1.9.30.jar target/appengine-staging/WEB-INF/lib/
+cp target/Epvin/WEB-INF/lib/appengine-api-1.0-sdk-1.9.34.jar target/appengine-staging/WEB-INF/lib/
 ls target/appengine-staging/WEB-INF/lib/
 cd target/appengine-staging
 
