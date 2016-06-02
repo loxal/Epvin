@@ -18,6 +18,8 @@
 </a></span>
 <!-- /BADGES -->
 
+[Support this work with cryptocurrencies like BitCoin!](http://me.loxal.net/coin-support.html)
+
 * GWT / GAE best Practices Technology Showcase
 * Server-side is written in Kotlin
 * Client-side is written in GWT which is further “compiled” to JavaScript
