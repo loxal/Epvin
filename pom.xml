@@ -17,9 +17,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>epvin-loxal</gae.app.name>
-        <gwt.ver>2.8.0-beta1</gwt.ver>
-        <gae.ver>1.9.32</gae.ver>
-        <kotlin.version>1.0.0</kotlin.version>
+        <gwt.ver>2.8.0-rc3</gwt.ver>
+        <gae.ver>1.9.42</gae.ver>
+        <kotlin.version>1.0.4</kotlin.version>
     </properties>
 
     <dependencies>
@@ -89,12 +89,19 @@
         <dependency>
             <groupId>com.googlecode.objectify</groupId>
             <artifactId>objectify</artifactId>
-            <version>5.1.10</version>
+            <version>5.1.11</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test-junit</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
+        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
         <finalName>${project.name}</finalName>
         <!--necessary for gwt-maven-plugin, at least for gwt:run-->
         <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
@@ -112,8 +119,9 @@
                         </goals>
                         <configuration>
                             <sourceDirs>
+                                <source>src/main/java</source>
                                 <source>src/main/kotlin</source>
-                                <source>src/main/resources</source>
+                                <source>target/generated-sources/annotations</source>
                             </sourceDirs>
                         </configuration>
                     </execution>
@@ -123,11 +131,6 @@
                         <goals>
                             <goal>test-compile</goal>
                         </goals>
-                        <configuration>
-                            <sourceDirs>
-                                <source>src/test/kotlin</source>
-                            </sourceDirs>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="PopulateDatastore" type="JUnit" factoryName="JUnit">
+  <configuration default="false" name="PopulateDatastore" type="JUnit" factoryName="JUnit" singleton="true">
     <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
       <pattern>
         <option name="PATTERN" value="loxal.epvin.datastore.*" />

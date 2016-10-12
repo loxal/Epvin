@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2016 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package net.loxal.epvin.datastore.service
@@ -18,7 +18,7 @@ open class DAO : DatastoreUtils() {
             ObjectifyService.register(Resource::class.java)
         }
 
-        public fun hasRight(authToken: String): Boolean {
+        fun hasRight(authToken: String): Boolean {
             println(authToken)
             return false
         }

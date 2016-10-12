@@ -1,16 +1,15 @@
 /*
- * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2016 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package net.loxal.epvin.datastore.model
 
 import com.googlecode.objectify.annotation.Entity
 
-@Entity
-public class AppUser : DatastoreEntity() {
-    public var role: String = ""
+@Entity class AppUser : DatastoreEntity() {
+    var role: String = ""
 
     private val roleCtx: String = ""
 
-    public var email: String = ""
+    var email: String = ""
 }

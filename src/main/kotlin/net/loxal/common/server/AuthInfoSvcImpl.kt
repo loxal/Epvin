@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2016 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package net.loxal.common.server
@@ -9,7 +9,7 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet
 import net.loxal.common.auth.AuthInfo
 import net.loxal.common.auth.AuthInfoSvc
 
-public class AuthInfoSvcImpl : RemoteServiceServlet(), AuthInfoSvc {
+class AuthInfoSvcImpl : RemoteServiceServlet(), AuthInfoSvc {
     override fun getAuthInfo(requestUri: String): AuthInfo {
         val userService = UserServiceFactory.getUserService()
         val user = userService.currentUser
