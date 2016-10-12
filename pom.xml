@@ -47,13 +47,6 @@
             <version>${gwt.ver}</version>
             <scope>compile</scope>
         </dependency>
-        <!--<dependency>-->
-        <!--&lt;!&ndash;required for CI but not for IntelliJ&ndash;&gt;-->
-        <!--<groupId>com.google.gwt</groupId>-->
-        <!--<artifactId>gwt-dev</artifactId>-->
-        <!--<version>${gwt.ver}</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -137,7 +130,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.10</version>
+                <version>1.12</version>
                 <executions>
                     <execution>
                         <id>extract-cf-app-version</id>
@@ -283,7 +276,7 @@
             <id>alex</id>
             <name>Alexander Orlov</name>
             <email>alexander.orlov@loxal.net</email>
-            <organization>Loxal</organization>
+            <organization>loxal</organization>
             <organizationUrl>http://www.loxal.net</organizationUrl>
             <roles>
                 <role>System Architect</role>
