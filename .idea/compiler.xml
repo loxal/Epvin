@@ -40,7 +40,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Epvin" target="1.7" />
+      <module name="Epvin" target="7" />
       <module name="epvin" target="1.7" />
     </bytecodeTargetLevel>
   </component>
