@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2016 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+  ~ Copyright 2017 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
   -->
 
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -19,7 +19,7 @@
         <gae.app.name>epvin-loxal</gae.app.name>
         <gwt.ver>2.8.0</gwt.ver>
         <gae.ver>1.9.48</gae.ver>
-        <kotlin.version>1.0.5</kotlin.version>
+        <kotlin.version>1.0.6</kotlin.version>
     </properties>
 
     <dependencies>
