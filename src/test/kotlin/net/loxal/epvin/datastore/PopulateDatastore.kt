@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2017 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package net.loxal.epvin.datastore
@@ -55,7 +55,7 @@ class PopulateDatastore : Data() {
 
         val onSuccess = booleanArrayOf(false)
         appUserReqCtx.put(appUser).fire(object : Receiver<Void>() {
-            override fun onSuccess(response: Void) {
+            override fun onSuccess(response: Void?) {
                 onSuccess[0] = true
             }
         })
@@ -122,7 +122,7 @@ class PopulateDatastore : Data() {
 
         val onSuccess = booleanArrayOf(false)
         resourceReqCtx.put(resource).fire(object : Receiver<Void>() {
-            override fun onSuccess(response: Void) {
+            override fun onSuccess(response: Void?) {
                 onSuccess[0] = true
             }
         })
@@ -162,7 +162,7 @@ class PopulateDatastore : Data() {
     private fun createEmployee(employee: EmployeeProxy, reqCtx: EmployeeReqCtx) {
         val onSuccess = booleanArrayOf(false)
         reqCtx.put(employee).fire(object : Receiver<Void>() {
-            override fun onSuccess(response: Void) {
+            override fun onSuccess(response: Void?) {
                 onSuccess[0] = true
             }
         })

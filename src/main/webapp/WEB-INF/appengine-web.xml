@@ -24,7 +24,7 @@
     </admin-console>
 
     <inbound-services>
-        <!--<service>warmup</service>-->
+        <service>warmup</service>
     </inbound-services>
 
     <system-properties>
