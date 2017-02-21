@@ -14,8 +14,8 @@
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:4.3.2.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.0.CR2" />
           <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.48" />
-          <element id="library" level="project" name="Maven: com.googlecode.objectify:objectify:5.1.14" />
-          <element id="library" level="project" name="Maven: com.google.guava:guava:18.0" />
+          <element id="library" level="project" name="Maven: com.googlecode.objectify:objectify:5.1.15" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:20.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">
