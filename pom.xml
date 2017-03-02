@@ -12,14 +12,14 @@
     <version>1.0.0</version>
     <packaging>war</packaging>
     <name>Epvin</name>
-    <description>HTML5 Web CRUD Showcase</description>
+    <description>Google App Engine CRUD Showcase</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>epvin-loxal</gae.app.name>
         <gwt.ver>2.8.0</gwt.ver>
         <gae.ver>1.9.46</gae.ver>
-        <kotlin.version>1.0.6</kotlin.version>
+        <kotlin.version>1.1.0</kotlin.version>
     </properties>
 
     <dependencies>

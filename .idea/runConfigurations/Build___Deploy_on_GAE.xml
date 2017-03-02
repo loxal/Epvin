@@ -7,7 +7,7 @@
           <option name="checksumPolicy" value="FAIL" />
           <option name="failureBehavior" value="FAST" />
           <option name="localRepository" value="" />
-          <option name="mavenHome" value="" />
+          <option name="mavenHome" value="Bundled (Maven 3)" />
           <option name="nonRecursive" value="false" />
           <option name="outputLevel" value="INFO" />
           <option name="pluginUpdatePolicy" value="DO_NOT_UPDATE" />
@@ -23,7 +23,7 @@
           <option name="environmentProperties">
             <map />
           </option>
-          <option name="jreName" value="1.6" />
+          <option name="jreName" value="1.8" />
           <option name="mavenProperties">
             <map />
           </option>
