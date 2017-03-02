@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="GAE with compiled GWT code" type="GoogleAppEngineDevServer" factoryName="Local" APPLICATION_SERVER_NAME="AppEngine Dev 1.9.48" ALTERNATIVE_JRE_ENABLED="false">
+  <configuration default="false" name="GAE with compiled GWT code" type="GoogleAppEngineDevServer" factoryName="Local" APPLICATION_SERVER_NAME="AppEngine Dev 1.9.46" ALTERNATIVE_JRE_ENABLED="false">
     <option name="OPEN_IN_BROWSER" value="false" />
     <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
     <server-settings>
