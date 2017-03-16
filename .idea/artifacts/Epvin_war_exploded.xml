@@ -7,7 +7,7 @@
           <element id="module-output" name="Epvin" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.1.0" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.1.1" />
           <element id="library" level="project" name="Maven: org.jetbrains:annotations:13.0" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.0.0.GA" />
           <element id="library" level="project" name="Maven: com.google.web.bindery:requestfactory-server:2.8.0" />

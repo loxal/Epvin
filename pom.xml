@@ -19,7 +19,7 @@
         <gae.app.name>epvin-loxal</gae.app.name>
         <gwt.ver>2.8.0</gwt.ver>
         <gae.ver>1.9.46</gae.ver>
-        <kotlin.version>1.1.0</kotlin.version>
+        <kotlin.version>1.1.1</kotlin.version>
     </properties>
 
     <dependencies>
