@@ -80,7 +80,7 @@
         <option name="useProjectSettings" value="false" />
         <option name="versionInfo">
           <KotlinVersionInfo>
-            <option name="apiLevel" value="1.0" />
+            <option name="apiLevel" value="1.1" />
             <option name="languageLevel" value="1.1" />
             <option name="targetPlatformName" value="JVM 1.6" />
           </KotlinVersionInfo>
@@ -126,7 +126,7 @@
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.9.46" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-testing:1.9.46" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-api-stubs:1.9.46" level="project" />
-    <orderEntry type="library" name="Maven: com.googlecode.objectify:objectify:5.1.15" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.objectify:objectify:5.1.16" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:20.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jetbrains.kotlin:kotlin-test-junit:1.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jetbrains.kotlin:kotlin-test:1.1.1" level="project" />
