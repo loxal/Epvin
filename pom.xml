@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>epvin-loxal</gae.app.name>
         <gwt.ver>2.8.0</gwt.ver>
-        <gae.ver>1.9.46</gae.ver>
+        <gae.ver>1.9.51</gae.ver>
         <kotlin.version>1.1.2</kotlin.version>
     </properties>
 
@@ -82,7 +82,7 @@
         <dependency>
             <groupId>com.googlecode.objectify</groupId>
             <artifactId>objectify</artifactId>
-            <version>5.1.16</version>
+            <version>5.1.17</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
