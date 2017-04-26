@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gae.app.name>epvin-loxal</gae.app.name>
         <gwt.ver>2.8.0</gwt.ver>
-        <gae.ver>1.9.51</gae.ver>
+        <gae.ver>1.9.46</gae.ver>
         <kotlin.version>1.1.2</kotlin.version>
     </properties>
 
